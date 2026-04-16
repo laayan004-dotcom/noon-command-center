@@ -2799,8 +2799,6 @@ function renderMapMarkers(){
 
   const filtered = AppState.restaurants.filter(r=>{
     if(!r.lat||!r.lng) return false;
-    // Exclude multi-outlet group entries — a single pin can't represent a chain with multiple locations
-    if(Number(r.outlets||1) > 1) return false;
     if(sf&&r.status!==sf) return false;
     if(pf&&r.priority!==pf) return false;
     if(am){ if(r.am!==am) return false; }
@@ -2808,21 +2806,64 @@ function renderMapMarkers(){
     return true;
   });
 
+  // Build a name→locations index for chain "other locations" feature
+  const nameIndex = {};
+  filtered.forEach(r=>{
+    const key = r.name.toLowerCase();
+    if(!nameIndex[key]) nameIndex[key]=[];
+    nameIndex[key].push(r);
+  });
+  // Also index by groupName so you can find all branches of a group
+  const groupIndex = {};
+  filtered.forEach(r=>{
+    if(!r.groupName) return;
+    const key = r.groupName.toLowerCase();
+    if(!groupIndex[key]) groupIndex[key]=[];
+    groupIndex[key].push(r);
+  });
+
   filtered.forEach(r=>{
     const rid = r.id;
     const color = STATUS_MAP_COLORS[r.status]||'#8a6878';
-    const m = L.circleMarker([r.lat,r.lng],{radius:brandRadius(r.name),fillColor:color,color:color,weight:2,opacity:.7,fillOpacity:.82});
+
+    // Find other locations: same name OR same group, excluding self
+    const sameNameSiblings = (nameIndex[r.name.toLowerCase()]||[]).filter(x=>x.id!==rid);
+    const groupSiblings = r.groupName
+      ? (groupIndex[r.groupName.toLowerCase()]||[]).filter(x=>x.id!==rid && !sameNameSiblings.find(s=>s.id===x.id))
+      : [];
+    const allSiblings = [...sameNameSiblings, ...groupSiblings].slice(0,6);
+
+    // "Other locations" section shown if siblings exist
+    const siblingsHTML = allSiblings.length ? `
+      <div style="margin:8px 0 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#ff6fa8;">
+        ${allSiblings.length} other location${allSiblings.length>1?'s':''}${r.groupName?' · '+r.groupName:''}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3px;margin-bottom:8px;">
+        ${allSiblings.map(s=>`
+          <div class="_popup-sibling" data-sid="${s.id}" style="display:flex;align-items:center;justify-content:space-between;padding:4px 6px;background:rgba(255,255,255,.05);border-radius:5px;cursor:pointer;font-size:11px;">
+            <span style="font-weight:600;">${s.name.replace(/</g,'&lt;')}</span>
+            <span style="color:#888;">${pillHTML(s.status)}</span>
+          </div>`).join('')}
+      </div>` : '';
+
+    const m = L.circleMarker([r.lat,r.lng],{
+      radius:brandRadius(r.name),
+      fillColor:color,color:color,weight:2,opacity:.7,fillOpacity:.82
+    });
+
     m.bindPopup(`
-      <div style="min-width:200px;font-family:-apple-system,sans-serif;">
-        <div style="font-weight:800;font-size:14px;margin-bottom:4px;">${r.name}</div>
-        <div style="font-size:11px;color:#ff6fa8;font-weight:600;margin-bottom:6px;">${brandTier(r.name)}</div>
+      <div style="min-width:210px;max-width:260px;font-family:-apple-system,sans-serif;">
+        <div style="font-weight:800;font-size:14px;margin-bottom:2px;">${r.name.replace(/</g,'&lt;')}</div>
+        <div style="font-size:11px;color:#ff6fa8;font-weight:600;margin-bottom:6px;">${brandTier(r.name)}${r.area?' · '+r.area:''}</div>
         <div style="margin-bottom:6px;">${r.category||''} · ${badgeHTML(r.priority)}</div>
-        <div style="margin-bottom:10px;">${pillHTML(r.status)}</div>
+        <div style="margin-bottom:8px;">${pillHTML(r.status)}${r.poc?` <span style="font-size:11px;color:#aaa;margin-left:6px;">👤 ${r.poc}</span>`:''}</div>
+        ${siblingsHTML}
         <div style="display:flex;gap:6px;">
           <button class="_popup-intel" style="flex:1;padding:6px;border-radius:6px;border:none;background:#ff2d78;color:#fff;font-weight:700;cursor:pointer;font-size:12px;">View Intel</button>
           <button class="_popup-log" style="flex:1;padding:6px;border-radius:6px;border:none;background:#271420;color:#f8eef4;font-weight:700;cursor:pointer;font-size:12px;border:1px solid #3d1e30;">Log Activity</button>
         </div>
-      </div>`);
+      </div>`,{maxWidth:280});
+
     m.on('popupopen',()=>{
       const el=m.getPopup().getElement();
       if(!el) return;
@@ -2830,7 +2871,25 @@ function renderMapMarkers(){
       const lb=el.querySelector('._popup-log');
       if(ib) ib.onclick=()=>{ m.closePopup(); openIntel(rid); };
       if(lb) lb.onclick=()=>{ m.closePopup(); openActivityFor(rid); };
+      // Sibling location buttons — fly to that marker and open its popup
+      el.querySelectorAll('._popup-sibling').forEach(btn=>{
+        btn.onclick=()=>{
+          const sid = btn.dataset.sid;
+          const idx = AppState.mapMarkers.findIndex(mk=>mk._siblingId===sid);
+          m.closePopup();
+          if(idx>=0){
+            const target = AppState.mapMarkers[idx];
+            AppState.mapInstance.setView(target.getLatLng(), 16);
+            setTimeout(()=>target.openPopup(), 300);
+          } else {
+            // Fallback: open intel directly
+            openIntel(sid);
+          }
+        };
+      });
     });
+
+    m._siblingId = rid; // tag for sibling lookup
     cluster.addLayer(m);
     AppState.mapMarkers.push(m);
   });
