@@ -1,4 +1,8 @@
 {
+  "101": {
+    "lat": 25.229634,
+    "lng": 55.289585
+  },
   "osh del mar": {
     "lat": 25.073,
     "lng": 55.127,
@@ -19,7 +23,9 @@
     "talabatDisc": 10,
     "zomatoDisc": 10,
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.077903,
+    "lng": 55.133036
   },
   "daftar": {
     "careemDisc": 20,
@@ -118,7 +124,9 @@
   "asia asia": {
     "zomatoDisc": 20,
     "priceBucket": "450+",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.076286,
+    "lng": 55.138888
   },
   "thiptara restaurant": {
     "careemDisc": 25,
@@ -129,7 +137,9 @@
   },
   "the lighthouse": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.189389,
+    "lng": 55.29675
   },
   "siddharta lounge by buddha": {
     "priceBucket": "300-450",
@@ -137,7 +147,9 @@
   },
   "nola": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.074652,
+    "lng": 55.145447
   },
   "cinque italian restaurant in dubai five": {
     "lat": 25.105,
@@ -155,7 +167,9 @@
     "careemDisc": 10,
     "talabatDisc": 10,
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.234257,
+    "lng": 55.473673
   },
   "rhodes speciality coffee": {
     "lat": 25.086,
@@ -317,15 +331,21 @@
   },
   "the restaurant": {
     "priceBucket": "450+",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.096881,
+    "lng": 55.17626
   },
   "claw bbq": {
     "priceBucket": "450+",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.07472,
+    "lng": 55.129967
   },
   "atmosphere": {
     "priceBucket": "450+",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.197064,
+    "lng": 55.274366
   },
   "amaseena": {
     "priceBucket": "450+",
@@ -406,7 +426,9 @@
   },
   "the meat co": {
     "priceBucket": "450+",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.194423,
+    "lng": 55.276171
   },
   "ewaan": {
     "careemDisc": 25,
@@ -578,7 +600,9 @@
   "shang palace": {
     "zomatoDisc": 25,
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.207943,
+    "lng": 55.272001
   },
   "toro toro by chef richard sandoval": {
     "lat": 25.086,
@@ -594,7 +618,9 @@
     "talabatDisc": 20,
     "zomatoDisc": 10,
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.187261,
+    "lng": 55.292571
   },
   "trader vics": {
     "priceBucket": "300-450",
@@ -669,7 +695,9 @@
   "sushi art": {
     "careemDisc": 15,
     "priceBucket": "150-200",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.076696,
+    "lng": 55.131989
   },
   "vyne restaurant & bar": {
     "careemDisc": 50,
@@ -755,7 +783,9 @@
   },
   "black tap": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.080278,
+    "lng": 55.136094
   },
   "lillys bar & restaurant": {
     "talabatDisc": 10,
@@ -824,7 +854,9 @@
   },
   "cargo": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.07611,
+    "lng": 55.138858
   },
   "swiss butter": {
     "priceBucket": "300-450",
@@ -850,7 +882,9 @@
   "cafe de palma": {
     "zomatoDisc": 10,
     "priceBucket": "300-450",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.12785,
+    "lng": 55.154225
   },
   "gusto italian restaurant": {
     "lat": 25.259,
@@ -922,7 +956,9 @@
   "loop": {
     "zomatoDisc": 20,
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.149273,
+    "lng": 55.286602
   },
   "bar buci": {
     "lat": 25.132,
@@ -949,7 +985,9 @@
   "eggspectation": {
     "talabatDisc": 10,
     "priceBucket": "150-200",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.078404,
+    "lng": 55.132891
   },
   "cipriani": {
     "priceBucket": "450+",
@@ -1065,7 +1103,9 @@
   },
   "social": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.231044,
+    "lng": 55.35301
   },
   "choi": {
     "careemDisc": 20,
@@ -1143,7 +1183,9 @@
   "the terrace": {
     "careemDisc": 20,
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.239378,
+    "lng": 55.270559
   },
   "burro blanco": {
     "priceBucket": "200-300",
@@ -1356,7 +1398,9 @@
   },
   "bosnian house": {
     "priceBucket": "150-200",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.14707,
+    "lng": 55.197108
   },
   "al khaima kitchen": {
     "priceBucket": "300-450",
@@ -1533,7 +1577,9 @@
   },
   "friends avenue": {
     "priceBucket": "150-200",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.07907,
+    "lng": 55.149195
   },
   "the daily": {
     "priceBucket": "200-300",
@@ -1584,7 +1630,9 @@
   },
   "offside": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.073054,
+    "lng": 55.13062
   },
   "griffin lounge": {
     "lat": 25.077,
@@ -1710,7 +1758,9 @@
   },
   "al hallab": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.244061,
+    "lng": 55.339578
   },
   "bougee lounge cafe": {
     "priceBucket": "200-300",
@@ -1759,7 +1809,9 @@
   },
   "the irish village": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.243282,
+    "lng": 55.341825
   },
   "black goose buns & brews": {
     "careemDisc": 30,
@@ -1790,7 +1842,9 @@
   },
   "brunch & cake": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.064023,
+    "lng": 55.146693
   },
   "local restaurant bar & terrace": {
     "lat": 25.097,
@@ -1823,7 +1877,9 @@
   },
   "saddle": {
     "priceBucket": "200-300",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.204856,
+    "lng": 55.252701
   },
   "mattar third culture barbecue": {
     "lat": 25.195,
@@ -1910,7 +1966,9 @@
   "city cafe": {
     "zomatoDisc": 30,
     "priceBucket": "200-300",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.08422,
+    "lng": 55.145106
   },
   "adamushka restaurant & cafe": {
     "lat": 25.069,
@@ -2031,7 +2089,9 @@
   },
   "alba": {
     "priceBucket": "100-150",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.140059,
+    "lng": 55.139483
   },
   "mezzaluna": {
     "careemDisc": 20,
@@ -2108,7 +2168,9 @@
   },
   "the podium": {
     "priceBucket": "450+",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.05984,
+    "lng": 55.241414
   },
   "coucou dubai festive rooftop restaurant in": {
     "lat": 25.114,
@@ -2225,7 +2287,9 @@
   },
   "backyard": {
     "priceBucket": "150-200",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.141897,
+    "lng": 55.253405
   },
   "chalcos cantina": {
     "lat": 25.086,
@@ -2254,7 +2318,9 @@
   "pool bar": {
     "zomatoDisc": 20,
     "priceBucket": "200-300",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.085006,
+    "lng": 55.138478
   },
   "kaleidoscope": {
     "lat": 25.131,
@@ -2354,7 +2420,9 @@
   },
   "eat": {
     "priceBucket": "450+",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.217446,
+    "lng": 55.271942
   },
   "ashoka mixolounge": {
     "zomatoDisc": 20,
@@ -2491,7 +2559,9 @@
     "talabatDisc": 10,
     "zomatoDisc": 15,
     "priceBucket": "150-200",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.248178,
+    "lng": 55.337848
   },
   "caesars restaurant": {
     "careemDisc": 10,
@@ -2524,7 +2594,9 @@
   "china restaurant": {
     "zomatoDisc": 15,
     "priceBucket": "200-300",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.261383,
+    "lng": 55.327261
   },
   "pizzeria falcone": {
     "lat": 25.099,
@@ -2546,7 +2618,9 @@
   },
   "feast": {
     "priceBucket": "450+",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.25362,
+    "lng": 55.303102
   },
   "midhat pasha cafe": {
     "priceBucket": "300-450",
@@ -2757,7 +2831,9 @@
   },
   "five guys": {
     "priceBucket": "200-300",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.077475,
+    "lng": 55.134113
   },
   "o'doner": {
     "lat": 25.1,
@@ -2887,7 +2963,9 @@
   },
   "chili's": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.21799,
+    "lng": 55.278822
   },
   "shakeys": {
     "zomatoDisc": 25,
@@ -2896,7 +2974,9 @@
   },
   "bahri": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.262143,
+    "lng": 55.333086
   },
   "khurashan darbar restaurant": {
     "lat": 25.133,
@@ -3001,7 +3081,9 @@
   },
   "sayad": {
     "priceBucket": "200-300",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.270131,
+    "lng": 55.302927
   },
   "wrap that": {
     "lat": 24.865,
@@ -3068,7 +3150,9 @@
   },
   "last exit": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 24.911093,
+    "lng": 54.96301
   },
   "bakers boulevard": {
     "lat": 25.135,
@@ -3146,7 +3230,9 @@
   },
   "more cafe": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.081794,
+    "lng": 55.146803
   },
   "lafan": {
     "lat": 24.952,
@@ -3254,7 +3340,9 @@
   },
   "metro": {
     "priceBucket": "150-200",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.271457,
+    "lng": 55.334498
   },
   "odesa ma restaurant by snap": {
     "lat": 25.077,
@@ -3433,11 +3521,15 @@
   "liwan": {
     "careemDisc": 20,
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.110121,
+    "lng": 55.367699
   },
   "creme": {
     "priceBucket": "100-150",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.194164,
+    "lng": 55.245467
   },
   "the lounge": {
     "talabatDisc": 15,
@@ -3469,7 +3561,9 @@
   },
   "lounge": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.245381,
+    "lng": 55.339511
   },
   "boom": {
     "zomatoDisc": 25,
@@ -3662,7 +3756,9 @@
   "story": {
     "careemDisc": 20,
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.180651,
+    "lng": 55.267377
   },
   "crystal": {
     "talabatDisc": 20,
@@ -3692,10 +3788,14 @@
   },
   "aura": {
     "zomatoDisc": 25,
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.254552,
+    "lng": 55.284264
   },
   "public": {
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.194806,
+    "lng": 55.278993
   },
   "71 steak & grill": {
     "priceTier": "Premium"
@@ -3848,7 +3948,9 @@
   },
   "feels": {
     "priceBucket": "100-150",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.185197,
+    "lng": 55.224452
   },
   "toit hot chicken": {
     "lat": 25.189,
@@ -3995,7 +4097,9 @@
   },
   "cloud restaurant": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.070663,
+    "lng": 55.132913
   },
   "i believe in pink cafe": {
     "lat": 25.114,
@@ -4004,7 +4108,9 @@
   },
   "jlt": {
     "priceBucket": "150-200",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.072383,
+    "lng": 55.143743
   },
   "lucianos": {
     "careemDisc": 20,
@@ -4084,7 +4190,9 @@
   },
   "the espresso lab": {
     "priceBucket": "150-200",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.18896,
+    "lng": 55.297933
   },
   "choco berry boutique": {
     "priceBucket": "150-200",
@@ -4147,7 +4255,9 @@
   },
   "mara cafe": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.278217,
+    "lng": 55.311406
   },
   "abu el zulof kahwa": {
     "priceBucket": "300-450",
@@ -4269,7 +4379,9 @@
     "talabatDisc": 10,
     "zomatoDisc": 15,
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.10824,
+    "lng": 55.141483
   },
   "pierres tt": {
     "lat": 25.223,
@@ -4361,14 +4473,18 @@
   },
   "the cafe": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 24.918724,
+    "lng": 55.010871
   },
   "orra": {
     "priceBucket": "200-300"
   },
   "cara": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.127023,
+    "lng": 55.209009
   },
   "cafe two point oh": {
     "lat": 25.151,
@@ -4888,7 +5004,9 @@
   "fusion restaurant": {
     "zomatoDisc": 50,
     "priceBucket": "200-300",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.153349,
+    "lng": 55.19916
   },
   "sayf wa kayf restaurant & cafe": {
     "lat": 25.195,
@@ -4904,7 +5022,9 @@
   },
   "mr toads pub & kitchen": {
     "zomatoDisc": 20,
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.242967,
+    "lng": 55.359082
   },
   "pomo pizza al taglio": {
     "lat": 25.184,
@@ -4954,7 +5074,9 @@
   },
   "clay": {
     "priceBucket": "200-300",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.079021,
+    "lng": 55.123722
   },
   "nikkei modern japanese": {
     "talabatDisc": 10,
@@ -5073,7 +5195,9 @@
   },
   "the garden": {
     "priceBucket": "100-150",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.204341,
+    "lng": 55.242904
   },
   "alma": {
     "priceBucket": "100-150",
@@ -5085,7 +5209,9 @@
   },
   "cafe peloton": {
     "priceBucket": "100-150",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.224776,
+    "lng": 55.45085
   },
   "flamingo": {
     "priceBucket": "450+",
@@ -5227,7 +5353,9 @@
   },
   "riviera": {
     "priceBucket": "450+",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.161028,
+    "lng": 55.220457
   },
   "birch restaurant": {
     "lat": 25.213,
@@ -5399,7 +5527,9 @@
   },
   "tea garden": {
     "priceBucket": "100-150",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.288348,
+    "lng": 55.368488
   },
   "fishy": {
     "priceBucket": "100-150",
@@ -5584,7 +5714,9 @@
     "lng": 55.266
   },
   "flavors grill": {
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.259397,
+    "lng": 55.279488
   },
   "view 180": {
     "lat": 25.112,
@@ -5646,7 +5778,9 @@
   },
   "nuevo": {
     "priceBucket": "200-300",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.24284,
+    "lng": 55.359149
   },
   "sundown sky lounge": {
     "talabatDisc": 25,
@@ -5771,7 +5905,9 @@
     "priceTier": "Every day / Casual"
   },
   "shabab al madina": {
-    "priceBucket": "100-150"
+    "priceBucket": "100-150",
+    "lat": 25.178622,
+    "lng": 55.332671
   },
   "sahi qila darbar restaurant": {
     "lat": 25.172,
@@ -5974,11 +6110,15 @@
   },
   "saarangaa bhojan shala": {
     "priceBucket": "100-150",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.189194,
+    "lng": 55.269952
   },
   "super burger": {
     "priceBucket": "100-150",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.259959,
+    "lng": 55.299024
   },
   "waffles lab": {
     "lat": 25.151,
@@ -6074,7 +6214,9 @@
   },
   "dubai mall": {
     "priceBucket": "100-150",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.197044,
+    "lng": 55.278952
   },
   "happy grassland buffet": {
     "priceBucket": "100-150",
@@ -6302,7 +6444,9 @@
   "kabab al bastakiah": {
     "zomatoDisc": 15,
     "priceBucket": "150-200",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.184876,
+    "lng": 55.244765
   },
   "kapadh multi cuisine and music": {
     "lat": 25.263,
@@ -6357,7 +6501,9 @@
   },
   "shogun": {
     "priceBucket": "150-200",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.104502,
+    "lng": 55.168529
   },
   "floc": {
     "lat": 25.144,
@@ -6420,7 +6566,9 @@
   },
   "the view": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.201713,
+    "lng": 55.27103
   },
   "home": {
     "priceBucket": "150-200",
@@ -6563,7 +6711,9 @@
   },
   "urban seafood": {
     "priceBucket": "300-450",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 24.911148,
+    "lng": 54.962711
   },
   "aseelah": {
     "lat": 25.265,
@@ -6600,7 +6750,9 @@
     "priceTier": "Premium"
   },
   "rotana": {
-    "priceBucket": "300-450"
+    "priceBucket": "300-450",
+    "lat": 25.278682,
+    "lng": 55.313128
   },
   "il borro tuscan bistro": {
     "lat": 25.137,
@@ -6701,7 +6853,9 @@
   },
   "zabeel bakery": {
     "priceBucket": "200-300",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.276966,
+    "lng": 55.307761
   },
   "boss burger": {
     "lat": 25.162,
@@ -6814,7 +6968,9 @@
   },
   "parlour boutique": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.221734,
+    "lng": 55.285781
   },
   "koncrete": {
     "lat": 25.147,
@@ -6830,7 +6986,9 @@
   },
   "awtar": {
     "priceBucket": "300-450",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.284548,
+    "lng": 55.386847
   },
   "the clavichord": {
     "lat": 25.097,
@@ -6888,7 +7046,9 @@
   },
   "vue": {
     "priceBucket": "50-100",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.094374,
+    "lng": 55.175677
   },
   "charlies spot": {
     "lat": 25.183,
@@ -6922,7 +7082,9 @@
     "priceTier": "Premium"
   },
   "karma": {
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.244558,
+    "lng": 55.309174
   },
   "timo": {
     "lat": 25.221,
@@ -6938,7 +7100,9 @@
   },
   "lock stock & barrel": {
     "zomatoDisc": 20,
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.080061,
+    "lng": 55.135238
   },
   "pearl lounge": {
     "lat": 25.142,
@@ -7026,7 +7190,9 @@
   },
   "pronto": {
     "priceBucket": "100-150",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.132426,
+    "lng": 55.199296
   },
   "nh66 sports bar": {
     "talabatDisc": 10,
@@ -7272,7 +7438,9 @@
   },
   "cho": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.240529,
+    "lng": 55.304963
   },
   "boston lane": {
     "priceBucket": "200-300",
@@ -7340,7 +7508,9 @@
   },
   "napoli": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.283482,
+    "lng": 55.373187
   },
   "mirdif way": {
     "lat": 25.237,
@@ -7356,7 +7526,9 @@
   },
   "zyara": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.102699,
+    "lng": 55.169939
   },
   "il passaggio": {
     "lat": 25.183,
@@ -7466,7 +7638,9 @@
   },
   "select": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.1112,
+    "lng": 55.375171
   },
   "kikatisweets": {
     "lat": 25.189,
@@ -7480,7 +7654,9 @@
   },
   "la brioche": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.214575,
+    "lng": 55.408355
   },
   "homey": {
     "lat": 25.078,
@@ -7495,7 +7671,9 @@
   },
   "cabana": {
     "zomatoDisc": 25,
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.199744,
+    "lng": 55.277337
   },
   "hoko vs otto restaurant": {
     "lat": 25.224,
@@ -7870,7 +8048,9 @@
   },
   "slab": {
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.216711,
+    "lng": 55.253179
   },
   "junior seafood": {
     "zomatoDisc": 15,
@@ -7897,7 +8077,9 @@
   },
   "jaffer bhai": {
     "priceBucket": "150-200",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.247903,
+    "lng": 55.308813
   },
   "kitchen nation": {
     "priceBucket": "200-300",
@@ -8494,12 +8676,16 @@
   },
   "hatta malik tea": {
     "priceBucket": "100-150",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.280837,
+    "lng": 55.349388
   },
   "vintage": {
     "zomatoDisc": 30,
     "priceBucket": "100-150",
-    "priceTier": "Premium"
+    "priceTier": "Premium",
+    "lat": 25.088057,
+    "lng": 55.149074
   },
   "roka": {
     "lat": 25.189,
@@ -8677,7 +8863,9 @@
   },
   "hidden cafe": {
     "priceBucket": "150-200",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 24.890873,
+    "lng": 55.433544
   },
   "high society": {
     "lat": 25.188,
@@ -8693,7 +8881,9 @@
   },
   "al majlis restaurant": {
     "priceBucket": "100-150",
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.180056,
+    "lng": 55.235363
   },
   "al mubarakiya restaurant": {
     "priceBucket": "150-200",
@@ -8981,19 +9171,31 @@
     "lng": 55.334
   },
   "aura sky pool": {},
-  "fish market": {},
+  "fish market": {
+    "lat": 25.292359,
+    "lng": 55.323955
+  },
   "yum! noodle bar": {},
   "shabestan": {},
   "boulevard gourmet": {},
   "marbles": {},
   "carluccios": {},
-  "zafran": {},
+  "zafran": {
+    "lat": 25.297843,
+    "lng": 55.36758
+  },
   "claypot": {},
   "sizzling wok": {},
   "ushna": {},
   "belgian beer cafe souq madinat": {},
-  "cafe belge": {},
-  "aura skypool": {},
+  "cafe belge": {
+    "lat": 25.212862,
+    "lng": 55.279416
+  },
+  "aura skypool": {
+    "lat": 25.11387,
+    "lng": 55.139869
+  },
   "sip song": {},
   "adaline": {},
   "alaya": {},
@@ -9004,21 +9206,36 @@
   "izu burger": {},
   "bar du port": {},
   "kira": {},
-  "babylon": {},
+  "babylon": {
+    "lat": 25.289493,
+    "lng": 55.350901
+  },
   "iris": {},
   "so much trouble": {},
-  "wavehouse": {},
+  "wavehouse": {
+    "lat": 25.13182,
+    "lng": 55.118848
+  },
   "seven sisters": {},
   "february 30": {},
   "sayf": {},
   "yubi": {},
   "lady bird": {},
-  "mohalla": {},
+  "mohalla": {
+    "lat": 25.187947,
+    "lng": 55.297721
+  },
   "gerbou": {},
   "marea": {},
-  "tides": {},
+  "tides": {
+    "lat": 25.193685,
+    "lng": 55.178218
+  },
   "seera": {},
-  "lana lusa": {},
+  "lana lusa": {
+    "lat": 25.195096,
+    "lng": 55.276424
+  },
   "la cantine du foubourg": {},
   "ninive": {},
   "kyma": {},
@@ -9035,14 +9252,20 @@
   "alloro ristorante": {},
   "hello cafe": {},
   "nuage": {},
-  "risen": {},
+  "risen": {
+    "lat": 25.097859,
+    "lng": 55.17893
+  },
   "al beiruti": {},
   "logma": {},
   "capitale": {},
   "eatgreek": {},
   "loren": {},
   "sushiyaki": {},
-  "taverna": {},
+  "taverna": {
+    "lat": 25.133488,
+    "lng": 55.18485
+  },
   "the cullinan": {},
   "tribes": {},
   "the meat": {},
@@ -9086,17 +9309,22 @@
   "seascapes": {},
   "bbg": {},
   "tresind (passion f&b)": {},
-  "arabian courtyard": {},
+  "arabian courtyard": {
+    "lat": 25.262501,
+    "lng": 55.297531
+  },
   "tagine and the courtyard": {},
   "viva la goa (passion f&b)": {},
-  "101": {},
   "zest": {},
   "safina": {},
   "stay by yanick alleno": {},
   "l'abysse": {},
   "culinara": {},
   "maison devoille": {},
-  "sal": {},
+  "sal": {
+    "lat": 25.2284,
+    "lng": 55.327833
+  },
   "ristorante l'olivo at al mahara": {},
   "al iwan": {},
   "les desserts": {},
@@ -9106,12 +9334,18 @@
   "il borro": {},
   "mayabay dubai": {},
   "beefbar": {},
-  "margaux": {},
+  "margaux": {
+    "lat": 25.194741,
+    "lng": 55.276006
+  },
   "al samaar lounge": {},
   "mei": {},
   "pai thai": {},
   "french riviera beach": {},
-  "al makan": {},
+  "al makan": {
+    "lat": 25.172441,
+    "lng": 55.341198
+  },
   "atrangi": {},
   "al nafoorah (temp closed)": {},
   "la promenade (temp closed)": {},
@@ -9130,7 +9364,10 @@
   "marsa al arb marina": {},
   "the bombay club": {},
   "the fore saturday brunch": {},
-  "solo": {},
+  "solo": {
+    "lat": 25.274958,
+    "lng": 55.306757
+  },
   "society room": {},
   "piatti by the beach": {},
   "bluthner hall": {},
@@ -9149,61 +9386,100 @@
   "chapters restaurant": {},
   "solmare": {},
   "ripples juice bar": {},
-  "seasons": {},
+  "seasons": {
+    "lat": 25.269766,
+    "lng": 55.296165
+  },
   "cafe 1859": {},
   "azure pool lounge": {},
   "roda grill": {},
   "gazebo lounge": {},
   "nosh": {},
-  "slice": {},
+  "slice": {
+    "lat": 25.15806,
+    "lng": 55.205961
+  },
   "byblos": {},
   "nomad day bar": {},
   "entre-nous restaurant": {},
-  "caf\u00e9 cream": {},
+  "café cream": {
+    "lat": 25.250216,
+    "lng": 55.304548
+  },
   "365 all day dining": {},
-  "belgian beer caf\u00e9": {},
-  "caf\u00e9 java": {},
+  "belgian beer café": {
+    "lat": 25.223729,
+    "lng": 55.349145
+  },
+  "café java": {
+    "lat": 25.112748,
+    "lng": 55.188695
+  },
   "glasshouse brasserie": {},
   "brioso": {},
   "circle cafe": {},
   "anees pool bar": {},
   "lobby lounge & terrace": {},
-  "cake": {},
+  "cake": {
+    "lat": 25.211129,
+    "lng": 55.28169
+  },
   "wayfarer": {},
   "gloria osteria": {},
-  "tab\u016b": {},
+  "tabū": {},
   "torno subito": {},
   "wet deck": {},
   "ginger moon": {},
   "mare by bussola": {},
   "market at edition": {},
-  "prime68": {},
+  "prime68": {
+    "lat": 25.185258,
+    "lng": 55.257729
+  },
   "la farine": {},
-  "prime 52": {},
-  "counter culture caf\u00e9": {},
+  "prime 52": {
+    "lat": 25.031606,
+    "lng": 55.222177
+  },
+  "counter culture café": {},
   "mazina": {},
-  "myami": {},
+  "myami": {
+    "lat": 25.106388,
+    "lng": 55.144536
+  },
   "barasti": {},
   "azure beach": {},
   "palm garden": {},
-  "sanabel": {},
+  "sanabel": {
+    "lat": 25.062725,
+    "lng": 55.184912
+  },
   "the talk": {},
-  "link caf\u00e9": {},
+  "link café": {},
   "acacia lounge": {},
   "east & seaboard": {},
   "luchador": {},
   "yesterday restaurant": {},
   "social by heinz beck": {},
   "st. trop": {},
-  "ballar\u00f2": {},
-  "cave": {},
-  "jones the grocer": {},
+  "ballarò": {},
+  "cave": {
+    "lat": 25.261063,
+    "lng": 55.327415
+  },
+  "jones the grocer": {
+    "lat": 25.105161,
+    "lng": 55.145536
+  },
   "barfly": {},
   "bice": {},
-  "oceana": {},
+  "oceana": {
+    "lat": 25.111104,
+    "lng": 55.136926
+  },
   "al maeda": {},
   "pizzaexpress live": {},
-  "bateel el\u2019an": {},
+  "bateel el’an": {},
   "batliwala & co": {},
   "rooftop pool bar": {},
   "chapters": {},
@@ -9212,7 +9488,7 @@
   "nusr-et": {},
   "glasswater pool dining": {},
   "churchill club": {},
-  "tasca by jos\u00e9 avillez": {},
+  "tasca by josé avillez": {},
   "casa amor": {},
   "yu & mi": {},
   "lion in the sun": {},
@@ -9223,53 +9499,74 @@
   "blu duba": {},
   "firefly": {},
   "la colline": {},
-  "fuze caf\u00e9": {},
+  "fuze café": {},
   "andalucia": {},
   "equestrian lounge": {},
-  "al dana": {},
+  "al dana": {
+    "lat": 25.16689,
+    "lng": 55.406633
+  },
   "al fresco": {},
-  "cappuccino caf\u00e9": {},
+  "cappuccino café": {},
   "lucky voice": {},
   "hitchki": {},
   "masterchef, the tv experience": {},
   "ikiga": {},
-  "layali mirdif lebanese restaurant & caf\u00e9": {},
+  "layali mirdif lebanese restaurant & café": {},
   "level 5 rooftop swimming pool & bar": {},
   "the m two daily dining restaurant": {},
   "level social lobby lounge": {},
   "the infinity pool deck & bar": {},
   "lighthouse terrace & lounge": {},
-  "choices caf\u00e9": {},
+  "choices café": {},
   "gazebo terrace": {},
   "lakehouse bistro": {},
   "by the pool": {},
   "whiteorchide": {},
-  "tamr": {},
-  "la fontana pool": {},
-  "captain\u2019s restaurant & bar": {},
+  "tamr": {
+    "lat": 25.109416,
+    "lng": 55.145605
+  },
+  "la fontana pool": {
+    "lat": 24.987538,
+    "lng": 55.021573
+  },
+  "captain’s restaurant & bar": {},
   "palmito pool bar": {},
   "bibe' rooftop": {},
-  "republik": {},
+  "republik": {
+    "lat": 25.218396,
+    "lng": 55.175239
+  },
   "81 restaurant": {},
   "il motto deli": {},
   "delano pool & bar": {},
-  "rose bar": {},
+  "rose bar": {
+    "lat": 25.183986,
+    "lng": 55.254231
+  },
   "choix patisserie & restaurant": {},
-  "belgian caf\u00e9": {},
+  "belgian café": {
+    "lat": 25.223729,
+    "lng": 55.349145
+  },
   "al faris floating restaurant": {},
   "marina social": {},
   "accents restaurant & terrace": {},
-  "charm thai": {},
+  "charm thai": {
+    "lat": 25.075631,
+    "lng": 55.139307
+  },
   "hive": {},
   "cuisines": {},
   "the docks pub": {},
   "mazzika": {},
-  "lobby caf\u00e9": {},
-  "harry\u2019s bar & restaurant": {},
+  "lobby café": {},
+  "harry’s bar & restaurant": {},
   "black mirror": {},
   "room 505": {},
-  "healey\u2019s bar & terrace": {},
-  "brownie point caf\u00e9": {},
+  "healey’s bar & terrace": {},
+  "brownie point café": {},
   "fluid beach club": {},
   "ubk - urban bar & kitchen": {},
   "bakalis by envy": {},
@@ -9285,7 +9582,10 @@
   "live-inn room": {},
   "wox": {},
   "panini": {},
-  "no\u00e9pe": {},
+  "noépe": {
+    "lat": 25.243913,
+    "lng": 55.332506
+  },
   "the lagoon beach club": {},
   "the kitchen": {},
   "carpenter's sports bar": {},
@@ -9300,7 +9600,10 @@
   "la coco social": {},
   "andaz x mokha 1450 co-working lounge": {},
   "giardino": {},
-  "revo cafe": {},
+  "revo cafe": {
+    "lat": 25.12785,
+    "lng": 55.154225
+  },
   "mai bar": {},
   "dukes bar": {},
   "ziya": {},
@@ -9333,13 +9636,28 @@
   "kasibeyaz": {},
   "kata dubai mall": {},
   "poli": {},
-  "iran zamin": {},
+  "iran zamin": {
+    "lat": 25.085306,
+    "lng": 55.145017
+  },
   "roobaru": {},
-  "lena": {},
-  "hard rock": {},
+  "lena": {
+    "lat": 25.250238,
+    "lng": 55.178007
+  },
+  "hard rock": {
+    "lat": 25.247503,
+    "lng": 55.363839
+  },
   "rare": {},
-  "bait maryam": {},
-  "patiala": {},
+  "bait maryam": {
+    "lat": 25.070601,
+    "lng": 55.141353
+  },
+  "patiala": {
+    "lat": 25.246686,
+    "lng": 55.306687
+  },
   "mahec": {},
   "siraj": {},
   "the farm": {},
@@ -9358,7 +9676,10 @@
   "roadster - mirdif": {},
   "bartartine - difc": {},
   "bartartine - dubai hills": {},
-  "la serre - city walk": {},
+  "la serre - city walk": {
+    "lat": 25.207301,
+    "lng": 55.261778
+  },
   "angel cakes": {},
   "duo gastrobar": {},
   "hamptons - district one": {},
@@ -9367,8 +9688,14 @@
   "hamptons - arabian ranches": {},
   "comptoir": {},
   "mehzcla jbr": {},
-  "brass monkey - bluewaters": {},
-  "brass monkey - city walk": {},
+  "brass monkey - bluewaters": {
+    "lat": 25.081183,
+    "lng": 55.122632
+  },
+  "brass monkey - city walk": {
+    "lat": 25.207494,
+    "lng": 55.261617
+  },
   "icarus": {},
   "nazaara": {},
   "headlines wtc": {},
@@ -9379,7 +9706,10 @@
   "senecio jbr": {},
   "osteria funkcoolio": {},
   "chie": {},
-  "tatel": {},
+  "tatel": {
+    "lat": 25.19029,
+    "lng": 55.274831
+  },
   "haidilao festival city": {},
   "haidilao dubai mall": {},
   "kasumigaseki": {},
@@ -9399,16 +9729,28 @@
   "big chill cafe": {},
   "noc noc": {},
   "mu-kii": {},
-  "atelier m": {},
+  "atelier m": {
+    "lat": 25.076313,
+    "lng": 55.138804
+  },
   "abd el wahab": {},
-  "bedrock": {},
-  "rowley's": {},
+  "bedrock": {
+    "lat": 25.076254,
+    "lng": 55.138748
+  },
+  "rowley's": {
+    "lat": 25.204814,
+    "lng": 55.275593
+  },
   "wild and the moon - al serkal": {},
   "wild and the moon - downtown": {},
   "almayass by the sea": {},
   "nurai": {},
   "navat teahouse": {},
-  "dahab": {},
+  "dahab": {
+    "lat": 25.269302,
+    "lng": 55.297098
+  },
   "amici mei": {},
   "soulgreen": {},
   "the banc": {},
@@ -9691,7 +10033,9 @@
     "priceBucket": "100-150"
   },
   "maharaja bhog": {
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.045669,
+    "lng": 55.131616
   },
   "R3173326873435350492715424A": {
     "highestCompDisc": 15,
@@ -10104,7 +10448,9 @@
     "priceTier": "Every day / Casual"
   },
   "bazooka": {
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.266976,
+    "lng": 55.318128
   },
   "R6446762654752227876461257A": {
     "highestCompDisc": 10,
@@ -10125,7 +10471,7 @@
     "lng": 55.3981907,
     "priceTier": "Every day / Casual"
   },
-  "darjeeling\u2019s momo": {
+  "darjeeling’s momo": {
     "lat": 25.2824157,
     "lng": 55.3981907,
     "priceTier": "Every day / Casual"
@@ -10571,7 +10917,7 @@
     "priceBucket": "200-300",
     "priceTier": "Casual premium"
   },
-  "dickey\u2019s barbecue pit": {
+  "dickey’s barbecue pit": {
     "lat": 24.4899375,
     "lng": 54.6081875,
     "priceBucket": "200-300",
@@ -11296,7 +11642,7 @@
     "priceBucket": "50-100",
     "priceTier": "Every day / Casual"
   },
-  "buono caffe\u0301": {
+  "buono caffé": {
     "lat": 25.2218094,
     "lng": 55.3245085,
     "priceBucket": "50-100",
@@ -11547,7 +11893,7 @@
     "priceBucket": "150-200",
     "priceTier": "Casual premium"
   },
-  "black coffee by cafe\u0301 younes": {
+  "black coffee by café younes": {
     "lat": 25.2290701,
     "lng": 55.2864257,
     "priceBucket": "150-200",
@@ -11772,7 +12118,7 @@
     "lng": 55.3350625,
     "priceTier": "Every day / Casual"
   },
-  "grill and thrill \u2013 mumbai chinese momos and tandoor": {
+  "grill and thrill – mumbai chinese momos and tandoor": {
     "lat": 25.2824375,
     "lng": 55.3350625,
     "priceTier": "Every day / Casual"
@@ -12772,7 +13118,7 @@
     "lat": 25.1234556,
     "lng": 55.191717
   },
-  "creem\u00ed by projeto aca\u00ed": {
+  "creemí by projeto acaí": {
     "lat": 25.1234556,
     "lng": 55.191717
   },
@@ -13350,7 +13696,7 @@
     "priceBucket": "200-300",
     "priceTier": "Casual premium"
   },
-  "rosa\u2019s thai": {
+  "rosa’s thai": {
     "lat": 25.1019364,
     "lng": 55.2394214,
     "priceBucket": "200-300",
@@ -13513,7 +13859,7 @@
     "lng": 55.1678528,
     "priceTier": "Casual premium"
   },
-  "pizzaro \u2013 italian pizza & pasta": {
+  "pizzaro – italian pizza & pasta": {
     "lat": 25.1018681,
     "lng": 55.1678528,
     "priceTier": "Casual premium"
@@ -13661,7 +14007,9 @@
     "priceTier": "Every day / Casual"
   },
   "kamat": {
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.252365,
+    "lng": 55.288506
   },
   "R1359759446397737105389717A": {
     "priceBucket": "150-200",
@@ -13669,7 +14017,9 @@
   },
   "gazebo": {
     "priceBucket": "150-200",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.105366,
+    "lng": 55.149331
   },
   "poke & co (all branches)": {
     "lat": 24.4339549,
@@ -13679,8 +14029,14 @@
   "1762 deli": {},
   "ca phin coffee house": {},
   "falafel damascus": {},
-  "ana": {},
-  "coco downtown": {},
+  "ana": {
+    "lat": 25.274318,
+    "lng": 55.301092
+  },
+  "coco downtown": {
+    "lat": 25.184011,
+    "lng": 55.259718
+  },
   "twar 2 broccoli pizza & pasta": {
     "priceBucket": "100-150"
   },
@@ -13698,7 +14054,10 @@
   "rasoi restaurant": {
     "priceBucket": "100-150"
   },
-  "kitakits": {},
+  "kitakits": {
+    "lat": 25.270795,
+    "lng": 55.319722
+  },
   "high spirits": {},
   "house of zaika (ibm)": {},
   "taste of shanghai": {
@@ -22610,7 +22969,7 @@
     "highestCompDisc": 0,
     "priceTier": "Every day / Casual"
   },
-  "kant\u014d wagyu restaurant and caf\u00e9": {
+  "kantō wagyu restaurant and café": {
     "highestCompDisc": 0,
     "priceTier": "Every day / Casual"
   },
@@ -22722,5 +23081,561 @@
   "R1758160357269848926928439A": {},
   "al garhoud star": {},
   "kashkan dfc + szr (hotel)": {},
-  "masti cafe": {}
+  "masti cafe": {},
+  "asian street": {
+    "lat": 25.263505,
+    "lng": 55.30606
+  },
+  "ossiano": {
+    "lat": 25.131154,
+    "lng": 55.117577
+  },
+  "the 44": {
+    "lat": 25.044714,
+    "lng": 55.126136
+  },
+  "khaleej aden restaurant": {
+    "lat": 25.272398,
+    "lng": 55.30243
+  },
+  "al barshaa restaurant": {
+    "lat": 25.185076,
+    "lng": 55.353645
+  },
+  "crispy chicky - muhaisnah": {
+    "lat": 25.281889,
+    "lng": 55.398509
+  },
+  "better together cafe": {
+    "lat": 25.042158,
+    "lng": 55.230441
+  },
+  "volt": {
+    "lat": 25.194122,
+    "lng": 55.405334
+  },
+  "hamad": {
+    "lat": 25.070387,
+    "lng": 55.305483
+  },
+  "al bustan": {
+    "lat": 25.248207,
+    "lng": 55.345321
+  },
+  "chhappan bhog (discovery gardens)": {
+    "lat": 25.034738,
+    "lng": 55.147469
+  },
+  "kulfilicious": {
+    "lat": 25.24814,
+    "lng": 55.307131
+  },
+  "ghantoot star restaurant": {
+    "lat": 25.264077,
+    "lng": 55.293659
+  },
+  "rumba": {
+    "lat": 25.11535,
+    "lng": 55.142768
+  },
+  "canary": {
+    "lat": 25.27678,
+    "lng": 55.312418
+  },
+  "reef": {
+    "lat": 25.273851,
+    "lng": 55.324844
+  },
+  "food view restaurant": {
+    "lat": 25.112953,
+    "lng": 55.191906
+  },
+  "the corner": {
+    "lat": 24.918491,
+    "lng": 55.010185
+  },
+  "central": {
+    "lat": 25.143749,
+    "lng": 55.22293
+  },
+  "next exit cafe": {
+    "lat": 25.052679,
+    "lng": 55.231492
+  },
+  "xiao wei yang": {
+    "lat": 25.270672,
+    "lng": 55.320832
+  },
+  "taza": {
+    "lat": 25.270542,
+    "lng": 55.32396
+  },
+  "the gallery": {
+    "lat": 25.14123,
+    "lng": 55.225874
+  },
+  "sadaf restaurant": {
+    "lat": 25.261381,
+    "lng": 55.321043
+  },
+  "the pizza factory": {
+    "lat": 25.210572,
+    "lng": 55.255979
+  },
+  "woodlands": {
+    "lat": 25.239344,
+    "lng": 55.304587
+  },
+  "tiffany": {
+    "lat": 25.278219,
+    "lng": 55.347349
+  },
+  "delicious": {
+    "lat": 25.227961,
+    "lng": 55.274868
+  },
+  "mumbai haji ali": {
+    "lat": 25.273922,
+    "lng": 55.30687
+  },
+  "pak jinnah sweets & restaurant": {
+    "lat": 25.159785,
+    "lng": 55.409224
+  },
+  "sala": {
+    "lat": 25.257896,
+    "lng": 55.344176
+  },
+  "gorkha restaurant": {
+    "lat": 25.231031,
+    "lng": 55.275437
+  },
+  "grill time": {
+    "lat": 25.060893,
+    "lng": 55.236408
+  },
+  "ashana restaurant": {
+    "lat": 25.26081,
+    "lng": 55.328854
+  },
+  "momo restaurant": {
+    "lat": 25.227849,
+    "lng": 55.273326
+  },
+  "foodings": {
+    "lat": 25.115113,
+    "lng": 55.372679
+  },
+  "danillo cafeteria": {
+    "lat": 25.27968,
+    "lng": 55.316095
+  },
+  "jetty lounge": {
+    "lat": 25.097095,
+    "lng": 55.15037
+  },
+  "v deck": {
+    "lat": 25.183804,
+    "lng": 55.254162
+  },
+  "pind da dhaba": {
+    "lat": 25.236444,
+    "lng": 55.302655
+  },
+  "sara restaurant": {
+    "lat": 25.260223,
+    "lng": 55.286465
+  },
+  "jj chicken": {
+    "lat": 25.114307,
+    "lng": 55.205439
+  },
+  "lucknow rasoi": {
+    "lat": 25.28746,
+    "lng": 55.368948
+  },
+  "smoky beach": {
+    "lat": 25.231759,
+    "lng": 55.259678
+  },
+  "multan restaurant": {
+    "lat": 25.280377,
+    "lng": 55.387121
+  },
+  "light": {
+    "lat": 25.131631,
+    "lng": 55.386735
+  },
+  "al khail": {
+    "lat": 25.088916,
+    "lng": 55.158173
+  },
+  "grams": {
+    "lat": 25.194903,
+    "lng": 55.275923
+  },
+  "look taste restaurant": {
+    "lat": 25.280947,
+    "lng": 55.39581
+  },
+  "wonder bakery": {
+    "lat": 25.126822,
+    "lng": 55.245471
+  },
+  "mundo": {
+    "lat": 25.237268,
+    "lng": 55.195494
+  },
+  "beach house": {
+    "lat": 25.174953,
+    "lng": 55.218019
+  },
+  "woodlands restaurant": {
+    "lat": 25.239344,
+    "lng": 55.304587
+  },
+  "karaf by bahce": {
+    "lat": 25.114745,
+    "lng": 55.142354
+  },
+  "asmara coffee shop": {
+    "lat": 25.275817,
+    "lng": 55.308438
+  },
+  "sonara camp": {
+    "lat": 24.870132,
+    "lng": 55.597933
+  },
+  "al bayt": {
+    "lat": 25.257744,
+    "lng": 55.292477
+  },
+  "al mamzar kitchen": {
+    "lat": 25.283912,
+    "lng": 55.390706
+  },
+  "modern dish cafe": {
+    "lat": 25.270462,
+    "lng": 55.302756
+  },
+  "potato hut": {
+    "lat": 25.073812,
+    "lng": 55.138207
+  },
+  "al noor bakery": {
+    "lat": 25.258151,
+    "lng": 55.294415
+  },
+  "the garden restaurant": {
+    "lat": 25.116224,
+    "lng": 55.194211
+  },
+  "vietnamese snack food": {
+    "lat": 25.076418,
+    "lng": 55.146509
+  },
+  "mughal darbar restaurant": {
+    "lat": 25.107377,
+    "lng": 55.377572
+  },
+  "espressini": {
+    "lat": 25.180816,
+    "lng": 55.269508
+  },
+  "grandiose": {
+    "lat": 25.035443,
+    "lng": 55.223427
+  },
+  "al madeena": {
+    "lat": 25.234427,
+    "lng": 55.277327
+  },
+  "al qasr restaurant": {
+    "lat": 24.984883,
+    "lng": 55.108618
+  },
+  "falla": {
+    "lat": 25.229203,
+    "lng": 55.257072
+  },
+  "kunlun restaurant": {
+    "lat": 24.998867,
+    "lng": 55.167108
+  },
+  "pounders": {
+    "lat": 25.234286,
+    "lng": 55.473584
+  },
+  "gunaydin": {
+    "lat": 25.195104,
+    "lng": 55.276963
+  },
+  "bridgewater tavern": {
+    "lat": 25.185393,
+    "lng": 55.257585
+  },
+  "al falah": {
+    "lat": 25.096865,
+    "lng": 55.17081
+  },
+  "tea days cafeteria": {
+    "lat": 25.288274,
+    "lng": 55.324575
+  },
+  "murier chocolate": {
+    "lat": 25.193268,
+    "lng": 55.245075
+  },
+  "coterra cafe": {
+    "lat": 25.070284,
+    "lng": 55.304865
+  },
+  "al hara cafeteria": {
+    "lat": 25.250188,
+    "lng": 55.304739
+  },
+  "zero gravity": {
+    "lat": 25.089292,
+    "lng": 55.137703
+  },
+  "one byte": {
+    "lat": 25.119594,
+    "lng": 55.377642
+  },
+  "swades  vegetarian restaurant": {
+    "lat": 25.247621,
+    "lng": 55.305242
+  },
+  "harat al sham": {
+    "lat": 25.114599,
+    "lng": 55.195087
+  },
+  "charcoal": {
+    "lat": 25.089189,
+    "lng": 55.152985
+  },
+  "drift beach": {
+    "lat": 25.164731,
+    "lng": 55.20869
+  },
+  "king karak cafeteria": {
+    "lat": 25.14623,
+    "lng": 55.401702
+  },
+  "ruby": {
+    "lat": 25.116621,
+    "lng": 55.141368
+  },
+  "jumeirah village": {
+    "lat": 25.055783,
+    "lng": 55.192223
+  },
+  "amwaj": {
+    "lat": 25.228192,
+    "lng": 55.320518
+  },
+  "old tbilisi": {
+    "lat": 25.118553,
+    "lng": 55.198113
+  },
+  "arena": {
+    "lat": 25.071245,
+    "lng": 55.135084
+  },
+  "royal dining restaurant": {
+    "lat": 25.113669,
+    "lng": 55.387426
+  },
+  "mall of emirates": {
+    "lat": 25.117982,
+    "lng": 55.200375
+  },
+  "the bridge": {
+    "lat": 25.04297,
+    "lng": 55.221823
+  },
+  "cibo diet": {
+    "lat": 25.19097,
+    "lng": 55.404191
+  },
+  "al forsan": {
+    "lat": 24.962123,
+    "lng": 55.154387
+  },
+  "mug & hug": {
+    "lat": 25.074495,
+    "lng": 55.144749
+  },
+  "tea palace": {
+    "lat": 25.22463,
+    "lng": 55.377911
+  },
+  "pak al safa": {
+    "lat": 25.170221,
+    "lng": 55.242862
+  },
+  "food park restaurant": {
+    "lat": 25.082396,
+    "lng": 55.142526
+  },
+  "homely foods restaurant": {
+    "lat": 25.257079,
+    "lng": 55.289158
+  },
+  "blinberry": {
+    "lat": 25.076691,
+    "lng": 55.140184
+  },
+  "the beach house": {
+    "lat": 25.130031,
+    "lng": 55.151968
+  },
+  "al jood mandy restaurant": {
+    "lat": 25.224685,
+    "lng": 55.417053
+  },
+  "al manara": {
+    "lat": 25.144818,
+    "lng": 55.214453
+  },
+  "al maskoof al iraqi": {
+    "lat": 25.280911,
+    "lng": 55.352956
+  },
+  "new food restaurant": {
+    "lat": 25.13268,
+    "lng": 55.253218
+  },
+  "marina promenade": {
+    "lat": 25.074527,
+    "lng": 55.133653
+  },
+  "kanaka specialty coffee": {
+    "lat": 25.280244,
+    "lng": 55.353435
+  },
+  "al marfaa cafeteria": {
+    "lat": 25.271726,
+    "lng": 55.302486
+  },
+  "biella": {
+    "lat": 25.228597,
+    "lng": 55.319324
+  },
+  "tbk": {
+    "lat": 25.2697,
+    "lng": 55.335221
+  },
+  "al saudi al yamni": {
+    "lat": 25.260311,
+    "lng": 55.332328
+  },
+  "wadi cafe": {
+    "lat": 25.285229,
+    "lng": 55.358089
+  },
+  "batoni restaurant": {
+    "lat": 25.207619,
+    "lng": 55.342264
+  },
+  "chhappan bhog": {
+    "lat": 25.247936,
+    "lng": 55.300654
+  },
+  "hot chips": {
+    "lat": 25.070128,
+    "lng": 55.306767
+  },
+  "ariana": {
+    "lat": 25.274732,
+    "lng": 55.331813
+  },
+  "han's": {
+    "lat": 25.189176,
+    "lng": 55.256267
+  },
+  "sevana bakery": {
+    "lat": 25.278128,
+    "lng": 55.347336
+  },
+  "al mahara restaurant": {
+    "lat": 25.141126,
+    "lng": 55.185392
+  },
+  "mercan restaurant": {
+    "lat": 25.069554,
+    "lng": 55.133211
+  },
+  "ruchi restaurant": {
+    "lat": 25.248244,
+    "lng": 55.304063
+  },
+  "pak al somar restaurant": {
+    "lat": 25.111019,
+    "lng": 55.190952
+  },
+  "ashbilia restaurant": {
+    "lat": 25.16276,
+    "lng": 55.254564
+  },
+  "chettinad house restaurant": {
+    "lat": 25.23963,
+    "lng": 55.298681
+  },
+  "up star": {
+    "lat": 25.153971,
+    "lng": 55.243902
+  },
+  "mirza muhammad restaurant": {
+    "lat": 24.98431,
+    "lng": 55.191443
+  },
+  "thai corner": {
+    "lat": 25.277771,
+    "lng": 55.350298
+  },
+  "frond": {
+    "lat": 25.114375,
+    "lng": 55.120773
+  },
+  "green gate vegetarian restaurant": {
+    "lat": 25.243278,
+    "lng": 55.299933
+  },
+  "n3 studio": {
+    "lat": 25.03509,
+    "lng": 55.237378
+  },
+  "cu": {
+    "lat": 25.229634,
+    "lng": 55.289585
+  },
+  "arif": {
+    "lat": 25.145852,
+    "lng": 55.242465
+  },
+  "gulf pastry": {
+    "lat": 25.201931,
+    "lng": 55.376515
+  },
+  "maraheb": {
+    "lat": 25.213654,
+    "lng": 55.380283
+  },
+  "fish hut restaurant": {
+    "lat": 25.237558,
+    "lng": 55.309272
+  },
+  "taqueria": {
+    "lat": 25.185604,
+    "lng": 55.275655
+  },
+  "movenpick": {
+    "lat": 25.248207,
+    "lng": 55.345321
+  },
+  "crispy chicky": {
+    "lat": 25.281889,
+    "lng": 55.398509
+  }
 }
