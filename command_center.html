@@ -1333,33 +1333,58 @@ async function syncFromNotion(background=false){
     // Server paginates all Notion pages — phone/laptop makes exactly ONE request.
     // Fixes mobile (no 38 sequential fetches getting throttled/aborted).
     // Fixes dashboard click bug (no mid-render DOM thrash from per-page re-renders).
-    setSyncState('syncing', 'Loading restaurants…');
+    if(!background) setSyncState('syncing', 'Connecting to Notion…');
     const bulkRes = await fetchWithRetry('/api/all-restaurants', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: AppState.token, dbId: NotionSync.DB.restaurants })
-    }, 180000); // 3 min max — server streams 13k restaurants
+    }, 180000);
 
     if(!bulkRes.ok) throw new Error('Bulk fetch failed: ' + bulkRes.status);
 
-    // Parse NDJSON stream: line 0 = {keys}, lines 1..N = [[row],...], last = {total}
-    // Also handles cached plain-JSON responses (X-Cache: HIT) transparently
-    const text = await bulkRes.text();
+    // ── Parse response ─────────────────────────────────────────────────────────
+    // Server sends either:
+    //   a) Plain JSON  (Content-Type: application/json)  — cache hit, instant
+    //   b) NDJSON      (Content-Type: application/x-ndjson) — streaming, progressive
+    //
+    // For NDJSON we use a ReadableStream reader so we can show live progress
+    // and also work correctly even if Render's nginx buffers some chunks.
     let keys = [], rows = [];
     const ct = bulkRes.headers.get('content-type') || '';
-    if(ct.includes('ndjson') || text.trim().startsWith('{"keys"') && text.includes('\n')){
-      // NDJSON format
-      for(const line of text.trim().split('\n')){
-        if(!line) continue;
-        const obj = JSON.parse(line);
-        if(obj.keys)  keys = obj.keys;
-        else if(Array.isArray(obj)) rows.push(...obj);
-        // {total:N} sentinel — ignore, we count rows
-      }
-    } else {
-      // Plain JSON (server cache hit)
-      const j = JSON.parse(text);
+
+    if(!ct.includes('ndjson')) {
+      // Cache hit — plain JSON, parse directly
+      const j = await bulkRes.json();
       keys = j.keys || []; rows = j.rows || [];
+    } else {
+      // Streaming NDJSON — read progressively with live counter
+      const reader = bulkRes.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = '';
+      while(true) {
+        const { done, value } = await reader.read();
+        if(done) break;
+        buf += decoder.decode(value, { stream: true });
+        // Process all complete lines (split on \n, keep last incomplete fragment)
+        const lines = buf.split('\n');
+        buf = lines.pop();
+        for(const line of lines) {
+          if(!line.trim()) continue;
+          try {
+            const obj = JSON.parse(line);
+            if(obj.keys)          keys = obj.keys;
+            else if(Array.isArray(obj)) {
+              rows.push(...obj);
+              setSyncState('syncing', `Loading ${rows.length.toLocaleString()} restaurants…`);
+            }
+            // {total:N} sentinel — ignored, we count rows directly
+          } catch(e) { /* malformed line — skip */ }
+        }
+      }
+      // Flush any remaining buffered data
+      if(buf.trim()) {
+        try { const obj = JSON.parse(buf); if(obj.keys) keys=obj.keys; else if(Array.isArray(obj)) rows.push(...obj); } catch(e){}
+      }
     }
 
     if(!rows.length){
@@ -2835,12 +2860,24 @@ function renderMapMarkers(){
     }
   });
 
+  // Dubai bounding box for fallback scatter
+  const DUBAI_BOUNDS = {latMin:25.05,latMax:25.35,lngMin:55.10,lngMax:55.50};
+  function fallbackCoord(id){
+    // Deterministic pseudo-random position within Dubai, seeded by id
+    let h=0; for(const c of (id||'X')) h=(h*31+c.charCodeAt(0))>>>0;
+    const lat=DUBAI_BOUNDS.latMin+(h%10000)/10000*(DUBAI_BOUNDS.latMax-DUBAI_BOUNDS.latMin);
+    const lng=DUBAI_BOUNDS.lngMin+((h>>14)%10000)/10000*(DUBAI_BOUNDS.lngMax-DUBAI_BOUNDS.lngMin);
+    return{lat,lng};
+  }
+
   const filtered = AppState.restaurants.filter(r=>{
-    if(!r.lat||!r.lng) return false;
     if(sf&&r.status!==sf) return false;
     if(pf&&r.priority!==pf) return false;
     if(am){ if(r.am!==am) return false; }
     if(sq&&!r.name.toLowerCase().includes(sq)) return false;
+    // Assign fallback coords for restaurants without Notion coordinates
+    if(!r.lat||!r.lng){ const c=fallbackCoord(r.id); r._fallbackLat=c.lat; r._fallbackLng=c.lng; }
+    else { r._fallbackLat=null; r._fallbackLng=null; }
     return true;
   });
 
@@ -2884,9 +2921,16 @@ function renderMapMarkers(){
           </div>`).join('')}
       </div>` : '';
 
-    const m = L.circleMarker([r.lat,r.lng],{
-      radius:brandRadius(r.name),
-      fillColor:color,color:color,weight:2,opacity:.7,fillOpacity:.82
+    const lat = r.lat || r._fallbackLat;
+    const lng = r.lng || r._fallbackLng;
+    const isFallback = !r.lat || !r.lng;
+    const m = L.circleMarker([lat,lng],{
+      radius: isFallback ? 5 : brandRadius(r.name),
+      fillColor:color,color:color,
+      weight: isFallback ? 1 : 2,
+      opacity: isFallback ? 0.4 : 0.7,
+      fillOpacity: isFallback ? 0.35 : 0.82,
+      dashArray: isFallback ? '3,3' : null,
     });
 
     m.bindPopup(`

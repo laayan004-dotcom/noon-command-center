@@ -96,24 +96,45 @@ function slimRow(p) {
   ];
 }
 
-// ── Server-side in-memory cache — survives across requests on same dyno ──
-// Key: dbId. Value: { payload (pre-serialised JSON string), ts }
+// ── Server-side in-memory cache ──
 const SERVER_CACHE = {};
-const SERVER_CACHE_TTL = 25 * 60 * 1000; // 25 minutes
+const SERVER_CACHE_TTL = 25 * 60 * 1000; // 25 min
 
-// ── /api/all-restaurants: streams NDJSON so Render proxy never times out ──
-//
-// Protocol (NDJSON — one JSON value per line):
-//   Line 0: {"keys":[...22 field names...]}     ← sent immediately, keeps conn alive
-//   Line 1: [[row],[row],...,[row]]              ← batch 1 (100 restaurants)
-//   Line 2: [[row],...]                          ← batch 2, etc.
-//   Last:   {"total":N}                          ← sentinel, marks end
-//
-// Client reads the full text, splits on \n, reassembles.
+// ── Fetch all Notion pages and cache result ──
+async function fetchAndCache(dbId, authToken) {
+  const allRows = [];
+  let cursor = null, page = 0;
+  const MAX_PAGES = 150;
+  do {
+    const body = { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}) };
+    const r = await notionRequest('POST', `/v1/databases/${dbId}/query`, authToken, body);
+    if (r.status !== 200) throw new Error('Notion returned ' + r.status);
+    allRows.push(...(r.body.results || []).map(slimRow));
+    cursor = r.body.has_more ? r.body.next_cursor : null;
+    page++;
+  } while (cursor && page < MAX_PAGES);
+  const payload = JSON.stringify({ keys: SLIM_KEYS, rows: allRows, total: allRows.length });
+  SERVER_CACHE[dbId] = { payload, ts: Date.now() };
+  console.log(`[cache] primed ${allRows.length} restaurants for db ${dbId.slice(0,8)}`);
+  return payload;
+}
+
+// ── On startup: pre-warm the cache using env vars so first request is instant ──
+// Render cold starts take ~30s, giving the Notion fetch time to complete in parallel.
+const ENV_TOKEN = process.env.NOTION_TOKEN || '';
+const ENV_DB_ID = process.env.NOTION_DB_ID  || '';
+if (ENV_TOKEN && ENV_DB_ID) {
+  console.log('[startup] pre-warming restaurant cache…');
+  fetchAndCache(ENV_DB_ID, ENV_TOKEN)
+    .then(() => console.log('[startup] cache warm ✓'))
+    .catch(e => console.warn('[startup] cache warm failed:', e.message));
+}
+
+// ── /api/all-restaurants ──
+// Returns cached JSON instantly, or streams NDJSON if cache is cold.
+// X-Accel-Buffering: no tells Render's nginx to NOT buffer the stream.
 async function handleAllRestaurants(req, res) {
-  let authToken = '';
-  let dbId = '';
-
+  let authToken = '', dbId = '';
   await new Promise(resolve => {
     let raw = '';
     req.on('data', c => raw += c);
@@ -129,55 +150,48 @@ async function handleAllRestaurants(req, res) {
     return;
   }
 
-  // ── Serve from server-side cache if fresh ──
+  const CORS = { 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-store' };
+
+  // ── Cache hit: instant JSON response ──
   const cached = SERVER_CACHE[dbId];
   if (cached && (Date.now() - cached.ts) < SERVER_CACHE_TTL) {
-    res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-store', 'X-Cache': 'HIT' });
+    res.writeHead(200, { 'Content-Type': 'application/json', ...CORS, 'X-Cache': 'HIT' });
     res.end(cached.payload);
     return;
   }
 
-  // ── Stream NDJSON — first line sent immediately so Render proxy doesn't time out ──
+  // ── Cache miss: stream NDJSON line by line ──
+  // X-Accel-Buffering: no → Render's nginx passes each chunk to the client immediately
+  // (without this, nginx buffers the full response and can time out)
   res.writeHead(200, {
     'Content-Type': 'application/x-ndjson',
-    'Access-Control-Allow-Origin': '*',
-    'Cache-Control': 'no-store',
-    'Transfer-Encoding': 'chunked',
+    'X-Accel-Buffering': 'no',   // ← critical: disables Render nginx buffering
+    ...CORS,
   });
 
-  // Line 0: keys — sent right away (keeps Render's 30s proxy alive)
+  // Send keys line immediately — proves to Render the response has started
   res.write(JSON.stringify({ keys: SLIM_KEYS }) + '\n');
 
   const allRows = [];
-  let cursor = null;
-  let page = 0;
-  const MAX_PAGES = 150;
-
+  let cursor = null, page = 0;
   try {
     do {
       const body = { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}) };
       const r = await notionRequest('POST', `/v1/databases/${dbId}/query`, authToken, body);
-      if (r.status !== 200) {
-        res.end(JSON.stringify({ error: 'Notion error', status: r.status }) + '\n');
-        return;
-      }
+      if (r.status !== 200) { res.end(JSON.stringify({ error: 'notion_error', status: r.status }) + '\n'); return; }
       const batch = (r.body.results || []).map(slimRow);
       allRows.push(...batch);
-      // Write each batch as it arrives — client gets data progressively
       res.write(JSON.stringify(batch) + '\n');
       cursor = r.body.has_more ? r.body.next_cursor : null;
       page++;
-    } while (cursor && page < MAX_PAGES);
+    } while (cursor && page < 150);
 
-    // Sentinel line — tells client we're done
     res.end(JSON.stringify({ total: allRows.length }) + '\n');
-
-    // Cache the full payload (regular JSON format) for next request
     SERVER_CACHE[dbId] = {
       payload: JSON.stringify({ keys: SLIM_KEYS, rows: allRows, total: allRows.length }),
       ts: Date.now(),
     };
-  } catch (e) {
+  } catch(e) {
     res.end(JSON.stringify({ error: e.message }) + '\n');
   }
 }
