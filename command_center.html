@@ -1265,8 +1265,8 @@ async function connectNotion(){
 }
 
 async function syncFromNotion(background=false){
+  // Background sync is completely silent — don't flash "syncing" when user already has data
   if(!background) setSyncState('syncing','Syncing…');
-  else setSyncState('syncing','Updating in background…');
   try {
     const ok = await NotionSync.test();
     if(!ok){
@@ -2435,7 +2435,7 @@ async function saveIntelEdit(id){
     return;
   }
   try {
-    const res = await fetch(`/notion/v1/pages/${r.notionPageId}`, {
+    const res = await fetchWithTimeout(`/notion/v1/pages/${r.notionPageId}`, {
       method:'PATCH',
       headers:{'Authorization':'Bearer '+AppState.token,'Notion-Version':'2022-06-28','Content-Type':'application/json'},
       body:JSON.stringify({properties:props})
@@ -3364,6 +3364,18 @@ function copyTplMsg(btn){
 }
 
 // ===================== NOTION SYNC (LIVE) =====================
+
+// Fetch with hard timeout — prevents infinite hangs on slow/unresponsive Notion API
+async function fetchWithTimeout(url, opts={}, ms=15000){
+  const ctrl = new AbortController();
+  const tid = setTimeout(()=>ctrl.abort(), ms);
+  try {
+    return await fetch(url, {...opts, signal:ctrl.signal});
+  } finally {
+    clearTimeout(tid);
+  }
+}
+
 const NotionSync = {
   // Restaurants DB: noon OUT pipeline
   DB: { restaurants: '33e29928-6a52-80aa-bcf0-f9c636968450' },
@@ -3372,7 +3384,7 @@ const NotionSync = {
   get headers(){ return { 'Authorization':'Bearer '+AppState.token, 'Notion-Version':'2022-06-28', 'Content-Type':'application/json' }; },
 
   async test(){
-    try{ const r=await fetch(this.BASE+'/users/me',{headers:this.headers}); return r.ok; }
+    try{ const r=await fetchWithTimeout(this.BASE+'/users/me',{headers:this.headers},10000); return r.ok; }
     catch{ return false; }
   },
 
@@ -3446,15 +3458,19 @@ const NotionSync = {
 
   // ---- load all (paginated) — always load ALL restaurants, filter client-side ----
   async loadAll(){
-    let cursor, all=[];
+    let cursor, all=[], pages=0;
     do {
       const body = { page_size:100, ...(cursor?{start_cursor:cursor}:{}) };
-      const res = await fetch(`${this.BASE}/databases/${this.DB.restaurants}/query`,
-        {method:'POST', headers:this.headers, body:JSON.stringify(body)});
-      if(!res.ok){ console.error('Notion query failed',await res.text()); break; }
+      const res = await fetchWithTimeout(
+        `${this.BASE}/databases/${this.DB.restaurants}/query`,
+        {method:'POST', headers:this.headers, body:JSON.stringify(body)},
+        20000 // 20s per page — generous for large DBs
+      );
+      if(!res.ok){ console.error('Notion query failed',res.status); break; }
       const data = await res.json();
       all = all.concat(data.results.map(p=>this._pageToRestaurant(p)));
       cursor = data.has_more ? data.next_cursor : null;
+      if(++pages >= 20) break; // safety cap: 20 pages × 100 = 2000 restaurants max
     } while(cursor);
     return all;
   },
@@ -3462,7 +3478,7 @@ const NotionSync = {
   // ---- push status change back to Notion ----
   async updateStatus(notionPageId, htmlStatus){
     if(!AppState.notionConnected||!notionPageId) return;
-    await fetch(`${this.BASE}/pages/${notionPageId}`,{
+    await fetchWithTimeout(`${this.BASE}/pages/${notionPageId}`,{
       method:'PATCH', headers:this.headers,
       body:JSON.stringify({properties:{'Pipeline Status':{select:{name:this._mapStatusToNotion(htmlStatus)}}}})
     });
