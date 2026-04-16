@@ -695,6 +695,7 @@ tr:hover td{background:var(--card2);}
       <div class="sec-title">🗺 Lead Heatmap</div>
       <div id="mapFilterPills" class="flex gap-8" style="flex-wrap:wrap;"></div>
     </div>
+    <div id="mapCoverageNote" style="font-size:11px;color:var(--muted-l);padding:4px 16px;background:var(--card2);border-bottom:1px solid var(--border);"></div>
     <div class="sec-body" style="padding:16px;position:relative;">
       <div style="display:flex;gap:10px;margin-bottom:12px;align-items:center;">
         <div style="position:relative;flex:1;max-width:320px;">
@@ -2860,36 +2861,21 @@ function renderMapMarkers(){
     }
   });
 
-  // Land-only anchor points — restaurants without coords scatter around these
-  // (bounding box approach puts dots in the ocean; anchored jitter keeps them on land)
-  const LAND_ANCHORS = [
-    {lat:25.0819,lng:55.1367},{lat:25.1972,lng:55.2744},{lat:25.0778,lng:55.1432},
-    {lat:25.2120,lng:55.2837},{lat:25.2116,lng:55.2486},{lat:25.2532,lng:55.2985},
-    {lat:25.1901,lng:55.2394},{lat:25.1072,lng:55.1985},{lat:25.1865,lng:55.2607},
-    {lat:25.1124,lng:55.1390},{lat:25.0694,lng:55.1539},{lat:25.2285,lng:55.3273},
-    {lat:25.1760,lng:55.3128},{lat:25.2495,lng:55.3660},{lat:25.2045,lng:55.2708},
-    {lat:25.1551,lng:55.2348},{lat:25.0936,lng:55.1685},{lat:25.2347,lng:55.3155},
-  ];
-  function fallbackCoord(id){
-    // Deterministic — seeded by id so each restaurant is always in the same spot
-    let h=0; for(const c of (id||'X')) h=(h*31+c.charCodeAt(0))>>>0;
-    const anchor = LAND_ANCHORS[h % LAND_ANCHORS.length];
-    // Small jitter within ~1.5km so nearby restaurants don't all stack
-    const lat = anchor.lat + ((h>>8)%200-100)/10000;
-    const lng = anchor.lng + ((h>>16)%200-100)/10000;
-    return {lat, lng};
-  }
-
-  const filtered = AppState.restaurants.filter(r=>{
+  // Only plot restaurants with real coordinates — no guesses, no ocean dots
+  const allFiltered = AppState.restaurants.filter(r=>{
     if(sf&&r.status!==sf) return false;
     if(pf&&r.priority!==pf) return false;
     if(am){ if(r.am!==am) return false; }
     if(sq&&!r.name.toLowerCase().includes(sq)) return false;
-    // Assign fallback coords for restaurants without Notion coordinates
-    if(!r.lat||!r.lng){ const c=fallbackCoord(r.id); r._fallbackLat=c.lat; r._fallbackLng=c.lng; }
-    else { r._fallbackLat=null; r._fallbackLng=null; }
     return true;
   });
+  const filtered = allFiltered.filter(r => r.lat && r.lng);
+
+  // Show coverage counter under the map title
+  const coveragePct = allFiltered.length ? Math.round(filtered.length/allFiltered.length*100) : 0;
+  const coverageEl = document.getElementById('mapCoverageNote');
+  if(coverageEl) coverageEl.textContent =
+    `${filtered.length.toLocaleString()} of ${allFiltered.length.toLocaleString()} restaurants have GPS coordinates (${coveragePct}%) — locations improve as geocoding runs`;
 
   // Build a name→locations index for chain "other locations" feature
   const nameIndex = {};
@@ -2931,16 +2917,9 @@ function renderMapMarkers(){
           </div>`).join('')}
       </div>` : '';
 
-    const lat = r.lat || r._fallbackLat;
-    const lng = r.lng || r._fallbackLng;
-    const isFallback = !r.lat || !r.lng;
-    const m = L.circleMarker([lat,lng],{
-      radius: isFallback ? 5 : brandRadius(r.name),
-      fillColor:color,color:color,
-      weight: isFallback ? 1 : 2,
-      opacity: isFallback ? 0.4 : 0.7,
-      fillOpacity: isFallback ? 0.35 : 0.82,
-      dashArray: isFallback ? '3,3' : null,
+    const m = L.circleMarker([r.lat, r.lng],{
+      radius: brandRadius(r.name),
+      fillColor:color, color:color, weight:2, opacity:.7, fillOpacity:.82,
     });
 
     m.bindPopup(`
