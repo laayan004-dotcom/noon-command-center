@@ -1135,7 +1135,7 @@ const MOCK_ACTIVITIES = [
 ];
 
 // ===================== INIT =====================
-const CACHE_KEY = 'cc_restaurants_v6'; // bumped — clears old 2000-cap cache
+const CACHE_KEY = 'cc_restaurants_v7'; // bumped — clears 10k-entry unfiltered cache
 const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 
 async function init(){
@@ -1317,7 +1317,12 @@ async function syncFromNotion(background=false){
     }
 
     setSyncState('syncing', `Processing ${rawResults.length} restaurants…`);
-    const rests = rawResults.map(p => NotionSync._pageToRestaurant(p));
+    // Server already slimmed each page to the same shape _pageToRestaurant produces,
+    // so we can use the results directly — no per-record mapping needed.
+    const rests = rawResults.map(r => ({
+      ...r,
+      stage: r.pipelineStatus || 'Prospect',  // alias used by pipeline view
+    }));
 
     // Merge: preserve local notes/edits over Notion data
     const localById = {};
