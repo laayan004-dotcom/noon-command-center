@@ -1305,7 +1305,7 @@ async function syncFromNotion(background=false){
 
     do {
       const body = { page_size:100, ...(cursor ? {start_cursor:cursor} : {}) };
-      const res = await fetchWithTimeout(
+      const res = await fetchWithRetry(
         `${NotionSync.BASE}/databases/${NotionSync.DB.restaurants}/query`,
         {method:'POST', headers:NotionSync.headers, body:JSON.stringify(body)},
         45000
@@ -2799,9 +2799,10 @@ function renderMapMarkers(){
 
   const filtered = AppState.restaurants.filter(r=>{
     if(!r.lat||!r.lng) return false;
+    // Exclude multi-outlet group entries — a single pin can't represent a chain with multiple locations
+    if(Number(r.outlets||1) > 1) return false;
     if(sf&&r.status!==sf) return false;
     if(pf&&r.priority!==pf) return false;
-    // Strict AM filter: if an AM is selected, only show restaurants explicitly assigned to that AM
     if(am){ if(r.am!==am) return false; }
     if(sq&&!r.name.toLowerCase().includes(sq)) return false;
     return true;
@@ -3421,11 +3422,22 @@ function copyTplMsg(btn){
 // Fetch with hard timeout — prevents infinite hangs on slow/unresponsive Notion API
 async function fetchWithTimeout(url, opts={}, ms=15000){
   const ctrl = new AbortController();
-  const tid = setTimeout(()=>ctrl.abort(), ms);
+  const tid = setTimeout(()=>ctrl.abort(new DOMException(`Timeout after ${ms}ms`, 'TimeoutError')), ms);
   try {
     return await fetch(url, {...opts, signal:ctrl.signal});
   } finally {
     clearTimeout(tid);
+  }
+}
+
+// Fetch with timeout + one automatic retry on failure
+async function fetchWithRetry(url, opts={}, ms=45000){
+  try {
+    return await fetchWithTimeout(url, opts, ms);
+  } catch(e) {
+    // Retry once on timeout or network hiccup
+    console.warn('fetch retry after:', e.message);
+    return await fetchWithTimeout(url, opts, ms);
   }
 }
 
@@ -3515,10 +3527,10 @@ const NotionSync = {
     let cursor, all=[];
     do {
       const body = { page_size:100, ...(cursor?{start_cursor:cursor}:{}) };
-      const res = await fetchWithTimeout(
+      const res = await fetchWithRetry(
         `${this.BASE}/databases/${this.DB.restaurants}/query`,
         {method:'POST', headers:this.headers, body:JSON.stringify(body)},
-        45000 // 45s per page — handles cold start + slow Notion responses
+        45000
       );
       if(!res.ok){ console.error('Notion query failed',res.status); break; }
       const data = await res.json();
@@ -3596,36 +3608,37 @@ function locateMe(){
   _doLocate();
 }
 function _doLocate(){
-  navigator.geolocation.getCurrentPosition(pos=>{
-    const {latitude:lat, longitude:lng} = pos.coords;
-    const map = AppState.mapInstance;
-    if(userLocationMarker){ try{ userLocationMarker.remove(); }catch(e){} }
-    userLocationMarker = L.circleMarker([lat,lng],{
+  const map = AppState.mapInstance;
+
+  function _placeMarker(lat, lng, zoom){
+    if(userLocationMarker){ try{ map.removeLayer(userLocationMarker); }catch(e){} }
+    userLocationMarker = L.circleMarker([lat, lng],{
       radius:12, fillColor:'#3b82f6', color:'#fff', weight:3,
       fillOpacity:1, zIndexOffset:9999
     }).addTo(map);
     userLocationMarker.bindPopup(
       '<div style="font-weight:800;font-size:14px;text-align:center;">📍 You are here</div>'
     ).openPopup();
-    map.setView([lat,lng], 15);
+    map.setView([lat, lng], zoom);
     toast('Found you! 📍');
-  }, err=>{
-    if(err.code===1){
-      toast('Location blocked — Settings → Safari → Location → Allow','error');
-    } else {
-      // High-accuracy failed — retry with low accuracy (works better indoors)
-      navigator.geolocation.getCurrentPosition(pos2=>{
-        const {latitude:lat2,longitude:lng2} = pos2.coords;
-        const map2 = AppState.mapInstance;
-        if(userLocationMarker){ try{ userLocationMarker.remove(); }catch(_){} }
-        userLocationMarker = L.circleMarker([lat2,lng2],{radius:12,fillColor:'#3b82f6',color:'#fff',weight:3,fillOpacity:1,zIndexOffset:9999}).addTo(map2);
-        userLocationMarker.bindPopup('<div style="font-weight:800;font-size:14px;text-align:center;">📍 You are here</div>').openPopup();
-        map2.setView([lat2,lng2],14);
-        toast('Location found 📍');
-      },()=>toast('Location unavailable — enable in iPhone Settings → Privacy → Location','error'),
-      {enableHighAccuracy:false, timeout:10000, maximumAge:60000});
-    }
-  },{enableHighAccuracy:true, timeout:15000, maximumAge:0});
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    pos => _placeMarker(pos.coords.latitude, pos.coords.longitude, 15),
+    err => {
+      if(err.code === 1){
+        toast('Location blocked — allow it in your browser/phone settings','error');
+        return;
+      }
+      // High-accuracy failed (common indoors) — retry with low accuracy
+      navigator.geolocation.getCurrentPosition(
+        pos2 => _placeMarker(pos2.coords.latitude, pos2.coords.longitude, 14),
+        () => toast('Location unavailable — check Settings → Privacy → Location','error'),
+        {enableHighAccuracy:false, timeout:12000, maximumAge:60000}
+      );
+    },
+    {enableHighAccuracy:true, timeout:15000, maximumAge:0}
+  );
 }
 
 // ===================== WALK-IN CHECKLIST =====================
