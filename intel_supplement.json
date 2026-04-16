@@ -17040,7 +17040,9 @@
   },
   "kailash parbat": {
     "highestCompDisc": 0,
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.258528,
+    "lng": 55.310653
   },
   "R4023756121584433666536806A": {
     "highestCompDisc": 0,
@@ -20326,7 +20328,9 @@
   },
   "gad restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.25585,
+    "lng": 55.301598
   },
   "R1196497846013578543807619A": {
     "highestCompDisc": 0,
@@ -20334,7 +20338,9 @@
   },
   "kayaloram restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.244048,
+    "lng": 55.305824
   },
   "R2681415458004808822157141A": {
     "highestCompDisc": 0,
@@ -20432,7 +20438,9 @@
     "highestCompDisc": 0
   },
   "tony roma's": {
-    "highestCompDisc": 0
+    "highestCompDisc": 0,
+    "lat": 25.235947,
+    "lng": 55.436504
   },
   "R1220230899052858226361281A": {
     "highestCompDisc": 0,
@@ -20462,7 +20470,9 @@
   },
   "madras vegetarian restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.27637,
+    "lng": 55.344529
   },
   "R2656869862031845034015247A": {
     "highestCompDisc": 0
@@ -20531,7 +20541,9 @@
   },
   "saravanaa bhavan": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.234675,
+    "lng": 55.309658
   },
   "R7896787985184803892838613A": {
     "highestCompDisc": 0,
@@ -20547,7 +20559,9 @@
   },
   "food palace restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.247017,
+    "lng": 55.302205
   },
   "R1464900635245719079468661A": {
     "highestCompDisc": 0,
@@ -20677,7 +20691,9 @@
   },
   "barbeque nation": {
     "highestCompDisc": 0,
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.11146,
+    "lng": 55.37535
   },
   "R3369813570147019866123418A": {
     "highestCompDisc": 0
@@ -20691,7 +20707,9 @@
   },
   "malabar junction restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.290171,
+    "lng": 55.369836
   },
   "R4684078291436238374229072A": {
     "highestCompDisc": 0,
@@ -21005,7 +21023,9 @@
     "highestCompDisc": 0
   },
   "karachi grill": {
-    "highestCompDisc": 0
+    "highestCompDisc": 0,
+    "lat": 25.205729,
+    "lng": 55.243079
   },
   "R0799655387532849604968577A": {
     "highestCompDisc": 0
@@ -21119,7 +21139,9 @@
     "highestCompDisc": 0
   },
   "sheikh al mandi": {
-    "highestCompDisc": 0
+    "highestCompDisc": 0,
+    "lat": 25.112263,
+    "lng": 55.191714
   },
   "R6674272471160219995885675A": {
     "highestCompDisc": 0,
@@ -21127,7 +21149,9 @@
   },
   "taizz mandi": {
     "highestCompDisc": 0,
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.225671,
+    "lng": 55.394837
   },
   "R5270853675870519038860494A": {
     "highestCompDisc": 0,
@@ -21135,7 +21159,9 @@
   },
   "turkish kitchen": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.07846,
+    "lng": 55.153285
   },
   "R3212176546924225401816942A": {
     "highestCompDisc": 0,
@@ -21175,7 +21201,9 @@
   },
   "zam zam mandi": {
     "highestCompDisc": 0,
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.253198,
+    "lng": 55.334412
   },
   "R0012685833102419919719902A": {
     "highestCompDisc": 0
@@ -21189,7 +21217,9 @@
   },
   "dyar al sham": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.170464,
+    "lng": 55.403517
   },
   "R2065641133012115973484996A": {
     "highestCompDisc": 0,
@@ -21221,7 +21251,9 @@
   },
   "lahore darbar": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.276458,
+    "lng": 55.310977
   },
   "R8343161771625088369188637A": {
     "highestCompDisc": 0
@@ -21233,7 +21265,9 @@
     "highestCompDisc": 0
   },
   "malabar food": {
-    "highestCompDisc": 0
+    "highestCompDisc": 0,
+    "lat": 25.158351,
+    "lng": 55.407999
   },
   "R1340081154803938755278052A": {
     "highestCompDisc": 0,
@@ -21345,7 +21379,9 @@
   },
   "al falah restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.096865,
+    "lng": 55.17081
   },
   "R1550259400573913574971650A": {
     "highestCompDisc": 0
@@ -21393,7 +21429,9 @@
     "highestCompDisc": 0
   },
   "aden restaurant": {
-    "highestCompDisc": 0
+    "highestCompDisc": 0,
+    "lat": 25.272398,
+    "lng": 55.30243
   },
   "R0362553090290035323471557A": {
     "highestCompDisc": 0
@@ -21507,7 +21545,9 @@
   },
   "al khayam restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.297417,
+    "lng": 55.38984
   },
   "R8533172836092817246923356A": {
     "highestCompDisc": 0
@@ -21973,7 +22013,9 @@
   },
   "bangalore empire restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.268281,
+    "lng": 55.378859
   },
   "R9890623748990855765105380A": {
     "highestCompDisc": 0,
@@ -22281,7 +22323,9 @@
   },
   "chinchaaus restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.297345,
+    "lng": 55.378348
   },
   "R4046680469969404478417200A": {
     "highestCompDisc": 0
@@ -22425,7 +22469,9 @@
   },
   "delicia restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.148236,
+    "lng": 55.240914
   },
   "R4114991967259146958656289A": {
     "highestCompDisc": 0,
@@ -22515,7 +22561,9 @@
   },
   "dukem restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "lat": 25.278683,
+    "lng": 55.31273
   },
   "R1664961405671677999225324A": {
     "highestCompDisc": 0,
@@ -22531,7 +22579,9 @@
   },
   "eastern food restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.282883,
+    "lng": 55.38797
   },
   "R0254343122225822810947563A": {
     "highestCompDisc": 0,
@@ -22672,7 +22722,9 @@
     "highestCompDisc": 0
   },
   "food junction restaurant": {
-    "highestCompDisc": 0
+    "highestCompDisc": 0,
+    "lat": 25.290171,
+    "lng": 55.369836
   },
   "R5556786701115660540284428A": {
     "highestCompDisc": 0,
@@ -22696,7 +22748,9 @@
   },
   "food village restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.293187,
+    "lng": 55.369346
   },
   "R6044572016260456386050487A": {
     "highestCompDisc": 0
@@ -23020,7 +23074,9 @@
   },
   "himalaya restaurant": {
     "highestCompDisc": 0,
-    "priceTier": "Every day / Casual"
+    "priceTier": "Every day / Casual",
+    "lat": 25.239004,
+    "lng": 55.301909
   },
   "R1682465376400781296804520A": {
     "highestCompDisc": 0
@@ -23378,7 +23434,10 @@
   "R1758160357269848926928439A": {},
   "al garhoud star": {},
   "kashkan dfc + szr (hotel)": {},
-  "masti cafe": {},
+  "masti cafe": {
+    "lat": 25.238735,
+    "lng": 55.272229
+  },
   "asian street": {
     "lat": 25.263505,
     "lng": 55.30606
@@ -24290,5 +24349,237 @@
   "night moon cafe": {
     "lat": 25.281014,
     "lng": 55.353066
+  },
+  "fox & hounds": {
+    "lat": 25.273922,
+    "lng": 55.319055
+  },
+  "farzi cafe": {
+    "lat": 25.207885,
+    "lng": 55.262253
+  },
+  "ristorante bar & lounge": {
+    "lat": 25.097264,
+    "lng": 55.175089
+  },
+  "mota fish": {
+    "lat": 25.109039,
+    "lng": 55.204423
+  },
+  "al khaja bakery": {
+    "lat": 25.260346,
+    "lng": 55.330278
+  },
+  "juicy fruity": {
+    "lat": 24.814228,
+    "lng": 56.16085
+  },
+  "quick restaurant": {
+    "lat": 25.272297,
+    "lng": 55.382617
+  },
+  "al nawras": {
+    "lat": 25.185274,
+    "lng": 55.360377
+  },
+  "city restaurant": {
+    "lat": 25.277408,
+    "lng": 55.309394
+  },
+  "the hub": {
+    "lat": 25.075132,
+    "lng": 55.132401
+  },
+  "floating market": {
+    "lat": 25.06988,
+    "lng": 55.307392
+  },
+  "arjan": {
+    "lat": 25.060448,
+    "lng": 55.235473
+  },
+  "al shaya": {
+    "lat": 25.249778,
+    "lng": 55.302405
+  },
+  "sunset 55": {
+    "lat": 25.061974,
+    "lng": 55.210992
+  },
+  "plug": {
+    "lat": 25.198124,
+    "lng": 55.277832
+  },
+  "shisha terrace": {
+    "lat": 25.096391,
+    "lng": 55.172448
+  },
+  "badr thabit bakery": {
+    "lat": 25.287147,
+    "lng": 55.369948
+  },
+  "hot chicken": {
+    "lat": 25.18865,
+    "lng": 55.405901
+  },
+  "le petit belge": {
+    "lat": 25.047111,
+    "lng": 55.242774
+  },
+  "mythos": {
+    "lat": 25.074972,
+    "lng": 55.145672
+  },
+  "modern bakery": {
+    "lat": 25.126991,
+    "lng": 55.212514
+  },
+  "jbr": {
+    "lat": 25.077802,
+    "lng": 55.135181
+  },
+  "noodle house": {
+    "lat": 25.133855,
+    "lng": 55.186157
+  },
+  "al hajes cafeteria": {
+    "lat": 25.279133,
+    "lng": 55.334432
+  },
+  "london fish & chips": {
+    "lat": 25.263521,
+    "lng": 55.32429
+  },
+  "rubeena restaurant": {
+    "lat": 25.273753,
+    "lng": 55.428198
+  },
+  "triangle": {
+    "lat": 25.055783,
+    "lng": 55.192223
+  },
+  "sultan palace cafe": {
+    "lat": 25.236987,
+    "lng": 55.27684
+  },
+  "jannah": {
+    "lat": 25.068807,
+    "lng": 55.130511
+  },
+  "orient": {
+    "lat": 25.210414,
+    "lng": 55.37501
+  },
+  "proart gallery": {
+    "lat": 25.234516,
+    "lng": 55.264909
+  },
+  "golden palace": {
+    "lat": 25.276344,
+    "lng": 55.309589
+  },
+  "lucky corner cafe": {
+    "lat": 25.275234,
+    "lng": 55.331946
+  },
+  "al azhar": {
+    "lat": 25.156778,
+    "lng": 55.249651
+  },
+  "allo beirut": {
+    "lat": 25.21032,
+    "lng": 55.25958
+  },
+  "the link": {
+    "lat": 25.227569,
+    "lng": 55.29173
+  },
+  "the pavilion": {
+    "lat": 24.957623,
+    "lng": 55.147387
+  },
+  "s company": {
+    "lat": 24.911068,
+    "lng": 54.963259
+  },
+  "danial star restaurant": {
+    "lat": 25.265874,
+    "lng": 55.309241
+  },
+  "vivo pizza": {
+    "lat": 25.249602,
+    "lng": 55.360083
+  },
+  "the bistro": {
+    "lat": 25.046612,
+    "lng": 55.23865
+  },
+  "monkey bar": {
+    "lat": 25.115496,
+    "lng": 55.193756
+  },
+  "ramen street": {
+    "lat": 25.247398,
+    "lng": 55.277065
+  },
+  "the rose & crown": {
+    "lat": 25.183986,
+    "lng": 55.254231
+  },
+  "sultan palace restaurant": {
+    "lat": 25.236987,
+    "lng": 55.27684
+  },
+  "zaal restaurant": {
+    "lat": 25.267916,
+    "lng": 55.430622
+  },
+  "al ghadeer": {
+    "lat": 25.150914,
+    "lng": 55.272006
+  },
+  "express al madina": {
+    "lat": 25.138564,
+    "lng": 55.258168
+  },
+  "bharna": {
+    "lat": 25.199531,
+    "lng": 55.441697
+  },
+  "caravan": {
+    "lat": 25.260164,
+    "lng": 55.331191
+  },
+  "cantina": {
+    "lat": 25.18881,
+    "lng": 55.255184
+  },
+  "mankoks": {
+    "lat": 25.25135,
+    "lng": 55.304737
+  },
+  "basil": {
+    "lat": 25.247503,
+    "lng": 55.307269
+  },
+  "al restaurant": {
+    "lat": 25.128377,
+    "lng": 55.224545
+  },
+  "hara": {
+    "lat": 25.250188,
+    "lng": 55.304739
+  },
+  "6.8 cafe": {
+    "lat": 25.011189,
+    "lng": 55.134546
+  },
+  "green leaf": {
+    "lat": 25.26785,
+    "lng": 55.432318
+  },
+  "al hisn": {
+    "lat": 25.261114,
+    "lng": 55.295264
   }
 }
