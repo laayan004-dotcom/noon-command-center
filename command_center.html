@@ -502,7 +502,7 @@ tr:hover td{background:var(--card2);}
   #sec-dashboard .sec-body > div[style*="grid-template-columns:1.4fr"]{
     grid-template-columns:1fr!important;height:auto!important;
   }
-  #sec-dashboard canvas{max-height:180px!important;}
+  #sec-dashboard canvas{max-height:220px!important;}
 
   /* ── Pipeline — force table view, hide kanban toggle ── */
   .pipeline-cards{grid-template-columns:1fr!important;}
@@ -1287,50 +1287,77 @@ async function connectNotion(){
 }
 
 async function syncFromNotion(background=false){
-  // Background sync is completely silent — don't flash "syncing" when user already has data
-  if(!background) setSyncState('syncing','Syncing…');
+  if(!background) setSyncState('syncing','Connecting…');
   try {
     const ok = await NotionSync.test();
     if(!ok){
-      setSyncState(background?'on':'off', background?AppState.restaurants.length+' restaurants · offline':'Connection lost');
+      setSyncState(background?'on':'off', background ? AppState.restaurants.length+' restaurants · offline' : 'Connection failed — retrying on next load');
       return;
     }
     AppState.notionConnected = true;
-    const rests = await NotionSync.loadAll();
-    if(rests.length > 0){
-      // Merge: Notion is source of truth, but preserve local-only fields (notes, edits not yet in Notion)
-      const localById = {};
-      AppState.restaurants.forEach(r => { localById[r.id] = r; });
-      const merged = rests.map(nr => {
+
+    // ── STREAMING LOAD: render after every page so user sees data immediately ──
+    const localById = {};
+    AppState.restaurants.forEach(r => { localById[r.id] = r; });
+
+    let cursor, all=[], pageNum=0;
+    const cur = AppState.currentSection;
+
+    do {
+      const body = { page_size:100, ...(cursor ? {start_cursor:cursor} : {}) };
+      const res = await fetchWithTimeout(
+        `${NotionSync.BASE}/databases/${NotionSync.DB.restaurants}/query`,
+        {method:'POST', headers:NotionSync.headers, body:JSON.stringify(body)},
+        45000
+      );
+      if(!res.ok){ console.error('Notion query failed', res.status); break; }
+      const data = await res.json();
+      const batch = data.results.map(p => NotionSync._pageToRestaurant(p));
+      all = all.concat(batch);
+      cursor = data.has_more ? data.next_cursor : null;
+      pageNum++;
+
+      // Merge local edits into this running set
+      const merged = all.map(nr => {
         const local = localById[nr.id];
         if(!local) return nr;
-        // If local has richer notes or was recently edited, keep local version of text fields
-        // Notion properties win for all structured data; keep local notes only if longer
         return Object.assign({}, nr, {
           notes: (local.notes||'').length > (nr.notes||'').length ? local.notes : nr.notes
         });
       });
+
+      // Update state immediately so every section is live
       AppState.restaurants = mergeSupplement(merged);
-      _saveRestaurantCache(AppState.restaurants);
-      const now = new Date().toLocaleTimeString('en-AE',{hour:'2-digit',minute:'2-digit'});
-      setSyncState('on', rests.length+' restaurants · '+now);
-      if(!background) toast('Synced '+rests.length+' restaurants');
-      if(AppState.mapInitialized) renderMapMarkers();
-      // Background sync: never re-render intel list mid-view (cards shift → wrong tap target)
-      // Only re-render intel if user explicitly navigates there, or if we're in detail view
-      const cur = AppState.currentSection;
-      if(cur === 'sec-intel' && background && AppState.intelMode === 'list'){
-        // silently updated data — user will see new data when they next scroll/filter
-      } else {
+
+      // Render live: dashboard + current section after every page
+      setSyncState('syncing', `Loading ${all.length} restaurants…`);
+      renderDashboard();
+      if(cur !== 'sec-dashboard' && cur !== 'sec-intel' || AppState.intelMode === 'detail'){
         refreshSection(cur);
       }
+      if(AppState.mapInitialized) renderMapMarkers();
+
+      // Save partial cache every 5 pages so a refresh shows something immediately
+      if(pageNum % 5 === 0) _saveRestaurantCache(AppState.restaurants);
+
+    } while(cursor);
+
+    // Final state
+    if(all.length > 0){
+      _saveRestaurantCache(AppState.restaurants);
+      const now = new Date().toLocaleTimeString('en-AE',{hour:'2-digit',minute:'2-digit'});
+      setSyncState('on', all.length+' restaurants · '+now);
+      if(!background) toast('Synced '+all.length+' restaurants');
+      // Final render of current section
+      refreshSection(cur);
       if(cur !== 'sec-dashboard') renderDashboard();
+      if(AppState.mapInitialized) renderMapMarkers();
     } else {
       setSyncState('on','Connected — no restaurants found');
     }
   } catch(e){
-    setSyncState(background?'on':'off', background?AppState.restaurants.length+' restaurants · cached':'Sync failed');
-    if(!background) toast('Sync error: '+e.message,'error');
+    setSyncState(background?'on':'off', background ? AppState.restaurants.length+' restaurants · cached' : 'Sync error — using cached data');
+    console.error('syncFromNotion error:', e.message);
   }
 }
 
