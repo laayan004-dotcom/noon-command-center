@@ -96,22 +96,29 @@ function slimRow(p) {
   ];
 }
 
-// ── /api/all-restaurants: server fetches ALL pages, returns flat array ──
-// Phone makes ONE request, server does all the pagination to Notion
+// ── Server-side in-memory cache — survives across requests on same dyno ──
+// Key: dbId. Value: { payload (pre-serialised JSON string), ts }
+const SERVER_CACHE = {};
+const SERVER_CACHE_TTL = 25 * 60 * 1000; // 25 minutes
+
+// ── /api/all-restaurants: streams NDJSON so Render proxy never times out ──
+//
+// Protocol (NDJSON — one JSON value per line):
+//   Line 0: {"keys":[...22 field names...]}     ← sent immediately, keeps conn alive
+//   Line 1: [[row],[row],...,[row]]              ← batch 1 (100 restaurants)
+//   Line 2: [[row],...]                          ← batch 2, etc.
+//   Last:   {"total":N}                          ← sentinel, marks end
+//
+// Client reads the full text, splits on \n, reassembles.
 async function handleAllRestaurants(req, res) {
   let authToken = '';
   let dbId = '';
 
-  // Read body for token + dbId
   await new Promise(resolve => {
     let raw = '';
     req.on('data', c => raw += c);
     req.on('end', () => {
-      try {
-        const b = JSON.parse(raw);
-        authToken = b.token || '';
-        dbId      = b.dbId  || '';
-      } catch(e) {}
+      try { const b = JSON.parse(raw); authToken = b.token||''; dbId = b.dbId||''; } catch(e){}
       resolve();
     });
   });
@@ -122,39 +129,56 @@ async function handleAllRestaurants(req, res) {
     return;
   }
 
-  const all = [];   // array of slim row arrays
+  // ── Serve from server-side cache if fresh ──
+  const cached = SERVER_CACHE[dbId];
+  if (cached && (Date.now() - cached.ts) < SERVER_CACHE_TTL) {
+    res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Cache-Control': 'no-store', 'X-Cache': 'HIT' });
+    res.end(cached.payload);
+    return;
+  }
+
+  // ── Stream NDJSON — first line sent immediately so Render proxy doesn't time out ──
+  res.writeHead(200, {
+    'Content-Type': 'application/x-ndjson',
+    'Access-Control-Allow-Origin': '*',
+    'Cache-Control': 'no-store',
+    'Transfer-Encoding': 'chunked',
+  });
+
+  // Line 0: keys — sent right away (keeps Render's 30s proxy alive)
+  res.write(JSON.stringify({ keys: SLIM_KEYS }) + '\n');
+
+  const allRows = [];
   let cursor = null;
   let page = 0;
-  const MAX_PAGES = 150; // 15,000 restaurants max (full Dubai directory ~13,661)
+  const MAX_PAGES = 150;
 
   try {
     do {
-      const body = {
-        page_size: 100,
-        ...(cursor ? { start_cursor: cursor } : {}),
-      };
+      const body = { page_size: 100, ...(cursor ? { start_cursor: cursor } : {}) };
       const r = await notionRequest('POST', `/v1/databases/${dbId}/query`, authToken, body);
       if (r.status !== 200) {
-        res.writeHead(r.status, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
-        res.end(JSON.stringify({ error: 'Notion error', status: r.status }));
+        res.end(JSON.stringify({ error: 'Notion error', status: r.status }) + '\n');
         return;
       }
-      // Columnar: each page becomes a value array (keys stored once, not per row)
-      all.push(...(r.body.results || []).map(slimRow));
+      const batch = (r.body.results || []).map(slimRow);
+      allRows.push(...batch);
+      // Write each batch as it arrives — client gets data progressively
+      res.write(JSON.stringify(batch) + '\n');
       cursor = r.body.has_more ? r.body.next_cursor : null;
       page++;
     } while (cursor && page < MAX_PAGES);
 
-    // Return columnar format: { keys, rows } — ~2× smaller than array-of-objects
-    res.writeHead(200, {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Cache-Control': 'no-store',
-    });
-    res.end(JSON.stringify({ keys: SLIM_KEYS, rows: all, total: all.length }));
+    // Sentinel line — tells client we're done
+    res.end(JSON.stringify({ total: allRows.length }) + '\n');
+
+    // Cache the full payload (regular JSON format) for next request
+    SERVER_CACHE[dbId] = {
+      payload: JSON.stringify({ keys: SLIM_KEYS, rows: allRows, total: allRows.length }),
+      ts: Date.now(),
+    };
   } catch (e) {
-    res.writeHead(500, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
-    res.end(JSON.stringify({ error: e.message }));
+    res.end(JSON.stringify({ error: e.message }) + '\n');
   }
 }
 

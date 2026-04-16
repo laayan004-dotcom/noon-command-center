@@ -1338,13 +1338,30 @@ async function syncFromNotion(background=false){
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: AppState.token, dbId: NotionSync.DB.restaurants })
-    }, 120000); // 2 min max — server handles all pagination
+    }, 180000); // 3 min max — server streams 13k restaurants
 
     if(!bulkRes.ok) throw new Error('Bulk fetch failed: ' + bulkRes.status);
-    const bulkData = await bulkRes.json();
 
-    // Server returns columnar format: { keys, rows, total }
-    const { keys = [], rows = [] } = bulkData;
+    // Parse NDJSON stream: line 0 = {keys}, lines 1..N = [[row],...], last = {total}
+    // Also handles cached plain-JSON responses (X-Cache: HIT) transparently
+    const text = await bulkRes.text();
+    let keys = [], rows = [];
+    const ct = bulkRes.headers.get('content-type') || '';
+    if(ct.includes('ndjson') || text.trim().startsWith('{"keys"') && text.includes('\n')){
+      // NDJSON format
+      for(const line of text.trim().split('\n')){
+        if(!line) continue;
+        const obj = JSON.parse(line);
+        if(obj.keys)  keys = obj.keys;
+        else if(Array.isArray(obj)) rows.push(...obj);
+        // {total:N} sentinel — ignore, we count rows
+      }
+    } else {
+      // Plain JSON (server cache hit)
+      const j = JSON.parse(text);
+      keys = j.keys || []; rows = j.rows || [];
+    }
+
     if(!rows.length){
       setSyncState('on', 'Connected — no restaurants found');
       return;
