@@ -1034,7 +1034,13 @@ function navigateTo(id){
   document.getElementById(id).classList.add('active');
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.section===id));
   AppState.currentSection=id;
-  if(id==='sec-heatmap'&&!AppState.mapInitialized)initMap();
+  if(id==='sec-heatmap'){
+    if(!AppState.mapInitialized) initMap();
+    // Leaflet needs the container to be visible before it knows its size
+    requestAnimationFrame(()=>{
+      if(AppState.mapInstance) AppState.mapInstance.invalidateSize();
+    });
+  }
   refreshSection(id);
 }
 
@@ -1046,6 +1052,7 @@ function refreshSection(id){
   else if(id==='sec-checklist'){ renderChecklistSection(); }
   else if(id==='sec-onboarding')renderOnboarding();
   else if(id==='sec-activity'){renderActivityLog();renderScoreboard();}
+  else if(id==='sec-heatmap'){ if(AppState.mapInitialized){ renderMapMarkers(); renderMapFilters(); } }
   else if(id==='sec-calendar')renderCalendar();
   else if(id==='sec-scripts')renderScript();
   else if(id==='sec-templates')renderTemplates();
@@ -2693,8 +2700,12 @@ function initMap(){
     attribution:'©OpenStreetMap ©CARTO',maxZoom:19,subdomains:'abcd'
   }).addTo(AppState.mapInstance);
   AppState.mapInitialized=true;
-  renderMapMarkers();
-  renderMapFilters();
+  // Force Leaflet to recalculate container size — fixes blank/grey tile bug
+  requestAnimationFrame(()=>{
+    AppState.mapInstance.invalidateSize();
+    renderMapMarkers();
+    renderMapFilters();
+  });
 }
 
 const STATUS_MAP_COLORS={'No Contact':'#8a6878','Contacted':'#3b82f6','Interested':'#f59e0b','Negotiating':'#ff2d78','Onboarding':'#d946ef','Live':'#22c55e','Lost':'#444444'};
