@@ -44,9 +44,16 @@ function notionRequest(method, notionPath, authToken, bodyObj) {
   });
 }
 
-// ── Slim a raw Notion page object to just the fields the UI needs ──
-// Raw page is ~3 KB of metadata; slimmed is ~200 bytes → 15× compression
-function slimPage(p) {
+// ── Field order for columnar format (keys stored once, not per row) ──
+const SLIM_KEYS = [
+  'id','name','am','pipelineStatus','priority','outlets',
+  'groupName','cuisine','priceForTwo','website','phone',
+  'notes','email','pocName','discountAgreed','isLive',
+  'confirmedForOut','resCode','lat','lng','nextFollowUp','lastActivity',
+];
+
+// ── Extract one slim value array from a raw Notion page ──
+function slimRow(p) {
   const props = p.properties || {};
   function g(key) {
     const v = props[key];
@@ -62,30 +69,31 @@ function slimPage(p) {
     if (v.date)         return v.date?.start || null;
     return null;
   }
-  return {
-    id:               p.id,
-    name:             g('Name') || g('Brand Name') || '(no name)',
-    am:               g('AM') || '',
-    pipelineStatus:   g('Pipeline Status') || 'Prospect',
-    priority:         g('Priority') || 'P2',
-    outlets:          g('# of Outlets') || 1,
-    groupName:        g('Group Name') || '',
-    cuisine:          g('Cuisine') || '',
-    priceForTwo:      g('Price for Two AED') || 0,
-    website:          g('Web Page') || '',
-    phone:            g('Phone') || '',
-    notes:            g('Notes') || '',
-    email:            g('Email') || '',
-    pocName:          g('POC Name') || '',
-    discountAgreed:   g('Discount Agreed %') || 0,
-    isLive:           g('Is Live') || false,
-    confirmedForOut:  g('Confirmed for OUT') || false,
-    resCode:          g('Res Code') || '',
-    lat:              g('Latitude') || null,
-    lng:              g('Longitude') || null,
-    nextFollowUp:     g('Next Follow-up Date') || null,
-    lastActivity:     g('Last Activity Date') || null,
-  };
+  // Return values in SLIM_KEYS order; nulls kept sparse-friendly
+  return [
+    p.id,
+    g('Name') || g('Brand Name') || '(no name)',
+    g('AM') || null,
+    g('Pipeline Status') || null,
+    g('Priority') || null,
+    g('# of Outlets') || null,
+    g('Group Name') || null,
+    g('Cuisine') || null,
+    g('Price for Two AED') || null,
+    g('Web Page') || null,
+    g('Phone') || null,
+    g('Notes') || null,
+    g('Email') || null,
+    g('POC Name') || null,
+    g('Discount Agreed %') || null,
+    g('Is Live') || null,
+    g('Confirmed for OUT') || null,
+    g('Res Code') || null,
+    g('Latitude') || null,
+    g('Longitude') || null,
+    g('Next Follow-up Date') || null,
+    g('Last Activity Date') || null,
+  ];
 }
 
 // ── /api/all-restaurants: server fetches ALL pages, returns flat array ──
@@ -114,30 +122,15 @@ async function handleAllRestaurants(req, res) {
     return;
   }
 
-  // Only fetch actual BD pipeline restaurants — those assigned to one of the 6 AMs.
-  // The Notion DB is a full 10,000-entry Dubai directory; without this filter we'd
-  // get all of them, which is 8MB+ and unusable on mobile.
-  const PIPELINE_FILTER = {
-    or: [
-      { property: 'AM', rich_text: { equals: 'Liyan'   } },
-      { property: 'AM', rich_text: { equals: 'Zain'    } },
-      { property: 'AM', rich_text: { equals: 'Ashwin'  } },
-      { property: 'AM', rich_text: { equals: 'Uday'    } },
-      { property: 'AM', rich_text: { equals: 'Awni'    } },
-      { property: 'AM', rich_text: { equals: 'Silvana' } },
-    ],
-  };
-
-  const all = [];
+  const all = [];   // array of slim row arrays
   let cursor = null;
   let page = 0;
-  const MAX_PAGES = 50; // 5,000 pipeline restaurants max
+  const MAX_PAGES = 150; // 15,000 restaurants max (full Dubai directory ~13,661)
 
   try {
     do {
       const body = {
         page_size: 100,
-        filter: PIPELINE_FILTER,
         ...(cursor ? { start_cursor: cursor } : {}),
       };
       const r = await notionRequest('POST', `/v1/databases/${dbId}/query`, authToken, body);
@@ -146,18 +139,19 @@ async function handleAllRestaurants(req, res) {
         res.end(JSON.stringify({ error: 'Notion error', status: r.status }));
         return;
       }
-      // Slim each page to only the fields the UI needs (3 KB → ~200 bytes per record)
-      all.push(...(r.body.results || []).map(slimPage));
+      // Columnar: each page becomes a value array (keys stored once, not per row)
+      all.push(...(r.body.results || []).map(slimRow));
       cursor = r.body.has_more ? r.body.next_cursor : null;
       page++;
     } while (cursor && page < MAX_PAGES);
 
+    // Return columnar format: { keys, rows } — ~2× smaller than array-of-objects
     res.writeHead(200, {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       'Cache-Control': 'no-store',
     });
-    res.end(JSON.stringify({ results: all, total: all.length }));
+    res.end(JSON.stringify({ keys: SLIM_KEYS, rows: all, total: all.length }));
   } catch (e) {
     res.writeHead(500, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
     res.end(JSON.stringify({ error: e.message }));

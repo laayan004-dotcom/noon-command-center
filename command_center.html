@@ -1135,7 +1135,7 @@ const MOCK_ACTIVITIES = [
 ];
 
 // ===================== INIT =====================
-const CACHE_KEY = 'cc_restaurants_v7'; // bumped — clears 10k-entry unfiltered cache
+const CACHE_KEY = 'cc_restaurants_v8'; // columnar format — all 13k restaurants
 const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 
 async function init(){
@@ -1206,19 +1206,52 @@ async function init(){
   }
 }
 
+// Decode a columnar { keys, rows } payload into restaurant objects
+function _decodeColumnar({ keys, rows }) {
+  return rows.map(row => {
+    const r = {};
+    keys.forEach((k, i) => { r[k] = row[i] ?? null; });
+    r.am              = r.am              || '';
+    r.pipelineStatus  = r.pipelineStatus  || '';
+    r.status          = r.pipelineStatus;   // ← alias used throughout UI
+    r.priority        = r.priority        || 'P2';
+    r.outlets         = r.outlets         || 1;
+    r.groupName       = r.groupName       || '';
+    r.cuisine         = r.cuisine         || '';
+    r.priceForTwo     = r.priceForTwo     || 0;
+    r.website         = r.website         || '';
+    r.phone           = r.phone           || '';
+    r.notes           = r.notes           || '';
+    r.email           = r.email           || '';
+    r.pocName         = r.pocName         || '';
+    r.discountAgreed  = r.discountAgreed  || 0;
+    r.isLive          = r.isLive          || false;
+    r.confirmedForOut = r.confirmedForOut || false;
+    r.resCode         = r.resCode         || '';
+    return r;
+  });
+}
+
 function _loadRestaurantCache(){
   try{
     const raw = localStorage.getItem(CACHE_KEY);
     if(!raw) return {restaurants:[], ts:0};
     const obj = JSON.parse(raw);
-    return {restaurants: obj.data||[], ts: obj.ts||0};
+    // New columnar format: { keys, rows, ts }
+    if(obj.keys && obj.rows) {
+      return { restaurants: _decodeColumnar(obj), ts: obj.ts||0 };
+    }
+    // Legacy object-array format (v7 and earlier)
+    const rests = (obj.data||[]).map(r => ({ ...r, status: r.status || r.pipelineStatus || '' }));
+    return { restaurants: rests, ts: obj.ts||0 };
   } catch(e){ return {restaurants:[], ts:0}; }
 }
 
-function _saveRestaurantCache(restaurants){
+// Save the columnar payload directly (keys+rows ~2MB, vs decoded ~5.5MB)
+function _saveRestaurantCache(columnarPayload){
   try{
-    localStorage.setItem(CACHE_KEY, JSON.stringify({data: restaurants, ts: Date.now()}));
-  } catch(e){ /* storage full — skip */ }
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ ...columnarPayload, ts: Date.now() }));
+  } catch(e){ /* storage full — skip silently */ }
 }
 
 function _timeAgo(ts){
@@ -1309,20 +1342,16 @@ async function syncFromNotion(background=false){
 
     if(!bulkRes.ok) throw new Error('Bulk fetch failed: ' + bulkRes.status);
     const bulkData = await bulkRes.json();
-    const rawResults = bulkData.results || [];
 
-    if(!rawResults.length){
+    // Server returns columnar format: { keys, rows, total }
+    const { keys = [], rows = [] } = bulkData;
+    if(!rows.length){
       setSyncState('on', 'Connected — no restaurants found');
       return;
     }
 
-    setSyncState('syncing', `Processing ${rawResults.length} restaurants…`);
-    // Server already slimmed each page to the same shape _pageToRestaurant produces,
-    // so we can use the results directly — no per-record mapping needed.
-    const rests = rawResults.map(r => ({
-      ...r,
-      stage: r.pipelineStatus || 'Prospect',  // alias used by pipeline view
-    }));
+    setSyncState('syncing', `Processing ${rows.length} restaurants…`);
+    const rests = _decodeColumnar({ keys, rows });
 
     // Merge: preserve local notes/edits over Notion data
     const localById = {};
@@ -1336,7 +1365,7 @@ async function syncFromNotion(background=false){
     });
 
     AppState.restaurants = mergeSupplement(merged);
-    _saveRestaurantCache(AppState.restaurants);
+    _saveRestaurantCache({ keys, rows }); // save columnar format (~2MB, not decoded ~5.5MB)
 
     const now = new Date().toLocaleTimeString('en-AE',{hour:'2-digit',minute:'2-digit'});
     setSyncState('on', rests.length + ' restaurants · ' + now);
@@ -1722,7 +1751,7 @@ function kanbanDrop(e,status){
   if(!dragId)return;
   const r = AppState.restaurants.find(x=>x.id===dragId);
   if(r && r.status!==status){
-    r.status=status;
+    r.status=status; r.pipelineStatus=status;
     toast(`${r.name} moved to ${status}`);
     NotionSync.updateStatus(r.notionPageId, status).catch(()=>{});
     renderPipelineKanban(sortRestaurants(getFilteredRestaurants()));
@@ -2404,7 +2433,7 @@ async function quickSaveField(id, field, val){
     props['Discount Agreed %'] = {number: n/100}; // Notion wants decimal
     toast(`Discount → ${n}%`);
   }
-  _saveRestaurantCache(AppState.restaurants);
+  // local edit — columnar cache not updated; Notion sync keeps server authoritative
   // Sync to Notion in background
   if(r.notionPageId && AppState.notionConnected){
     fetch(`/notion/v1/pages/${r.notionPageId}`,{
@@ -2455,7 +2484,7 @@ async function saveIntelEdit(id){
     talabatDisc: talabatD,
     zomatoDisc: zomatoD
   });
-  _saveRestaurantCache(AppState.restaurants); // preserve edits even if Notion sync fails
+  // local edit — columnar cache not updated; Notion sync keeps server authoritative // preserve edits even if Notion sync fails
 
   // Build Notion PATCH payload
   const stagePipelineMap = {
@@ -3983,7 +4012,7 @@ function markStep(restId, stepId, done){
       if(contactData.poc_name && !rObj.poc) rObj.poc = contactData.poc_name;
       if(contactData.poc_phone && !rObj.phone) rObj.phone = contactData.poc_phone;
       if(contactData.poc_email && !rObj.email) rObj.email = contactData.poc_email;
-      _saveRestaurantCache(AppState.restaurants);
+      // local edit — columnar cache not updated; Notion sync keeps server authoritative
     }
   }
   localStorage.setItem('chk_'+restId, JSON.stringify(saved));
