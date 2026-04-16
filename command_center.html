@@ -1161,7 +1161,9 @@ async function init(){
     setSyncState('on', `${cached.restaurants.length} restaurants · cached ${ago}`);
     renderDashboard(); // show data instantly
   } else {
-    AppState.restaurants = MOCK_RESTAURANTS;
+    // No cache — show loading state, NOT mock data
+    AppState.restaurants = [];
+    setSyncState('syncing', 'Loading restaurants…');
   }
 
   // Sidebar + UI state
@@ -3408,7 +3410,8 @@ const NotionSync = {
   get headers(){ return { 'Authorization':'Bearer '+AppState.token, 'Notion-Version':'2022-06-28', 'Content-Type':'application/json' }; },
 
   async test(){
-    try{ const r=await fetchWithTimeout(this.BASE+'/users/me',{headers:this.headers},10000); return r.ok; }
+    // 45s — accounts for Render free tier cold start (~30s) + Notion API latency
+    try{ const r=await fetchWithTimeout(this.BASE+'/users/me',{headers:this.headers},45000); return r.ok; }
     catch{ return false; }
   },
 
@@ -3488,12 +3491,14 @@ const NotionSync = {
       const res = await fetchWithTimeout(
         `${this.BASE}/databases/${this.DB.restaurants}/query`,
         {method:'POST', headers:this.headers, body:JSON.stringify(body)},
-        25000 // 25s per page fetch
+        45000 // 45s per page — handles cold start + slow Notion responses
       );
       if(!res.ok){ console.error('Notion query failed',res.status); break; }
       const data = await res.json();
       all = all.concat(data.results.map(p=>this._pageToRestaurant(p)));
       cursor = data.has_more ? data.next_cursor : null;
+      // Show live count while loading so user knows it's working
+      setSyncState('syncing', `Loading… ${all.length} restaurants`);
     } while(cursor);
     return all;
   },
