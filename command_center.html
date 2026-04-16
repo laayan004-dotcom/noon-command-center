@@ -428,21 +428,25 @@ tr:hover td{background:var(--card2);}
 @media(max-width:768px){
   body{flex-direction:column;height:100svh;overflow:hidden;}
 
-  /* Mobile top bar */
+  /* ── Top bar ── */
   .mobile-header{
     display:flex;align-items:center;justify-content:space-between;
     padding:10px 16px;background:var(--card);border-bottom:1px solid var(--border);
     position:sticky;top:0;z-index:200;flex-shrink:0;
     padding-top:max(10px,env(safe-area-inset-top));
+    min-height:48px;
   }
   .mob-logo{font-size:18px;font-weight:900;}
   .mob-logo .noon-p{color:var(--noon);}
   .mob-logo .out-p{color:var(--pink);}
   .mob-hamburger{background:none;border:1px solid var(--border);border-radius:8px;
-    padding:7px 10px;color:var(--muted);font-size:16px;cursor:pointer;}
-  .mob-sync{font-size:10px;color:var(--muted);display:flex;align-items:center;gap:5px;}
+    padding:7px 10px;color:var(--muted);font-size:16px;cursor:pointer;min-width:40px;}
+  /* Show restaurant count in sync pill */
+  .mob-sync{font-size:11px;color:var(--text);display:flex;align-items:center;gap:5px;
+    background:var(--card2);border:1px solid var(--border);border-radius:20px;padding:4px 10px;}
+  .mob-sync .sync-dot{width:7px;height:7px;}
 
-  /* Sidebar becomes slide-in overlay */
+  /* ── Sidebar slide-in ── */
   .sidebar{
     position:fixed;top:0;left:0;bottom:0;z-index:500;
     width:280px!important;min-width:280px!important;
@@ -455,83 +459,99 @@ tr:hover td{background:var(--card2);}
   .sidebar.collapsed .sb-logo-words{opacity:1!important;width:auto!important;}
   .sidebar.collapsed .sb-section-label{opacity:1!important;height:auto!important;padding:12px 16px 4px!important;overflow:visible!important;}
   .sidebar.collapsed .am-selector{display:block!important;}
-
-  /* Dim overlay behind sidebar */
-  .mob-overlay{
-    display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:499;
-  }
+  .mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:499;}
   .mob-overlay.active{display:block;}
 
-  /* Main content fills full height minus top bar + bottom nav */
+  /* ── Main scroll area ── */
   .main-content{
     flex:1;width:100%;min-height:0;
     overflow-y:auto;-webkit-overflow-scrolling:touch;
-    padding-bottom:calc(64px + env(safe-area-inset-bottom));
+    padding-bottom:calc(68px + env(safe-area-inset-bottom));
   }
 
-  /* Bottom tab nav */
+  /* ── Bottom tab nav ── */
   .mobile-nav{
     display:flex;position:fixed;bottom:0;left:0;right:0;
     background:var(--card);border-top:1px solid var(--border);
     z-index:300;padding-bottom:env(safe-area-inset-bottom);
-    height:calc(60px + env(safe-area-inset-bottom));
+    height:calc(62px + env(safe-area-inset-bottom));
   }
   .mob-tab{
     flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:3px;cursor:pointer;padding:8px 4px;transition:color .12s;
+    gap:3px;cursor:pointer;padding:8px 2px;transition:color .12s;
     color:var(--muted);font-size:9px;font-weight:700;text-transform:uppercase;
-    letter-spacing:.04em;border:none;background:none;
+    letter-spacing:.03em;border:none;background:none;-webkit-tap-highlight-color:transparent;
   }
   .mob-tab.active{color:var(--pink);}
-  .mob-tab svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+  .mob-tab svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
 
-  /* Section headers */
-  .sec-header{padding:12px 16px;flex-wrap:wrap;gap:8px;}
-  .sec-title{font-size:16px;}
-  .sec-body{padding:12px;}
+  /* ── Section chrome ── */
+  .sec-header{padding:10px 14px;flex-wrap:wrap;gap:6px;align-items:center;}
+  .sec-title{font-size:15px;font-weight:700;}
+  .sec-body{padding:10px 12px;}
+  /* Hide non-critical header buttons on mobile */
+  .sec-header .mob-hide{display:none!important;}
 
-  /* KPI grid → 2 cols on mobile */
+  /* ── KPI tiles ── */
   .kpi-grid{grid-template-columns:repeat(2,1fr)!important;gap:8px;}
-  .kpi-val{font-size:22px!important;}
+  .kpi-val{font-size:20px!important;}
+  .kpi-card{padding:12px!important;}
 
-  /* Dashboard 3-col → 1 col */
+  /* ── Dashboard charts — shorter on mobile ── */
   #sec-dashboard .sec-body > div[style*="grid-template-columns:1fr 1fr 1fr"],
-  #sec-dashboard .sec-body > div[style*="grid-template-columns:1.4fr"] {
+  #sec-dashboard .sec-body > div[style*="grid-template-columns:1.4fr"]{
     grid-template-columns:1fr!important;height:auto!important;
   }
+  #sec-dashboard canvas{max-height:180px!important;}
 
-  /* Map full height */
-  #map{height:calc(100svh - 180px)!important;}
+  /* ── Pipeline — force table view, hide kanban toggle ── */
+  .pipeline-cards{grid-template-columns:1fr!important;}
+  #pipeKanbanBtn{display:none!important;}
+  /* Kanban hidden on mobile — table only */
+  #pipelineKanbanWrap{display:none!important;}
+  /* Table scrolls horizontally */
+  #pipelineTableWrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  #pipelineTableWrap table{min-width:560px;}
+  /* Compact table rows */
+  #pipelineTableWrap td,#pipelineTableWrap th{padding:8px 10px!important;font-size:12px!important;}
+
+  /* ── Intel ── */
+  .intel-grid{grid-template-columns:1fr!important;}
+  /* Full-width cards, no min-width floor */
+  .intel-cards{grid-template-columns:1fr!important;}
+  .intel-card{padding:12px;}
+  .ic-name{font-size:13px!important;}
+  /* Intel detail — remove 2-col grid */
+  .intel-dh-stats{flex-wrap:wrap;gap:8px!important;}
+  .intel-dh-stat{min-width:80px;}
+
+  /* ── Map ── */
+  #map{height:calc(100svh - 178px)!important;}
   #mapFilterPills{display:none;}
 
-  /* Pipeline cards → stack */
-  .pipeline-cards{grid-template-columns:1fr!important;}
-
-  /* Intel grid → single col */
-  .intel-grid{grid-template-columns:1fr!important;}
-
-  /* Larger touch targets */
+  /* ── Touch targets ── */
   .btn{min-height:40px;padding:8px 14px;}
-  .btn-sm{min-height:34px;}
+  .btn-sm{min-height:36px;padding:6px 12px;}
   .nav-item{padding:12px 16px;}
+  input,select{min-height:38px!important;}
 
-  /* Scripts layout → stack */
+  /* ── Scripts ── */
   .scripts-layout{flex-direction:column!important;}
   .scripts-nav{width:100%!important;display:flex;flex-wrap:wrap;gap:6px;}
   .scripts-nav-item{padding:8px 12px!important;flex-shrink:0;}
 
-  /* Templates → stack */
+  /* ── Templates ── */
   #tplTabs{flex-wrap:wrap;}
 
-  /* Follow-up cards */
-  .fu-card{flex-direction:column!important;}
+  /* ── Follow-ups ── */
+  .fu-card{flex-direction:column!important;gap:10px!important;}
   .fu-date-badge{flex-direction:row!important;gap:10px;}
 
-  /* Checklist section */
+  /* ── Checklist ── */
   .checklist-steps{grid-template-columns:1fr!important;}
 
-  /* Popup bigger touch targets */
-  .leaflet-popup-content button{min-height:38px!important;font-size:13px!important;}
+  /* ── Map popups ── */
+  .leaflet-popup-content button{min-height:40px!important;font-size:13px!important;}
 }
 </style>
 </head>
@@ -1115,7 +1135,7 @@ const MOCK_ACTIVITIES = [
 ];
 
 // ===================== INIT =====================
-const CACHE_KEY = 'cc_restaurants_v5'; // all AMs loaded, filter client-side only
+const CACHE_KEY = 'cc_restaurants_v6'; // bumped — clears old 2000-cap cache
 const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
 
 async function init(){
@@ -1600,6 +1620,10 @@ function setSortCol(col){
 }
 
 function renderPipeline(){
+  // On mobile, always use table — kanban requires horizontal scroll
+  if(window.innerWidth<=768 && AppState.pipelineView!=='table'){
+    setPipeView('table', true);
+  }
   const filtered = sortRestaurants(getFilteredRestaurants());
   if(AppState.pipelineView==='table') renderPipelineTable(filtered);
   else renderPipelineKanban(filtered);
