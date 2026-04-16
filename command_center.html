@@ -2860,14 +2860,24 @@ function renderMapMarkers(){
     }
   });
 
-  // Dubai bounding box for fallback scatter
-  const DUBAI_BOUNDS = {latMin:25.05,latMax:25.35,lngMin:55.10,lngMax:55.50};
+  // Land-only anchor points — restaurants without coords scatter around these
+  // (bounding box approach puts dots in the ocean; anchored jitter keeps them on land)
+  const LAND_ANCHORS = [
+    {lat:25.0819,lng:55.1367},{lat:25.1972,lng:55.2744},{lat:25.0778,lng:55.1432},
+    {lat:25.2120,lng:55.2837},{lat:25.2116,lng:55.2486},{lat:25.2532,lng:55.2985},
+    {lat:25.1901,lng:55.2394},{lat:25.1072,lng:55.1985},{lat:25.1865,lng:55.2607},
+    {lat:25.1124,lng:55.1390},{lat:25.0694,lng:55.1539},{lat:25.2285,lng:55.3273},
+    {lat:25.1760,lng:55.3128},{lat:25.2495,lng:55.3660},{lat:25.2045,lng:55.2708},
+    {lat:25.1551,lng:55.2348},{lat:25.0936,lng:55.1685},{lat:25.2347,lng:55.3155},
+  ];
   function fallbackCoord(id){
-    // Deterministic pseudo-random position within Dubai, seeded by id
+    // Deterministic — seeded by id so each restaurant is always in the same spot
     let h=0; for(const c of (id||'X')) h=(h*31+c.charCodeAt(0))>>>0;
-    const lat=DUBAI_BOUNDS.latMin+(h%10000)/10000*(DUBAI_BOUNDS.latMax-DUBAI_BOUNDS.latMin);
-    const lng=DUBAI_BOUNDS.lngMin+((h>>14)%10000)/10000*(DUBAI_BOUNDS.lngMax-DUBAI_BOUNDS.lngMin);
-    return{lat,lng};
+    const anchor = LAND_ANCHORS[h % LAND_ANCHORS.length];
+    // Small jitter within ~1.5km so nearby restaurants don't all stack
+    const lat = anchor.lat + ((h>>8)%200-100)/10000;
+    const lng = anchor.lng + ((h>>16)%200-100)/10000;
+    return {lat, lng};
   }
 
   const filtered = AppState.restaurants.filter(r=>{
