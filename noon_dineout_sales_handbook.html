@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noon DineOut — Sales Handbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #F5C800;
+    --yellow-light: #FFF5B0;
+    --dark: #0D0D0D;
+    --dark2: #1A1A1A;
+    --dark3: #262626;
+    --text: #EDEDEB;
+    --muted: #888;
+    --accent: #FF6B35;
+    --green: #3DDB85;
+    --red: #FF4444;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 240px;
+    height: 100vh;
+    background: var(--dark2);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .sidebar-logo {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--yellow);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .logo-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .logo-title span { color: var(--yellow); }
+
+  .nav-section {
+    padding: 20px 12px;
+    flex: 1;
+  }
+
+  .nav-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 12px;
+    margin-bottom: 6px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: #aaa;
+    transition: all 0.2s;
+    text-decoration: none;
+    margin-bottom: 2px;
+  }
+
+  .nav-item:hover { background: var(--dark3); color: var(--text); }
+  .nav-item.active { background: rgba(245,200,0,0.12); color: var(--yellow); }
+
+  .nav-icon { font-size: 15px; width: 20px; text-align: center; }
+
+  .sidebar-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* MAIN */
+  .main {
+    margin-left: 240px;
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--dark2) 0%, #1a1500 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 340px; height: 340px;
+    background: radial-gradient(circle, rgba(245,200,0,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 14px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .hero-title em { color: var(--yellow); font-style: normal; }
+
+  .hero-sub {
+    font-size: 15px;
+    color: #bbb;
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .badge-yellow { background: rgba(245,200,0,0.15); color: var(--yellow); border: 1px solid rgba(245,200,0,0.3); }
+  .badge-green { background: rgba(61,219,133,0.12); color: var(--green); border: 1px solid rgba(61,219,133,0.25); }
+  .badge-orange { background: rgba(255,107,53,0.12); color: var(--accent); border: 1px solid rgba(255,107,53,0.25); }
+
+  /* CONTENT */
+  .content {
+    padding: 0 56px 80px;
+  }
+
+  /* SECTION */
+  .section {
+    margin-top: 56px;
+    scroll-margin-top: 24px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--yellow);
+    background: rgba(245,200,0,0.1);
+    border: 1px solid rgba(245,200,0,0.25);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* CARDS GRID */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    transition: border-color 0.2s;
+  }
+
+  .card:hover { border-color: rgba(245,200,0,0.3); }
+
+  .card-icon { font-size: 22px; margin-bottom: 12px; }
+  .card-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .card-body { font-size: 13px; color: #aaa; line-height: 1.65; }
+
+  /* TIMELINE / FLOW */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .flow-step {
+    display: flex;
+    gap: 20px;
+    position: relative;
+  }
+
+  .flow-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 44px;
+    bottom: -1px;
+    width: 2px;
+    background: linear-gradient(to bottom, rgba(245,200,0,0.4), rgba(245,200,0,0.05));
+  }
+
+  .flow-dot {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    background: var(--dark3);
+    border: 2px solid rgba(245,200,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--yellow);
+    position: relative;
+    z-index: 1;
+  }
+
+  .flow-content {
+    flex: 1;
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 16px;
+  }
+
+  .flow-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .flow-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--yellow);
+    background: rgba(245,200,0,0.1);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 400;
+  }
+
+  .flow-body { font-size: 13px; color: #aaa; line-height: 1.7; }
+
+  .flow-questions {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .flow-q {
+    font-size: 12.5px;
+    color: var(--text);
+    background: var(--dark3);
+    border-left: 3px solid var(--yellow);
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* PITCH BOX */
+  .pitch-box {
+    background: linear-gradient(135deg, #1a1800, var(--dark2));
+    border: 1px solid rgba(245,200,0,0.3);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pitch-box::before {
+    content: '"';
+    position: absolute;
+    top: -10px; left: 18px;
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    color: rgba(245,200,0,0.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .pitch-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 12px;
+  }
+
+  .pitch-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  .pitch-text em {
+    color: var(--yellow);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* OBJECTIONS */
+  .objection-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .objection-item {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .obj-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: var(--dark2);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .obj-icon {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(255,68,68,0.15);
+    border: 1px solid rgba(255,68,68,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .obj-q {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
+
+  .obj-toggle {
+    font-size: 18px;
+    color: var(--muted);
+    transition: transform 0.25s;
+  }
+
+  .obj-toggle.open { transform: rotate(45deg); color: var(--yellow); }
+
+  .obj-answer {
+    display: none;
+    padding: 16px 20px 20px 66px;
+    background: var(--dark3);
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.75;
+    border-top: 1px solid var(--border);
+  }
+
+  .obj-answer.open { display: block; }
+
+  .obj-answer strong { color: var(--yellow); font-weight: 600; }
+
+  /* OFFER TABLE */
+  .offer-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .offer-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .offer-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: #ccc;
+    vertical-align: top;
+  }
+
+  .offer-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .offer-table .opt-name {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .offer-table .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .tag-best { background: rgba(61,219,133,0.15); color: var(--green); }
+  .tag-safe { background: rgba(245,200,0,0.12); color: var(--yellow); }
+  .tag-flex { background: rgba(255,107,53,0.12); color: var(--accent); }
+
+  /* COMMERCIALS */
+  .comm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .comm-card {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .comm-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--yellow);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .comm-label { font-size: 12px; color: var(--muted); }
+  .comm-note { font-size: 11px; color: #666; margin-top: 4px; }
+
+  /* COMPETITORS */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .comp-card {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+
+  .comp-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .comp-badge {
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    padding: 2px 7px;
+    border-radius: 3px;
+    color: var(--muted);
+    background: var(--dark3);
+    border: 1px solid var(--border);
+  }
+
+  .comp-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .comp-item {
+    font-size: 12px;
+    display: flex;
+    gap: 8px;
+    color: #aaa;
+    line-height: 1.5;
+  }
+
+  .comp-item.pro::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .comp-item.con::before { content: '✕'; color: var(--red); font-weight: 700; flex-shrink: 0; }
+
+  /* PSYCHOLOGY PILLS */
+  .psych-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+  }
+
+  .psych-card {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .psych-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--yellow);
+    border-radius: 3px 0 0 3px;
+  }
+
+  .psych-emoji { font-size: 22px; margin-bottom: 10px; }
+  .psych-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .psych-body { font-size: 12px; color: #999; line-height: 1.65; }
+
+  /* BODY LANGUAGE */
+  .body-lang-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .bl-card {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    display: flex;
+    gap: 14px;
+  }
+
+  .bl-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .bl-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .bl-body { font-size: 12.5px; color: #aaa; line-height: 1.65; }
+
+  /* CHECKLIST */
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .check-item:hover { border-color: rgba(245,200,0,0.3); }
+  .check-item.checked { background: rgba(61,219,133,0.05); border-color: rgba(61,219,133,0.2); }
+
+  .check-box {
+    width: 22px; height: 22px;
+    min-width: 22px;
+    border-radius: 6px;
+    border: 2px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    transition: all 0.2s;
+  }
+
+  .check-item.checked .check-box {
+    background: var(--green);
+    border-color: var(--green);
+    color: #000;
+  }
+
+  .check-text { font-size: 13px; color: #ccc; line-height: 1.5; flex: 1; }
+  .check-item.checked .check-text { color: #888; text-decoration: line-through; }
+
+  /* INFO BOX */
+  .info-box {
+    background: rgba(245,200,0,0.06);
+    border: 1px solid rgba(245,200,0,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .info-box strong { color: var(--yellow); }
+
+  /* PILL ROW */
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .pill {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    color: #aaa;
+  }
+
+  /* CLOSE LINE */
+  .close-box {
+    background: linear-gradient(135deg, rgba(245,200,0,0.08), rgba(61,219,133,0.05));
+    border: 1px solid rgba(245,200,0,0.25);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-top: 24px;
+  }
+
+  .close-box .close-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 12px;
+  }
+
+  .close-box .close-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--text);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--dark2); }
+  ::-webkit-scrollbar-thumb { background: var(--dark3); border-radius: 3px; }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; }
+    .hero, .content { padding-left: 24px; padding-right: 24px; }
+    .comm-grid, .comp-grid, .body-lang-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-tag">BD Handbook</div>
+    <div class="logo-title">Noon <span>DineOut</span><br>Sales Guide</div>
+  </div>
+  <div class="nav-section">
+    <div class="nav-label">Sections</div>
+    <a href="#platform" class="nav-item active"><span class="nav-icon">🏗️</span>Platform Brief</a>
+    <a href="#offer" class="nav-item"><span class="nav-icon">💰</span>The Launch Offer</a>
+    <a href="#meeting-flow" class="nav-item"><span class="nav-icon">🗺️</span>Meeting Flow</a>
+    <a href="#pitch" class="nav-item"><span class="nav-icon">🎙️</span>60-Sec Pitch</a>
+    <a href="#objections" class="nav-item"><span class="nav-icon">🛡️</span>Objection Playbook</a>
+    <a href="#psychology" class="nav-item"><span class="nav-icon">🧠</span>Psychology Tactics</a>
+    <a href="#body-lang" class="nav-item"><span class="nav-icon">🤝</span>Body Language</a>
+    <a href="#competitors" class="nav-item"><span class="nav-icon">⚡</span>Competitor Intel</a>
+    <a href="#checklist" class="nav-item"><span class="nav-icon">✅</span>Pre-Meeting Checklist</a>
+  </div>
+  <div class="sidebar-footer">
+    Neighbourhood Food Hall<br>The Meating Room · Tacos Les Hermanos
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">📓 Field Sales Handbook · March 2026</div>
+    <h1 class="hero-title">Your <em>Go-To</em> Guide<br>for Every Meeting.</h1>
+    <p class="hero-sub">Everything you need to walk in confident, pitch sharp, handle any pushback, and walk out with a signed partner — built for the Neighbourhood Food Hall and every restaurant after it.</p>
+    <div class="hero-badges">
+      <span class="badge badge-yellow">🕐 60-Day Free Trial</span>
+      <span class="badge badge-green">0% Lead Gen Fee</span>
+      <span class="badge badge-orange">Min. 10% Customer Offer</span>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- SECTION 1: PLATFORM BRIEF -->
+    <div class="section" id="platform">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Platform Brief</h2>
+      </div>
+      <div class="info-box">
+        <strong>One-liner you should be able to say cold:</strong><br>
+        "Noon DineOut puts your restaurant in front of millions of active noon shoppers — people who aren't even browsing for restaurants yet — and converts them into real diners walking through your door."
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🍽️</div>
+          <div class="card-title">What is Noon DineOut?</div>
+          <div class="card-body">A dine-in discovery and bill-payment platform embedded inside the noon super-app. Restaurants get visibility to noon's existing millions of shoppers, grocery buyers, and daily users — not just people actively looking for restaurants.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <div class="card-title">Core Value Prop</div>
+          <div class="card-body">Fill slow hours and empty seats with high-intent customers. This isn't a delivery play. It's about footfall, table utilization, and repeat dine-in visits — especially on off-peak slots.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔮</div>
+          <div class="card-title">Where It's Going</div>
+          <div class="card-body">Noon is building a full "Going Out" ecosystem — restaurants, salons, spas, events, concerts. Early partners get founding-partner visibility before the platform scales. QR bill-splitting (like Qlub) is in roadmap.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🛡️</div>
+          <div class="card-title">Why It's Different</div>
+          <div class="card-body">Other platforms rotate the same discount-seekers. Noon's users are shoppers already spending inside the ecosystem — converting them into diners means higher intent and more return visits, not one-time deal chasers.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: THE LAUNCH OFFER -->
+    <div class="section" id="offer">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">The Launch Offer Structure</h2>
+      </div>
+
+      <div class="comm-grid">
+        <div class="comm-card">
+          <div class="comm-num">0%</div>
+          <div class="comm-label">Lead Gen Fee</div>
+          <div class="comm-note">First 60 days</div>
+        </div>
+        <div class="comm-card">
+          <div class="comm-num">2%</div>
+          <div class="comm-label">Payment Gateway</div>
+          <div class="comm-note">Always applies</div>
+        </div>
+        <div class="comm-card">
+          <div class="comm-num">3%</div>
+          <div class="comm-label">Lead Gen (post-trial)</div>
+          <div class="comm-note">After 60 days</div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>Also:</strong> Noon funds 5% cashback for loyalty customers — this is noon's co-investment, not the restaurant's cost.
+      </div>
+
+      <table class="offer-table" style="background:var(--dark2);border-radius:12px;overflow:hidden;border:1px solid var(--border);">
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>Discount Type</th>
+            <th>When Active</th>
+            <th>Best For</th>
+            <th>Tag</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="opt-name">A</td>
+            <td>10–15% off app-paid bills</td>
+            <td>All week</td>
+            <td>Always-on visibility, easy to manage</td>
+            <td><span class="tag tag-safe">Safe</span></td>
+          </tr>
+          <tr>
+            <td class="opt-name">B</td>
+            <td>15–20% off specific time slots</td>
+            <td>Weekdays, late evenings</td>
+            <td>Filling dead hours without touching peak margin</td>
+            <td><span class="tag tag-best">Recommended</span></td>
+          </tr>
+          <tr>
+            <td class="opt-name">C</td>
+            <td>Value-add (free item / set menu)</td>
+            <td>Anytime</td>
+            <td>Margin-sensitive partners who hate % discounts</td>
+            <td><span class="tag tag-flex">Flexible</span></td>
+          </tr>
+          <tr>
+            <td class="opt-name">Combo</td>
+            <td>10% always-on + 15–20% burst on slow days</td>
+            <td>Split by day/time</td>
+            <td>Best traction + margin protection</td>
+            <td><span class="tag tag-best">Ideal</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="close-box" style="margin-top:20px;">
+        <div class="close-label">🧮 Math Example to Share</div>
+        <div style="font-size:13px;color:#ccc;line-height:1.8;">
+          Average bill: <strong style="color:var(--yellow);">AED 200</strong> &nbsp;|&nbsp;
+          New customers/month: <strong style="color:var(--yellow);">15</strong> &nbsp;|&nbsp;
+          Discount per bill: <strong style="color:var(--yellow);">AED 30</strong><br>
+          Total discount given: <strong style="color:var(--accent);">AED 900/month</strong> — in exchange for 15 brand-new customers who never walked in before.
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: MEETING FLOW -->
+    <div class="section" id="meeting-flow">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Meeting Flow</h2>
+      </div>
+
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-dot">1</div>
+          <div class="flow-content">
+            <div class="flow-title">Warm-Up & Rapport <span class="flow-time">2–3 min</span></div>
+            <div class="flow-body">Compliment the food hall concept and each brand's specific strength. Set the agenda casually: "I'd love to understand your goals for the hall, share how our dineout platform can help fill seats, and explore a 2-month launch structure."</div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-dot">2</div>
+          <div class="flow-content">
+            <div class="flow-title">Discovery — You Ask, They Talk <span class="flow-time">10–15 min</span></div>
+            <div class="flow-body">This is the most important phase. Ask and listen. The more they talk, the more they commit.</div>
+            <div class="flow-questions">
+              <div class="flow-q">"What are your goals for the first 90 days of this food hall launch?"</div>
+              <div class="flow-q">"Which days or time slots are hardest to fill?"</div>
+              <div class="flow-q">"How are you currently generating new diners? What's working, what isn't?"</div>
+              <div class="flow-q">"How do you feel about discounting? What's your comfort zone on offers?"</div>
+            </div>
+            <div style="margin-top:12px;font-size:12px;color:var(--yellow);">→ Mirror back: "So the main thing is filling weekdays without killing margins — did I get that right?"</div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-dot">3</div>
+          <div class="flow-content">
+            <div class="flow-title">Value Story <span class="flow-time">5–8 min</span></div>
+            <div class="flow-body">Position as a growth partner, not a discount app. Lead with risk reduction:<br><br>
+            • Noon already has millions of UAE shoppers — we convert them into diners.<br>
+            • Pay-for-performance model — you only pay when a real customer redeems.<br>
+            • 0% lead-gen fee for 60 days — your only "cost" is a controlled offer you design with us.<br>
+            • "Founding partner" positioning — early movers get priority listing slots & marketing push.
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-dot">4</div>
+          <div class="flow-content">
+            <div class="flow-title">Make the Offer <span class="flow-time">3–5 min</span></div>
+            <div class="flow-body">Anchor high, give them levers. Don't say "we want a discount" — say "we're co-investing in launch demand."<br><br>Use the offer table from Section 2. Lead with Option B (time-banded) if they mentioned dead hours.</div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-dot">5</div>
+          <div class="flow-content">
+            <div class="flow-title">Handle Objections <span class="flow-time">As needed</span></div>
+            <div class="flow-body">See Section 5 — Objection Playbook. Stay calm, pause before answering, validate before redirecting.</div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-dot">6</div>
+          <div class="flow-content">
+            <div class="flow-title">Close <span class="flow-time">2–3 min</span></div>
+            <div class="flow-body">Use a direct but collaborative close. Don't leave without a specific next step — even if they don't sign on the spot.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: 60-SEC PITCH -->
+    <div class="section" id="pitch">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">The 60-Second Pitch</h2>
+      </div>
+
+      <div class="pitch-box">
+        <div class="pitch-label">🎯 Opening — Their Pain</div>
+        <div class="pitch-text">"With the food hall launching, your biggest win is getting <em>consistent footfall</em> — especially on slower weekdays — without killing margins."</div>
+      </div>
+
+      <div class="pitch-box">
+        <div class="pitch-label">💡 Solution — Your Platform</div>
+        <div class="pitch-text">"Our dineout platform helps you turn empty seats into paying guests by giving you <em>visibility inside noon's app</em> — and a simple way for people to discover, book, and pay here. Not on delivery."</div>
+      </div>
+
+      <div class="pitch-box">
+        <div class="pitch-label">🎁 The Offer</div>
+        <div class="pitch-text">"For the first <em>60 days</em>, we waive lead-gen fees entirely. In return, you run an exclusive launch offer of at least <em>10% for guests who come through us</em> — focused on the exact time slots you want to fill."</div>
+      </div>
+
+      <div class="pitch-box">
+        <div class="pitch-label">🔒 Close</div>
+        <div class="pitch-text">"If this structure feels fair, we can lock in your offer bands today and go live as one of the <em>founding partners of the hall</em> — before opening."</div>
+      </div>
+
+      <div class="info-box" style="margin-top:8px;">
+        <strong>Drill tip:</strong> Record yourself 3–5 times. Aim to sound calm, not salesy. Each block should flow naturally into the next.
+      </div>
+    </div>
+
+    <!-- SECTION 5: OBJECTIONS -->
+    <div class="section" id="objections">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Objection Playbook</h2>
+      </div>
+
+      <div class="info-box">
+        <strong>Rule:</strong> Pause → Acknowledge → Validate → Redirect to value. Never be defensive. Objections = they're seriously considering it.
+      </div>
+
+      <div class="objection-list">
+
+        <div class="objection-item">
+          <div class="obj-header" onclick="toggleObj(this)">
+            <div class="obj-icon">😤</div>
+            <div class="obj-q">"Discounts kill our margins."</div>
+            <div class="obj-toggle">+</div>
+          </div>
+          <div class="obj-answer">
+            <strong>Acknowledge:</strong> "Totally fair — and that's exactly why we've structured this carefully."<br><br>
+            <strong>Redirect:</strong> "We limit the offer to specific days, specific times, and app-paid bills only — a 2-month controlled test. Our aim is to monetize seats that would otherwise be completely empty, not discount business you'd already get. We'd review data together at week 4 and adjust or stop if it's not working."<br><br>
+            <strong>Math:</strong> Share the example — AED 900/month to acquire 15 brand-new customers.
+          </div>
+        </div>
+
+        <div class="objection-item">
+          <div class="obj-header" onclick="toggleObj(this)">
+            <div class="obj-icon">🔄</div>
+            <div class="obj-q">"We're already on Zomato / Talabat / Entertainer."</div>
+            <div class="obj-toggle">+</div>
+          </div>
+          <div class="obj-answer">
+            <strong>Validate:</strong> "That's perfect — it means you already believe in digital demand. We're not here to replace any of those."<br><br>
+            <strong>Differentiate:</strong> "Those platforms mainly rotate the same discount-seeking customers. Noon gives you access to a completely different customer pool — shoppers, grocery buyers, daily app users — many of whom are NOT actively browsing dine-out apps at all. We don't cannibalize your business, we add net-new customers to it."<br><br>
+            <strong>Angle:</strong> "Our focus is specifically dine-in and the food-hall experience — this launch offer is about owning that first wave of dine-in discovery."
+          </div>
+        </div>
+
+        <div class="objection-item">
+          <div class="obj-header" onclick="toggleObj(this)">
+            <div class="obj-icon">💸</div>
+            <div class="obj-q">"We don't want to give big discounts."</div>
+            <div class="obj-toggle">+</div>
+          </div>
+          <div class="obj-answer">
+            <strong>Align:</strong> "Neither do we — let's work on an offer that attracts new customers while protecting your margins."<br><br>
+            <strong>Offer lever:</strong> "Noon also funds 5% cashback for loyalty customers — so we're co-investing. Your side of the offer can be minimal."<br><br>
+            <strong>If still resistant:</strong> "Fair enough — why don't we start on a 2-month trial of 0% commission, put up a minimal offer, and make an informed decision with zero commitment?"
+          </div>
+        </div>
+
+        <div class="objection-item">
+          <div class="obj-header" onclick="toggleObj(this)">
+            <div class="obj-icon">📉</div>
+            <div class="obj-q">"Can we do less than 10%?"</div>
+            <div class="obj-toggle">+</div>
+          </div>
+          <div class="obj-answer">
+            <strong>Anchor high first:</strong> "Partners that see real traction usually sit around 15–20% on selected slots — that's what actually gets customer attention and drives volume."<br><br>
+            <strong>Deliberate concession:</strong> "If we need to protect margins, we can structure 10% always-on, plus occasional 15–20% bursts for events or your slowest periods."<br><br>
+            <strong>Reciprocity:</strong> When they accept 10–15%, you give something small back — priority listing, extra social posts, more frequent reporting.
+          </div>
+        </div>
+
+        <div class="objection-item">
+          <div class="obj-header" onclick="toggleObj(this)">
+            <div class="obj-icon">📅</div>
+            <div class="obj-q">"We don't need more customers on weekends — we're already full."</div>
+            <div class="obj-toggle">+</div>
+          </div>
+          <div class="obj-answer">
+            <strong>Validate:</strong> "Perfect — that's actually great news. It means the offer is already working on weekends."<br><br>
+            <strong>Redirect:</strong> "We can set the offer to activate only on weekdays, or during specific hours when you have the most empty seats. You keep full control of when and where the offer appears."
+          </div>
+        </div>
+
+        <div class="objection-item">
+          <div class="obj-header" onclick="toggleObj(this)">
+            <div class="obj-icon">😞</div>
+            <div class="obj-q">"We tried these platforms before — they didn't work."</div>
+            <div class="obj-toggle">+</div>
+          </div>
+          <div class="obj-answer">
+            <strong>Empathize:</strong> "That's a legitimate concern — and honestly, most platforms fail because they're discount-led, not demand-led. They just rotate bargain hunters."<br><br>
+            <strong>Differentiate:</strong> "Noon brings high-intent shoppers already spending inside our ecosystem and converts them into diners. That's why partners see return visits, not just one-time deal chasers."<br><br>
+            <strong>De-risk:</strong> "That's exactly why we offer the 60-day zero-commitment trial — so you can see the numbers before you decide anything."
+          </div>
+        </div>
+
+        <div class="objection-item">
+          <div class="obj-header" onclick="toggleObj(this)">
+            <div class="obj-icon">🎨</div>
+            <div class="obj-q">"We don't want to lose control of our brand."</div>
+            <div class="obj-toggle">+</div>
+          </div>
+          <div class="obj-answer">
+            <strong>Reassure immediately:</strong> "You keep full control — pricing, menu, availability, offers, and timings are all managed by you. Noon only brings you the customer. You decide how you want to serve them."
+          </div>
+        </div>
+
+        <div class="objection-item">
+          <div class="obj-header" onclick="toggleObj(this)">
+            <div class="obj-icon">⏰</div>
+            <div class="obj-q">"We're too busy to manage another platform."</div>
+            <div class="obj-toggle">+</div>
+          </div>
+          <div class="obj-answer">
+            <strong>Remove the friction:</strong> "Setup is handled entirely by us — you don't touch a thing. Once you're live, most partners spend less than 5 minutes a week managing their noon profile."
+          </div>
+        </div>
+
+      </div>
+
+      <div class="close-box">
+        <div class="close-label">🔒 Universal Close Line</div>
+        <div class="close-text">"Based on everything we discussed, are you comfortable going ahead with the 2-month launch plan — with at least 10% for customers through us on the slots we agreed?"</div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: PSYCHOLOGY -->
+    <div class="section" id="psychology">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Psychology Tactics That Work</h2>
+      </div>
+
+      <div class="psych-grid">
+        <div class="psych-card">
+          <div class="psych-emoji">⚡</div>
+          <div class="psych-title">Commitment & Consistency</div>
+          <div class="psych-body">Ask discovery questions first. When they verbalize their problems (dead hours, low weekday traffic), they've committed those as real — making your solution feel logical, not sales-y.</div>
+        </div>
+        <div class="psych-card">
+          <div class="psych-emoji">🛡️</div>
+          <div class="psych-title">Loss Aversion</div>
+          <div class="psych-body">Restaurants fear making a bad decision more than they want gains. Frame the 60-day trial as a "zero-risk test" — the risk of inaction (empty seats) is bigger than the risk of trying.</div>
+        </div>
+        <div class="psych-card">
+          <div class="psych-emoji">👥</div>
+          <div class="psych-title">Social Proof</div>
+          <div class="psych-body">Reference similar restaurants and the area. "Brands like yours see best traction with..." Even general platform stats help. Position as: everyone serious is already doing this.</div>
+        </div>
+        <div class="psych-card">
+          <div class="psych-emoji">⏳</div>
+          <div class="psych-title">Scarcity & Anchoring</div>
+          <div class="psych-body">"Founding partner" status is limited — early movers get the best app placement and marketing priority. Create urgency around the launch window without being pushy.</div>
+        </div>
+        <div class="psych-card">
+          <div class="psych-emoji">🎁</div>
+          <div class="psych-title">Reciprocity</div>
+          <div class="psych-body">Noon waives fees first (your concession). When they give something (accept 10–15%), reciprocate with something small: priority listing, more social posts, extra reporting. Makes them feel the deal is fair.</div>
+        </div>
+        <div class="psych-card">
+          <div class="psych-emoji">🪞</div>
+          <div class="psych-title">Mirroring & Labelling</div>
+          <div class="psych-body">Reflect back what they say: "So if I heard you right, weekdays are the concern and margins need protecting?" This shows you listened, lowers their guard, and builds alignment before the pitch.</div>
+        </div>
+        <div class="psych-card">
+          <div class="psych-emoji">🧲</div>
+          <div class="psych-title">Reframe Objections</div>
+          <div class="psych-body">Treat objections as buying signals, not rejection. They're asking you to resolve specific fears. Pause → Empathize → Diagnose the real fear → Answer that, not the surface complaint.</div>
+        </div>
+        <div class="psych-card">
+          <div class="psych-emoji">🔑</div>
+          <div class="psych-title">Give Them Control</div>
+          <div class="psych-body">Always present 2–3 offer options and let them choose. "You're in control — you pick the time slots, the discount depth, the menu items." Control reduces resistance dramatically.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 7: BODY LANGUAGE -->
+    <div class="section" id="body-lang">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2 class="section-title">Body Language & Delivery</h2>
+      </div>
+
+      <div class="body-lang-grid">
+        <div class="bl-card">
+          <div class="bl-icon">🪑</div>
+          <div>
+            <div class="bl-title">Posture</div>
+            <div class="bl-body">Sit upright with a slight forward lean. Shoulders relaxed. Feet flat on floor. Never cross your arms — it signals closed off. Open posture = open mind.</div>
+          </div>
+        </div>
+        <div class="bl-card">
+          <div class="bl-icon">👐</div>
+          <div>
+            <div class="bl-title">Hands</div>
+            <div class="bl-body">Keep hands visible on the table. Use calm, open gestures for key moments ("2 months", "10%", "founding partners"). Avoid fidgeting or pointing.</div>
+          </div>
+        </div>
+        <div class="bl-card">
+          <div class="bl-icon">👁️</div>
+          <div>
+            <div class="bl-title">Eye Contact</div>
+            <div class="bl-body">When stating the offer, hold eye contact for 1–2 seconds, then glance at your one-pager. Makes it feel collaborative, not confrontational. Don't stare them down.</div>
+          </div>
+        </div>
+        <div class="bl-card">
+          <div class="bl-icon">🎭</div>
+          <div>
+            <div class="bl-title">Mirroring Energy</div>
+            <div class="bl-body">Match their pace. If they're calm and slow — don't go hyper. If they're direct — keep answers tight. Mirroring builds unconscious rapport fast.</div>
+          </div>
+        </div>
+        <div class="bl-card">
+          <div class="bl-icon">⏸️</div>
+          <div>
+            <div class="bl-title">The Pause</div>
+            <div class="bl-body">After making the offer — pause. Silence is powerful. Resist the urge to fill it. Let them think. The first person to speak after an offer often concedes.</div>
+          </div>
+        </div>
+        <div class="bl-card">
+          <div class="bl-icon">😌</div>
+          <div>
+            <div class="bl-title">Calm Under Pressure</div>
+            <div class="bl-body">When they object, don't tense up. Take a breath. A slight nod before responding signals: "I hear you, I'm not rattled." Confidence is contagious.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 8: COMPETITORS -->
+    <div class="section" id="competitors">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <h2 class="section-title">Competitor Intel</h2>
+      </div>
+
+      <div class="info-box">
+        <strong>If they name-drop a competitor</strong> — never trash them. Acknowledge, differentiate, redirect to noon's unique customer base.
+      </div>
+
+      <div class="comp-grid">
+        <div class="comp-card">
+          <div class="comp-name">Entertainer <span class="comp-badge">Paid Subscription</span></div>
+          <div class="comp-row">
+            <div class="comp-item pro">Known for BOGO deals — great for premium dining</div>
+            <div class="comp-item pro">Covers dining + lifestyle</div>
+            <div class="comp-item con">Requires paid subscription upfront from user</div>
+            <div class="comp-item con">Restaurants subsidize steep discounts</div>
+          </div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-name">Zomato DineOut <span class="comp-badge">Discovery</span></div>
+          <div class="comp-row">
+            <div class="comp-item pro">Massive database + reviews + table booking</div>
+            <div class="comp-item pro">Strong global recognition</div>
+            <div class="comp-item con">Shifting from BOGO to flat discounts</div>
+            <div class="comp-item con">Highly competitive — hard to stand out</div>
+          </div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-name">Talabat DineOut <span class="comp-badge">Delivery Extension</span></div>
+          <div class="comp-row">
+            <div class="comp-item pro">Huge delivery user base</div>
+            <div class="comp-item pro">Easy if already on Talabat delivery</div>
+            <div class="comp-item con">High commissions (~30% on delivery)</div>
+            <div class="comp-item con">Primarily a delivery-first audience</div>
+          </div>
+        </div>
+        <div class="comp-card">
+          <div class="comp-name">Careem DineOut <span class="comp-badge">Membership</span></div>
+          <div class="comp-row">
+            <div class="comp-item pro">Up to 50% off at 500+ restaurants</div>
+            <div class="comp-item pro">Integrated ecosystem perks</div>
+            <div class="comp-item con">Requires Careem Plus subscription</div>
+            <div class="comp-item con">Curated — not all restaurants qualify</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pitch-box" style="margin-top:20px;">
+        <div class="pitch-label">🎯 Noon's Edge vs. All of Them</div>
+        <div class="pitch-text">Noon's base is <em>shoppers and grocery buyers</em> — not people already hunting for restaurant deals. This means incremental revenue, not cannibalisation. Their customer is your new customer.</div>
+      </div>
+    </div>
+
+    <!-- SECTION 9: CHECKLIST -->
+    <div class="section" id="checklist">
+      <div class="section-header">
+        <span class="section-num">09</span>
+        <h2 class="section-title">Pre-Meeting Checklist</h2>
+      </div>
+
+      <div class="info-box"><strong>Check these off before every meeting:</strong></div>
+
+      <div class="checklist" id="checklist-list">
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Know the restaurant's name, their brands in the hall, and any public info on their vibe/menu</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Prepare a compliment or observation about each brand to open with</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Know their likely dead hours (e.g. weekday lunch, late evenings) before walking in</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Have your one-pager ready: 60-day fee waiver, offer options, expected benefits, "founding partner" angle</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Have the math example ready (AED 200 avg bill × 15 customers = AED 900/month in offers for new diners)</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Rehearse the 60-second pitch out loud at least 3 times</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Role-play the top 3 objections (margins, existing platforms, less than 10%) and your responses</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Have your 4 discovery questions memorized or on your phone</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Know what "founding partner" benefits you can offer (priority listing, social mentions, reporting)</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Know the post-trial commercials: 3% lead gen + 2% PG, no signup fee, no subscription</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Have a clear close line ready and a minimum acceptable outcome (sign today vs. follow-up call)</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <div class="check-text">Do a 2-min mirror check — posture, open hands, calm expression</div>
+        </div>
+      </div>
+
+      <div class="close-box">
+        <div class="close-label">💪 Last Thing Before You Walk In</div>
+        <div class="close-text">"They have a footfall problem. You have the solution. You're not selling them something — you're handing them free money for 60 days. Walk in like you mean it."</div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  function toggleObj(header) {
+    const answer = header.nextElementSibling;
+    const toggle = header.querySelector('.obj-toggle');
+    answer.classList.toggle('open');
+    toggle.classList.toggle('open');
+  }
+
+  function toggleCheck(item) {
+    item.classList.toggle('checked');
+    const box = item.querySelector('.check-box');
+    box.textContent = item.classList.contains('checked') ? '✓' : '✓';
+  }
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('.section');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navItems.forEach(n => {
+      n.classList.remove('active');
+      if (n.getAttribute('href') === '#' + current) n.classList.add('active');
+    });
+  });
+
+  // Smooth scroll
+  navItems.forEach(item => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(item.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>

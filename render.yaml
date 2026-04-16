@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: noon-command-center
+    runtime: node
+    buildCommand: ""
+    startCommand: node server.js
+    plan: free
+    healthCheckPath: /
+    envVars: []

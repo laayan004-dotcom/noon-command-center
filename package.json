@@ -1,0 +1,12 @@
+{
+  "name": "noon-command-center",
+  "version": "1.0.0",
+  "description": "noon DineOut BD Command Center",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

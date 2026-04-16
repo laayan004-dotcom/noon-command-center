@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily GChat Update — noon DineOut</title>
+<style>
+:root {
+  --bg:#0d0709; --card:#160a10; --card2:#1e0f18;
+  --border:#3d1e30; --border-l:#4d2840;
+  --text:#f8eef4; --muted:#8a6878; --muted-l:#b08898;
+  --pink:#ff2d78; --pink-d:#cc1456; --pink-l:#ff6fa8;
+  --pink-soft:rgba(255,45,120,0.1);
+  --noon:#FFD600; --green:#22c55e;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:32px 16px;}
+
+.container{width:100%;max-width:720px;}
+
+.header{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+.logo{font-size:22px;font-weight:900;letter-spacing:-.5px;}
+.logo .noon{color:var(--noon);}
+.logo .out{color:var(--pink);}
+.header-sub{font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.08em;}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px;}
+.card-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:14px;}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
+.field input,.field select{background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:9px 12px;font-size:13px;font-weight:500;outline:none;transition:border .15s;}
+.field input:focus,.field select:focus{border-color:var(--pink);}
+.field select option{background:var(--card2);}
+
+.row-wrap{display:flex;gap:8px;margin-bottom:7px;align-items:center;}
+.row-wrap input{background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 11px;font-size:12px;font-weight:500;outline:none;transition:border .15s;}
+.row-wrap input:focus{border-color:var(--pink);}
+.input-rest{flex:1;}
+.input-out{flex:2;}
+.row-remove{background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;padding:0 4px;line-height:1;transition:color .12s;flex-shrink:0;}
+.row-remove:hover{color:var(--pink);}
+
+.btn-add{background:none;border:1px dashed var(--border-l);border-radius:8px;color:var(--muted-l);font-size:12px;font-weight:600;padding:7px 14px;cursor:pointer;transition:all .12s;margin-top:4px;}
+.btn-add:hover{border-color:var(--pink);color:var(--pink);}
+
+.preview-box{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:18px;}
+.preview-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:12px;}
+.preview-text{font-size:14px;line-height:1.8;white-space:pre-wrap;color:var(--text);font-family:inherit;}
+
+.btn-row{display:flex;gap:10px;margin-top:16px;}
+.btn-copy{flex:1;background:var(--pink);border:none;border-radius:10px;color:#fff;font-size:14px;font-weight:800;padding:13px 20px;cursor:pointer;transition:all .15s;letter-spacing:.01em;}
+.btn-copy:hover{background:var(--pink-d);transform:translateY(-1px);}
+.btn-copy:active{transform:translateY(0);}
+.btn-reset{background:none;border:1px solid var(--border-l);border-radius:10px;color:var(--muted-l);font-size:13px;font-weight:600;padding:13px 18px;cursor:pointer;transition:all .15s;}
+.btn-reset:hover{border-color:var(--border-l);color:var(--text);}
+
+.copied-toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--green);color:#fff;font-weight:700;font-size:13px;padding:10px 22px;border-radius:30px;opacity:0;transition:all .3s;pointer-events:none;z-index:999;}
+.copied-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+.divider{width:1px;background:var(--border);height:20px;margin:0 2px;}
+
+@media(max-width:500px){
+  .grid2,.grid3{grid-template-columns:1fr;}
+  .row-wrap{flex-wrap:wrap;}
+  .input-out{min-width:100%;order:3;}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <div>
+      <div class="logo"><span class="noon">noon</span> <span class="out">OUT</span></div>
+      <div class="header-sub">Daily GChat Update</div>
+    </div>
+  </div>
+
+  <!-- Identity -->
+  <div class="card">
+    <div class="card-title">Who & When</div>
+    <div class="grid2">
+      <div class="field">
+        <label>AM Name</label>
+        <input id="g_am" type="text" placeholder="Your name…" oninput="update()" list="am_suggestions" autocomplete="off">
+        <datalist id="am_suggestions">
+          <option>Liyan</option>
+          <option>Zain</option>
+          <option>Ashwin</option>
+          <option>Uday</option>
+          <option>Awni</option>
+          <option>Silvana</option>
+        </datalist>
+      </div>
+      <div class="field">
+        <label>Date</label>
+        <input id="g_date" type="text" oninput="update()" placeholder="15th April">
+      </div>
+    </div>
+  </div>
+
+  <!-- Meetings -->
+  <div class="card">
+    <div class="card-title">Meetings Today</div>
+    <div id="meetings_list"></div>
+    <button class="btn-add" onclick="addRow('meetings')">+ Add Meeting</button>
+  </div>
+
+  <!-- Pitches -->
+  <div class="card">
+    <div class="card-title">Pitches Today</div>
+    <div id="pitches_list"></div>
+    <button class="btn-add" onclick="addRow('pitches')">+ Add Pitch</button>
+  </div>
+
+  <!-- Counts -->
+  <div class="card">
+    <div class="card-title">Daily Numbers</div>
+    <div class="grid3">
+      <div class="field">
+        <label>Cold Calls</label>
+        <input id="g_cold" type="number" min="0" placeholder="0" oninput="update()">
+      </div>
+      <div class="field">
+        <label>Responded</label>
+        <input id="g_resp" type="number" min="0" placeholder="0" oninput="update()">
+      </div>
+      <div class="field">
+        <label>Followup</label>
+        <input id="g_fup" type="number" min="0" placeholder="0" oninput="update()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Preview -->
+  <div class="preview-box">
+    <div class="preview-label">Preview</div>
+    <pre id="preview" class="preview-text"></pre>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn-copy" onclick="copyMsg()">📋 Copy Message</button>
+    <button class="btn-reset" onclick="resetAll()">🔄 New Day</button>
+  </div>
+
+</div>
+
+<div class="copied-toast" id="toast">Copied to clipboard 🚀</div>
+
+<div style="text-align:center;padding:28px 0 12px;font-size:11px;color:var(--muted);letter-spacing:.06em;">
+  made with 🩷 by <span style="color:var(--pink);font-weight:700;">Liyan</span>
+</div>
+
+<script>
+const state = {
+  meetings: [{rest:'',outcome:''},{rest:'',outcome:''}],
+  pitches:  [{rest:'',outcome:''},{rest:'',outcome:''}]
+};
+
+function todayLabel(){
+  const d = new Date();
+  const day = d.getDate();
+  const s = day===1||day===21||day===31?'st':day===2||day===22?'nd':day===3||day===23?'rd':'th';
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  return `${day}${s} ${months[d.getMonth()]}`;
+}
+
+function init(){
+  document.getElementById('g_date').value = todayLabel();
+  renderRows('meetings');
+  renderRows('pitches');
+  update();
+}
+
+function renderRows(type){
+  const container = document.getElementById(type+'_list');
+  const rows = state[type];
+  container.innerHTML = rows.map((r,i)=>`
+    <div class="row-wrap" id="${type}_row_${i}">
+      <input class="input-rest" placeholder="Restaurant name" value="${esc(r.rest)}"
+        oninput="setField('${type}',${i},'rest',this.value)">
+      <input class="input-out" placeholder="${type==='meetings'?'e.g. In for 15% (docs in)':'e.g. Interested / Said no'}"
+        value="${esc(r.outcome)}" oninput="setField('${type}',${i},'outcome',this.value)">
+      <button class="row-remove" onclick="removeRow('${type}',${i})" title="Remove">✕</button>
+    </div>`).join('');
+}
+
+function esc(s){ return (s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+function setField(type, i, field, val){
+  state[type][i][field] = val;
+  update();
+}
+
+function addRow(type){
+  state[type].push({rest:'',outcome:''});
+  renderRows(type);
+  update();
+  // focus first empty input in new row
+  const rows = document.querySelectorAll(`#${type}_list .input-rest`);
+  if(rows.length) rows[rows.length-1].focus();
+}
+
+function removeRow(type, i){
+  state[type].splice(i,1);
+  if(state[type].length===0) state[type].push({rest:'',outcome:''});
+  renderRows(type);
+  update();
+}
+
+function buildText(){
+  const am   = document.getElementById('g_am').value || '[AM]';
+  const date = document.getElementById('g_date').value || '[Date]';
+  const cold = document.getElementById('g_cold').value || '0';
+  const resp = document.getElementById('g_resp').value || '0';
+  const fup  = document.getElementById('g_fup').value  || '0';
+
+  let txt = `(${am}) - ${date}\n`;
+
+  txt += `\nMeetings today:`;
+  state.meetings.forEach(r=>{
+    const rest = r.rest.trim()||'[Restaurant]';
+    const out  = r.outcome.trim()||'[outcome]';
+    txt += `\n${rest} - ${out}`;
+  });
+
+  txt += `\n\nPitches today:`;
+  state.pitches.forEach(r=>{
+    const rest = r.rest.trim()||'[Restaurant]';
+    const out  = r.outcome.trim()||'[outcome]';
+    txt += `\n${rest} - ${out}`;
+  });
+
+  txt += `\n\nCold Calls: ${cold}`;
+  txt += `\nResponded: ${resp}`;
+  txt += `\nFollowup: ${fup}`;
+  return txt;
+}
+
+function update(){
+  document.getElementById('preview').textContent = buildText();
+}
+
+function copyMsg(){
+  const text = buildText();
+  navigator.clipboard.writeText(text).then(()=>{
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 2200);
+  }).catch(()=>{
+    // Fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 2200);
+  });
+}
+
+function resetAll(){
+  state.meetings = [{rest:'',outcome:''},{rest:'',outcome:''}];
+  state.pitches  = [{rest:'',outcome:''},{rest:'',outcome:''}];
+  document.getElementById('g_am').value   = '';
+  document.getElementById('g_date').value = todayLabel();
+  document.getElementById('g_cold').value = '';
+  document.getElementById('g_resp').value = '';
+  document.getElementById('g_fup').value  = '';
+  renderRows('meetings');
+  renderRows('pitches');
+  update();
+}
+
+init();
+</script>
+</body>
+</html>

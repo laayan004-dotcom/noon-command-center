@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>noon Dine Out — Partner Pitch</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --y:#C8940A;
+  --yl:#FDF3D0;
+  --yb:#7A5900;
+  --bg:#FAFAF8;
+  --bg2:#F2F1EE;
+  --bg3:#E8E7E3;
+  --text:#111;
+  --muted:#666;
+  --faint:#999;
+  --green:#0A7A4A;
+  --greenl:#E6F5EE;
+  --border:#E0DFD9;
+}
+
+html,body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Epilogue',sans-serif;
+  height:100%;
+  overflow:hidden;
+}
+
+.deck{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+
+/* PROGRESS */
+.pbar{
+  height:3px;
+  background:var(--y);
+  transition:width .35s ease;
+  flex-shrink:0;
+}
+
+/* SLIDE AREA */
+.slides-wrap{
+  flex:1;
+  position:relative;
+  overflow:hidden;
+}
+
+.slide{
+  display:none;
+  position:absolute;
+  inset:0;
+  padding:52px 64px 20px;
+  flex-direction:column;
+  justify-content:center;
+  animation:fadeUp .3s ease both;
+}
+.slide.active{display:flex;}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(12px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* TYPOGRAPHY */
+.eyebrow{
+  font-family:'Syne',sans-serif;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--faint);
+  margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:'';width:20px;height:1.5px;background:var(--y);display:block;border-radius:2px;}
+
+h1{font-family:'Syne',sans-serif;font-size:clamp(40px,5.5vw,72px);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:18px;color:var(--text);}
+h2{font-family:'Syne',sans-serif;font-size:clamp(26px,3.5vw,46px);font-weight:800;line-height:1.1;letter-spacing:-1.5px;margin-bottom:22px;color:var(--text);}
+.hl{color:var(--y);}
+p.lead{font-size:15px;color:var(--muted);line-height:1.75;max-width:560px;margin-bottom:20px;}
+
+/* PILLS */
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.pill{font-size:12px;padding:5px 13px;border-radius:20px;border:1px solid var(--border);color:var(--muted);background:white;}
+.pill.y{background:var(--yl);color:var(--yb);border-color:#E8C84A;}
+.pill.g{background:var(--greenl);color:var(--green);border-color:#A8DFC0;}
+
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px;}
+.card-grid.two{grid-template-columns:repeat(2,minmax(0,1fr));}
+.card{background:white;border:1px solid var(--border);border-radius:14px;padding:20px 22px;}
+.card-num{font-family:'Syne',sans-serif;font-size:34px;font-weight:800;color:var(--y);margin-bottom:5px;}
+.card-lbl{font-size:13px;color:var(--muted);line-height:1.55;}
+.card-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--text);margin-bottom:7px;}
+.card-body{font-size:12.5px;color:var(--muted);line-height:1.65;}
+.card-icon{font-size:22px;margin-bottom:10px;}
+
+/* TWO-COL */
+.two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:28px;margin-top:22px;align-items:start;}
+
+/* FEATURES */
+.feat-list{display:flex;flex-direction:column;gap:10px;}
+.feat{display:flex;gap:14px;align-items:flex-start;background:white;border:1px solid var(--border);border-radius:12px;padding:14px 16px;}
+.feat-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.feat-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.feat-body{font-size:12px;color:var(--muted);line-height:1.6;}
+
+/* ECO BOX */
+.eco-box{background:var(--yl);border:1px solid #E8C84A;border-radius:14px;padding:22px;}
+.eco-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--yb);margin-bottom:16px;font-family:'Syne',sans-serif;}
+.eco-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text);margin-bottom:10px;}
+.eco-item.dim{color:var(--faint);}
+.eco-dot{width:7px;height:7px;border-radius:50%;background:var(--y);flex-shrink:0;}
+.eco-item.dim .eco-dot{background:var(--bg3);}
+.etag{font-size:10px;margin-left:auto;padding:2px 8px;border-radius:4px;font-family:'Syne',sans-serif;letter-spacing:1px;}
+.elive{background:var(--greenl);color:var(--green);}
+.esoon{background:var(--bg3);color:var(--faint);}
+
+/* JOURNEY */
+.journey{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:36px;position:relative;}
+.journey::before{content:'';position:absolute;top:22px;left:10%;right:10%;height:1.5px;background:var(--border);}
+.j-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:48px;position:relative;}
+.j-num{position:absolute;top:0;left:50%;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:white;border:2px solid var(--y);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:var(--y);z-index:1;}
+.j-icon{font-size:18px;margin-bottom:7px;}
+.j-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.j-body{font-size:11px;color:var(--muted);line-height:1.55;padding:0 4px;}
+
+/* FEE TABLE */
+.fee-table{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:white;}
+.fee-row{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--border);font-size:13px;}
+.fee-row:last-child{border-bottom:none;}
+.fee-lbl{color:var(--muted);}
+.fee-val{font-family:'Syne',sans-serif;font-weight:700;color:var(--text);}
+.fee-val.y{color:var(--y);}
+.fee-val.g{color:var(--green);}
+.fee-val.dim{color:var(--faint);text-decoration:line-through;font-size:12px;font-family:'Epilogue',sans-serif;font-weight:400;}
+.fee-hl{background:var(--yl);}
+.fee-hl .fee-lbl{color:var(--yb);font-weight:500;}
+.fee-gl{background:var(--greenl);}
+.fee-gl .fee-lbl{color:var(--green);}
+
+/* LAUNCH HERO */
+.launch-hero{background:var(--yl);border:1px solid #E8C84A;border-radius:14px;padding:28px;text-align:center;}
+.launch-big{font-family:'Syne',sans-serif;font-size:64px;font-weight:800;color:var(--y);line-height:1;margin-bottom:4px;}
+.launch-sub{font-size:13px;color:var(--yb);margin-bottom:18px;}
+.launch-detail{font-size:13px;color:var(--muted);line-height:1.75;text-align:left;margin-bottom:18px;}
+.launch-detail strong{color:var(--text);}
+.no-fee-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.nfb{font-size:11px;padding:4px 10px;border-radius:6px;background:var(--greenl);color:var(--green);font-family:'Syne',sans-serif;}
+
+/* DIFF */
+.diff-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:22px;}
+.diff-side{border-radius:14px;padding:22px;}
+.diff-others{background:var(--bg2);border:1px solid var(--border);}
+.diff-noon{background:var(--yl);border:1px solid #E8C84A;}
+.diff-title{font-family:'Syne',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+.diff-others .diff-title{color:var(--faint);}
+.diff-noon .diff-title{color:var(--yb);}
+.diff-item{display:flex;gap:10px;font-size:13px;line-height:1.5;margin-bottom:10px;}
+.diff-bad{color:var(--faint);}
+.diff-good{color:var(--text);}
+.diff-mk{flex-shrink:0;font-size:12px;font-weight:700;}
+
+/* NOTE */
+.note{font-size:11px;color:var(--faint);margin-top:12px;line-height:1.7;}
+
+/* COVER DECORATION */
+.cover-deco{position:absolute;top:-80px;right:-80px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(245,200,0,0.18) 0%,transparent 65%);pointer-events:none;z-index:0;}
+.cover-deco2{position:absolute;bottom:-120px;left:-80px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(245,200,0,0.07) 0%,transparent 65%);pointer-events:none;z-index:0;}
+.slide>*{position:relative;z-index:1;}
+
+/* CONTACT */
+.contact-eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);margin-bottom:8px;font-family:'Syne',sans-serif;}
+.contact-name{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;}
+.contact-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;}
+.contact-link{font-size:14px;color:var(--y);text-decoration:none;font-weight:500;}
+.contact-muted{font-size:13px;color:var(--muted);}
+
+/* NAV */
+.nav-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 24px;
+  border-top:1px solid var(--border);
+  background:white;
+  flex-shrink:0;
+}
+.nav-dots{display:flex;gap:5px;align-items:center;}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--bg3);cursor:pointer;transition:all .2s;border:none;padding:0;}
+.dot.active{background:var(--y);width:18px;border-radius:3px;}
+.nav-btns{display:flex;gap:6px;}
+.nav-btn{padding:5px 16px;font-size:13px;font-family:'Syne',sans-serif;font-weight:700;border:1.5px solid var(--border);border-radius:8px;background:white;color:var(--muted);cursor:pointer;transition:all .15s;}
+.nav-btn:hover{background:var(--bg2);color:var(--text);border-color:var(--bg3);}
+.slide-count{font-family:'Syne',sans-serif;font-size:12px;color:var(--faint);min-width:40px;text-align:center;}
+
+/* NOON LOGO */
+.noon-logo{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;letter-spacing:3px;color:var(--y);margin-bottom:28px;}
+.noon-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--y);margin-left:2px;vertical-align:middle;}
+</style>
+</head>
+<body>
+
+<div class="deck">
+  <div class="pbar" id="pbar" style="width:11.1%"></div>
+
+  <div class="slides-wrap">
+
+    <!-- SLIDE 1: COVER -->
+    <div class="slide active" id="s1">
+      <div class="cover-deco"></div>
+      <div class="cover-deco2"></div>
+      <div class="noon-logo">noon<span class="noon-dot"></span></div>
+      <div class="eyebrow">Introducing</div>
+      <h1>noon<br><span class="hl">Dine Out.</span></h1>
+      <p class="lead">The easiest way to fill more tables, reach millions of new diners, and grow — without the risk.</p>
+      <div class="pills">
+        <span class="pill y">0% fees · first 60 days</span>
+        <span class="pill g">No sign-up fee</span>
+        <span class="pill">Zero commitment</span>
+        <span class="pill">Setup handled by us</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: WHO IS NOON -->
+    <div class="slide" id="s2">
+      <div class="eyebrow">Our platform</div>
+      <h2>The Middle East's leading<br><span class="hl">digital commerce</span> platform.</h2>
+      <div class="card-grid">
+        <div class="card"><div class="card-num">35%</div><div class="card-lbl">of UAE residents open the noon app every month</div></div>
+        <div class="card"><div class="card-num">24k+</div><div class="card-lbl">restaurant partners already on noon food</div></div>
+        <div class="card"><div class="card-num">#1</div><div class="card-lbl">regional e-commerce player — backed by PIF &amp; Mohamed Alabbar (Emaar)</div></div>
+      </div>
+      <p class="lead" style="margin-top:20px;">noon is not just a food-delivery app. It's where UAE residents shop for iPhones, buy groceries, and pay bills. <strong style="color:var(--text);">A completely different customer to any dine-out platform you've tried.</strong></p>
+    </div>
+
+    <!-- SLIDE 3: PROBLEM -->
+    <div class="slide" id="s3">
+      <div class="eyebrow">The challenge</div>
+      <h2>Most restaurants don't have a food problem —<br>they have a <span class="hl">footfall problem.</span></h2>
+      <p class="lead">Customers decide where to eat on their phones first. If you're not visible in that moment, you don't exist.</p>
+      <div class="card-grid">
+        <div class="card"><div class="card-icon">🪑</div><div class="card-title">Empty tables off-peak</div><div class="card-body">Weekday lunches, late evenings — valuable time sitting unused while fixed costs keep running.</div></div>
+        <div class="card"><div class="card-icon">📱</div><div class="card-title">Phone-first discovery</div><div class="card-body">Diners search and decide before leaving home. Visibility at that moment is everything.</div></div>
+        <div class="card"><div class="card-icon">🔄</div><div class="card-title">Same faces, same deals</div><div class="card-body">Most platforms just recycle the same discount-seekers — no net-new business for you.</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: SOLUTION -->
+    <div class="slide" id="s4">
+      <div class="eyebrow">The solution</div>
+      <h2>Your restaurant,<br>inside <span class="hl">noon's app.</span></h2>
+      <div class="two-col">
+        <div class="feat-list">
+          <div class="feat"><div class="feat-icon">🔍</div><div><div class="feat-title">Discovery</div><div class="feat-body">Reach millions of noon shoppers who weren't even searching for restaurants.</div></div></div>
+          <div class="feat"><div class="feat-icon">🏷️</div><div><div class="feat-title">Offers &amp; discounts</div><div class="feat-body">Exclusive deals on your terms — set time bands, specific days, minimum spend.</div></div></div>
+          <div class="feat"><div class="feat-icon">📲</div><div><div class="feat-title">In-app pay</div><div class="feat-body">Fast payments through noon — higher table turnover and less wait time for guests.</div></div></div>
+          <div class="feat"><div class="feat-icon">💳</div><div><div class="feat-title">Split payments</div><div class="feat-body">Split bills instantly. Happy groups who come back.</div></div></div>
+        </div>
+        <div class="eco-box">
+          <div class="eco-lbl">The going out ecosystem</div>
+          <div class="eco-item"><div class="eco-dot"></div>Dine Out — restaurants &amp; F&amp;B<span class="etag elive">Live</span></div>
+          <div class="eco-item"><div class="eco-dot"></div>In-app pay<span class="etag elive">Live</span></div>
+          <div class="eco-item dim"><div class="eco-dot"></div>Scan &amp; pay at table<span class="etag esoon">Soon</span></div>
+          <div class="eco-item dim"><div class="eco-dot"></div>Wellness — spas &amp; salons<span class="etag esoon">Soon</span></div>
+          <div class="eco-item dim"><div class="eco-dot"></div>Experiences &amp; events<span class="etag esoon">Soon</span></div>
+          <div class="eco-item dim"><div class="eco-dot"></div>Everyday services<span class="etag esoon">Soon</span></div>
+          <p style="margin-top:16px;font-size:12px;color:var(--yb);line-height:1.6;">Early partners get priority placement as the platform expands across the full going out ecosystem.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: HOW IT WORKS -->
+    <div class="slide" id="s5">
+      <div class="eyebrow">The customer journey</div>
+      <h2>How diners find and visit<br><span class="hl">your restaurant.</span></h2>
+      <div class="journey">
+        <div class="j-step"><div class="j-num">1</div><div class="j-icon">📱</div><div class="j-title">Discovery</div><div class="j-body">Diner opens noon and browses Dine Out — sees your restaurant, offer, and menu.</div></div>
+        <div class="j-step"><div class="j-num">2</div><div class="j-icon">🗺️</div><div class="j-title">Map &amp; offer</div><div class="j-body">Photos and a compelling launch deal draw them in.</div></div>
+        <div class="j-step"><div class="j-num">3</div><div class="j-icon">🚶</div><div class="j-title">Walk in</div><div class="j-body">A brand-new customer who never came before walks through your door.</div></div>
+        <div class="j-step"><div class="j-num">4</div><div class="j-icon">📲</div><div class="j-title">Pay via app</div><div class="j-body">Offer unlocked. Bill paid fast. You only pay when a real customer redeems.</div></div>
+        <div class="j-step"><div class="j-num">5</div><div class="j-icon">🔄</div><div class="j-title">Repeat visit</div><div class="j-body">noon's loyalty drives return visits — not one-time deal chasers.</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: BENEFITS -->
+    <div class="slide" id="s6">
+      <div class="eyebrow">What's in it for you</div>
+      <h2>Three ways noon<br><span class="hl">grows your business.</span></h2>
+      <div class="card-grid">
+        <div class="card"><div class="card-icon">👥</div><div class="card-title">Customers</div><div class="card-body">Discovered by millions of noon shoppers, grocery buyers, and daily app users not browsing dine-out platforms. Brand-new diners, not people you're already serving.</div></div>
+        <div class="card"><div class="card-icon">⚡</div><div class="card-title">Efficiency</div><div class="card-body">Faster payments mean higher table turnover and reduced wait times. Less staff dependence, more covers per shift.</div></div>
+        <div class="card"><div class="card-icon">📈</div><div class="card-title">Revenue</div><div class="card-body">Boost revenue through higher spend and loyalty. 100% of customer tips go directly to you. Fill dead hours without touching peak business.</div></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: COMMERCIALS -->
+    <div class="slide" id="s7">
+      <div class="eyebrow">The deal</div>
+      <h2>Simple fees.<br><span class="hl">Zero commitment.</span></h2>
+      <div class="two-col">
+        <div>
+          <div class="fee-table">
+            <div class="fee-row fee-hl"><span class="fee-lbl">Launch — lead gen fee</span><span class="fee-val y">0% · first 60 days</span></div>
+            <div class="fee-row"><span class="fee-lbl">After 60 days — lead gen</span><span class="fee-val">3%</span></div>
+            <div class="fee-row"><span class="fee-lbl">Payment gateway (domestic)</span><span class="fee-val">2%</span></div>
+            <div class="fee-row"><span class="fee-lbl">Scan &amp; pay — lead gen</span><span class="fee-val">0%</span></div>
+            <div class="fee-row"><span class="fee-lbl">Sign-up fee</span><span class="fee-val dim">none</span></div>
+            <div class="fee-row"><span class="fee-lbl">Subscription fee</span><span class="fee-val dim">none</span></div>
+            <div class="fee-row"><span class="fee-lbl">Customer tips</span><span class="fee-val g">100% yours</span></div>
+            <div class="fee-row fee-gl"><span class="fee-lbl">Payouts</span><span class="fee-val g">Every Mon &amp; Thu</span></div>
+          </div>
+          <p class="note">* International cards: 2.8% · Amex: 3.5%<br>* You only pay when a real customer redeems — never for clicks or views.<br>* Payouts processed every Monday &amp; Thursday.</p>
+        </div>
+        <div class="launch-hero">
+          <div class="launch-big">0%</div>
+          <div class="launch-sub">Lead gen fee for your first 60 days</div>
+          <div class="launch-detail">In exchange for a <strong>flat discount for noon customers</strong> — you set the percentage and we work with you on the structure.<br><br><strong>Flexible by design:</strong> start with a flat offer, then layer in off-peak time bands and day-specific windows as you get comfortable. You control when and how deep the discount runs.<br><br>The more compelling your offer, the higher your visibility on the platform.</div>
+          <div class="no-fee-row">
+            <span class="nfb">No signup fee</span>
+            <span class="nfb">No subscription</span>
+            <span class="nfb">No lock-in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: WHY NOON -->
+    <div class="slide" id="s8">
+      <div class="eyebrow">Why us</div>
+      <h2>Not just another<br><span class="hl">dine-out app.</span></h2>
+      <div class="diff-grid">
+        <div class="diff-side diff-others">
+          <div class="diff-title">Other platforms</div>
+          <div class="diff-item diff-bad"><span class="diff-mk" style="color:#C00;">✕</span>Rotate the same discount-seeking users</div>
+          <div class="diff-item diff-bad"><span class="diff-mk" style="color:#C00;">✕</span>Require paid subscriptions from diners</div>
+          <div class="diff-item diff-bad"><span class="diff-mk" style="color:#C00;">✕</span>High commissions — up to 30% on delivery</div>
+          <div class="diff-item diff-bad"><span class="diff-mk" style="color:#C00;">✕</span>Discount-led, not demand-led</div>
+          <div class="diff-item diff-bad"><span class="diff-mk" style="color:#C00;">✕</span>Cannibalise your existing customers</div>
+          <div class="diff-item diff-bad"><span class="diff-mk" style="color:#C00;">✕</span>One-time deal chasers, not loyal diners</div>
+        </div>
+        <div class="diff-side diff-noon">
+          <div class="diff-title">noon Dine Out</div>
+          <div class="diff-item diff-good"><span class="diff-mk" style="color:var(--green);">✓</span>Shoppers, grocery buyers, daily users — not deal hunters</div>
+          <div class="diff-item diff-good"><span class="diff-mk" style="color:var(--green);">✓</span>35% of UAE residents already on noon monthly</div>
+          <div class="diff-item diff-good"><span class="diff-mk" style="color:var(--green);">✓</span>Pay-for-performance — only pay when a real diner redeems</div>
+          <div class="diff-item diff-good"><span class="diff-mk" style="color:var(--green);">✓</span>Demand-led: high-intent customers converting to diners</div>
+          <div class="diff-item diff-good"><span class="diff-mk" style="color:var(--green);">✓</span>Net-new customers — incremental revenue, not cannibalisation</div>
+          <div class="diff-item diff-good"><span class="diff-mk" style="color:var(--green);">✓</span>Loyalty programme drives repeat visits, not one-timers</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: CTA -->
+    <div class="slide" id="s9">
+      <div class="cover-deco"></div>
+      <div class="eyebrow">Let's go</div>
+      <h2>Be part of the future<br>of <span class="hl">going out.</span></h2>
+      <p class="lead">Join as a founding partner — 60-day 0% fee trial, zero commitment, and full support from day one.</p>
+      <div class="pills" style="margin-bottom:28px;">
+        <span class="pill y">0% lead gen · first 60 days</span>
+        <span class="pill g">No signup fee</span>
+        <span class="pill">Zero commitment</span>
+        <span class="pill">Full team training before launch</span>
+        <span class="pill">Setup &amp; go-live handled by us</span>
+      </div>
+      <div class="contact-eyebrow">Your point of contact</div>
+      <div class="contact-name">Liyan A.</div>
+      <div class="contact-row">
+        <a class="contact-link" href="mailto:labuirtaimeh@noon.com">labuirtaimeh@noon.com</a>
+        <a class="contact-link" href="tel:+971521596215">+971 52 159 6215</a>
+        <span class="contact-muted">out@noon.com</span>
+      </div>
+    </div>
+
+  </div><!-- /slides-wrap -->
+
+  <div class="nav-bar">
+    <div class="nav-dots" id="dots"></div>
+    <span class="slide-count" id="cnt">1 / 9</span>
+    <div class="nav-btns">
+      <button class="nav-btn" id="prev">←</button>
+      <button class="nav-btn" id="nxt">→</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const dotsEl=document.getElementById('dots');
+const cnt=document.getElementById('cnt');
+const pbar=document.getElementById('pbar');
+const total=slides.length;
+let cur=0;
+
+slides.forEach((_,i)=>{
+  const d=document.createElement('button');
+  d.className='dot'+(i===0?' active':'');
+  d.onclick=()=>go(i);
+  dotsEl.appendChild(d);
+});
+
+function go(n){
+  slides[cur].classList.remove('active');
+  dotsEl.children[cur].classList.remove('active');
+  cur=Math.max(0,Math.min(n,total-1));
+  slides[cur].classList.add('active');
+  dotsEl.children[cur].classList.add('active');
+  cnt.textContent=(cur+1)+' / '+total;
+  pbar.style.width=((cur+1)/total*100)+'%';
+}
+
+document.getElementById('nxt').onclick=()=>go(cur+1);
+document.getElementById('prev').onclick=()=>go(cur-1);
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown') go(cur+1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') go(cur-1);
+});
+
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>40) go(cur+(dx<0?1:-1));
+},{passive:true});
+</script>
+</body>
+</html>
