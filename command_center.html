@@ -3458,19 +3458,18 @@ const NotionSync = {
 
   // ---- load all (paginated) — always load ALL restaurants, filter client-side ----
   async loadAll(){
-    let cursor, all=[], pages=0;
+    let cursor, all=[];
     do {
       const body = { page_size:100, ...(cursor?{start_cursor:cursor}:{}) };
       const res = await fetchWithTimeout(
         `${this.BASE}/databases/${this.DB.restaurants}/query`,
         {method:'POST', headers:this.headers, body:JSON.stringify(body)},
-        20000 // 20s per page — generous for large DBs
+        25000 // 25s per page fetch
       );
       if(!res.ok){ console.error('Notion query failed',res.status); break; }
       const data = await res.json();
       all = all.concat(data.results.map(p=>this._pageToRestaurant(p)));
       cursor = data.has_more ? data.next_cursor : null;
-      if(++pages >= 20) break; // safety cap: 20 pages × 100 = 2000 restaurants max
     } while(cursor);
     return all;
   },
