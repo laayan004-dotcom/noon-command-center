@@ -27553,5 +27553,261 @@
   "majlis": {
     "lat": 25.228126,
     "lng": 55.292598
+  },
+  "sharaf dg": {
+    "lat": 25.258214,
+    "lng": 55.297478
+  },
+  "bab al shams": {
+    "lat": 24.85445,
+    "lng": 55.282846
+  },
+  "room": {
+    "lat": 25.272728,
+    "lng": 55.303105
+  },
+  "fast meal": {
+    "lat": 25.269361,
+    "lng": 55.307357
+  },
+  "pars": {
+    "lat": 25.234137,
+    "lng": 55.281057
+  },
+  "v lounge": {
+    "lat": 25.184359,
+    "lng": 55.254658
+  },
+  "tikka and tadka restaurant": {
+    "lat": 25.222351,
+    "lng": 55.43509
+  },
+  "c.u": {
+    "lat": 25.249465,
+    "lng": 55.287179
+  },
+  "aqua marina": {
+    "lat": 25.082135,
+    "lng": 55.144592
+  },
+  "the brick wall sports bar": {
+    "lat": 25.242641,
+    "lng": 55.359667
+  },
+  "al reem restaurant": {
+    "lat": 25.227604,
+    "lng": 55.274971
+  },
+  "trendz": {
+    "lat": 25.272908,
+    "lng": 55.304415
+  },
+  "costa": {
+    "lat": 25.261764,
+    "lng": 55.332689
+  },
+  "jafza food court 2": {
+    "lat": 24.976911,
+    "lng": 55.071461
+  },
+  "shisha lounge": {
+    "lat": 25.296041,
+    "lng": 55.361965
+  },
+  "kbab": {
+    "lat": 25.274023,
+    "lng": 55.322677
+  },
+  "iranian club": {
+    "lat": 25.2373,
+    "lng": 55.316565
+  },
+  "pastamania": {
+    "lat": 25.004765,
+    "lng": 55.164803
+  },
+  "lido restaurant": {
+    "lat": 25.260503,
+    "lng": 55.331521
+  },
+  "samir": {
+    "lat": 25.253961,
+    "lng": 55.342253
+  },
+  "shoko": {
+    "lat": 25.194015,
+    "lng": 55.289889
+  },
+  "cupagahwa": {
+    "lat": 25.225729,
+    "lng": 55.255769
+  },
+  "bussola": {
+    "lat": 25.093888,
+    "lng": 55.148277
+  },
+  "doors": {
+    "lat": 25.266787,
+    "lng": 55.33371
+  },
+  "hajar": {
+    "lat": 25.277466,
+    "lng": 55.309593
+  },
+  "al maya": {
+    "lat": 25.253231,
+    "lng": 55.293189
+  },
+  "a point": {
+    "lat": 25.196371,
+    "lng": 55.27093
+  },
+  "birds": {
+    "lat": 25.146025,
+    "lng": 55.458827
+  },
+  "cctv": {
+    "lat": 25.161235,
+    "lng": 55.400006
+  },
+  "wok n roll": {
+    "lat": 25.109601,
+    "lng": 55.197367
+  },
+  "subko": {
+    "lat": 25.140953,
+    "lng": 55.226339
+  },
+  "international city greece cluster": {
+    "lat": 25.156042,
+    "lng": 55.411839
+  },
+  "african + eastern": {
+    "lat": 25.25691,
+    "lng": 55.300615
+  },
+  "al fahidi": {
+    "lat": 25.258214,
+    "lng": 55.297478
+  },
+  "cake walk": {
+    "lat": 25.240516,
+    "lng": 55.305818
+  },
+  "food to go": {
+    "lat": 25.026971,
+    "lng": 55.28195
+  },
+  "cafe blanc": {
+    "lat": 25.195785,
+    "lng": 55.278366
+  },
+  "downtown": {
+    "lat": 25.194758,
+    "lng": 55.278059
+  },
+  "the agency": {
+    "lat": 25.188599,
+    "lng": 55.271707
+  },
+  "il cafe de roma": {
+    "lat": 24.911289,
+    "lng": 54.96333
+  },
+  "teriyaki boy": {
+    "lat": 25.253449,
+    "lng": 55.303
+  },
+  "habesha restaurant": {
+    "lat": 25.280338,
+    "lng": 55.348451
+  },
+  "city malabar restaurant": {
+    "lat": 25.277408,
+    "lng": 55.309394
+  },
+  "baba": {
+    "lat": 25.19194,
+    "lng": 55.279255
+  },
+  "goodies": {
+    "lat": 25.060465,
+    "lng": 55.242238
+  },
+  "food castle restaurant": {
+    "lat": 25.239159,
+    "lng": 55.301199
+  },
+  "marhaba": {
+    "lat": 25.27672,
+    "lng": 55.313362
+  },
+  "layers": {
+    "lat": 25.280345,
+    "lng": 55.345002
+  },
+  "maestro": {
+    "lat": 25.268434,
+    "lng": 55.31846
+  },
+  "al mawardi cafe": {
+    "lat": 25.288812,
+    "lng": 55.362853
+  },
+  "fiesta pinoy restaurant": {
+    "lat": 25.260945,
+    "lng": 55.328112
+  },
+  "shehar": {
+    "lat": 25.151066,
+    "lng": 55.242809
+  },
+  "seafood market": {
+    "lat": 25.26418,
+    "lng": 55.305215
+  },
+  "food 2 go": {
+    "lat": 25.245019,
+    "lng": 55.306168
+  },
+  "sky garden": {
+    "lat": 25.257327,
+    "lng": 55.335484
+  },
+  "life way restaurant": {
+    "lat": 25.260813,
+    "lng": 55.330283
+  },
+  "venezia": {
+    "lat": 25.224427,
+    "lng": 55.165518
+  },
+  "irish village": {
+    "lat": 24.918888,
+    "lng": 55.008043
+  },
+  "roots": {
+    "lat": 25.106133,
+    "lng": 55.226359
+  },
+  "african food": {
+    "lat": 25.271788,
+    "lng": 55.311243
+  },
+  "loca": {
+    "lat": 25.075261,
+    "lng": 55.137818
+  },
+  "joe & the juice": {
+    "lat": 25.106775,
+    "lng": 55.240294
+  },
+  "vijay": {
+    "lat": 25.278349,
+    "lng": 55.331292
+  },
+  "the canteen": {
+    "lat": 25.25771,
+    "lng": 55.344986
   }
 }
