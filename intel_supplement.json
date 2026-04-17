@@ -24829,5 +24829,457 @@
   "bab al noor": {
     "lat": 25.2709,
     "lng": 55.308588
+  },
+  "makan": {
+    "lat": 25.232303,
+    "lng": 55.261131
+  },
+  "la gente roastery": {
+    "lat": 25.219532,
+    "lng": 55.276777
+  },
+  "j5 restaurant": {
+    "lat": 25.264234,
+    "lng": 55.327044
+  },
+  "carryfood": {
+    "lat": 25.221687,
+    "lng": 55.331368
+  },
+  "teriyaki": {
+    "lat": 25.253449,
+    "lng": 55.303
+  },
+  "wokyo al seef": {
+    "lat": 25.26522,
+    "lng": 55.301311
+  },
+  "office w": {
+    "lat": 25.233041,
+    "lng": 55.320223
+  },
+  "giraffe": {
+    "lat": 25.242197,
+    "lng": 55.374686
+  },
+  "shater": {
+    "lat": 25.263333,
+    "lng": 55.391922
+  },
+  "haveli": {
+    "lat": 25.240431,
+    "lng": 55.302282
+  },
+  "al rigga": {
+    "lat": 25.263347,
+    "lng": 55.323886
+  },
+  "good chef restaurant": {
+    "lat": 25.112548,
+    "lng": 55.23192
+  },
+  "illy": {
+    "lat": 25.111007,
+    "lng": 55.375283
+  },
+  "railway market": {
+    "lat": 25.067032,
+    "lng": 55.307665
+  },
+  "visitors restaurant": {
+    "lat": 25.27361,
+    "lng": 55.30615
+  },
+  "champs sports bar": {
+    "lat": 25.037501,
+    "lng": 55.184192
+  },
+  "fried chicken": {
+    "lat": 25.17317,
+    "lng": 55.218212
+  },
+  "maedah": {
+    "lat": 25.266449,
+    "lng": 55.294773
+  },
+  "noepe": {
+    "lat": 25.243913,
+    "lng": 55.332506
+  },
+  "j": {
+    "lat": 25.196036,
+    "lng": 55.28104
+  },
+  "al saheefa cafeteria": {
+    "lat": 25.274688,
+    "lng": 55.301425
+  },
+  "festival": {
+    "lat": 25.223067,
+    "lng": 55.350095
+  },
+  "yathrib bakery": {
+    "lat": 25.276753,
+    "lng": 55.310862
+  },
+  "food master": {
+    "lat": 25.244488,
+    "lng": 55.272773
+  },
+  "sms": {
+    "lat": 24.747034,
+    "lng": 55.526159
+  },
+  "jabal ali": {
+    "lat": 25.057877,
+    "lng": 55.127362
+  },
+  "snapo cafe": {
+    "lat": 25.278246,
+    "lng": 55.351989
+  },
+  "fresh restaurant": {
+    "lat": 25.259716,
+    "lng": 55.301766
+  },
+  "bread house": {
+    "lat": 25.269527,
+    "lng": 55.376184
+  },
+  "alo baghdad": {
+    "lat": 25.157492,
+    "lng": 55.295298
+  },
+  "sushi": {
+    "lat": 25.19075,
+    "lng": 55.231853
+  },
+  "la gaufrette": {
+    "lat": 25.075462,
+    "lng": 55.138226
+  },
+  "kabab": {
+    "lat": 25.171938,
+    "lng": 55.254422
+  },
+  "coffee day": {
+    "lat": 25.278249,
+    "lng": 55.30985
+  },
+  "manama restaurant": {
+    "lat": 25.158173,
+    "lng": 55.251133
+  },
+  "byn": {
+    "lat": 25.251542,
+    "lng": 55.366652
+  },
+  "g9": {
+    "lat": 25.239664,
+    "lng": 55.380813
+  },
+  "bikanerwala": {
+    "lat": 25.248606,
+    "lng": 55.302237
+  },
+  "times of arabia": {
+    "lat": 25.261766,
+    "lng": 55.308638
+  },
+  "bazaar": {
+    "lat": 24.921708,
+    "lng": 55.009896
+  },
+  "the royal budha": {
+    "lat": 25.115951,
+    "lng": 55.194517
+  },
+  "sip": {
+    "lat": 25.248224,
+    "lng": 55.311776
+  },
+  "khair darbar": {
+    "lat": 25.151789,
+    "lng": 55.243993
+  },
+  "aman": {
+    "lat": 25.280633,
+    "lng": 55.352061
+  },
+  "dip 2": {
+    "lat": 25.011185,
+    "lng": 55.162113
+  },
+  "lounge cafe": {
+    "lat": 25.250713,
+    "lng": 55.311186
+  },
+  "churchill": {
+    "lat": 25.180534,
+    "lng": 55.262876
+  },
+  "lulu restaurant": {
+    "lat": 25.297803,
+    "lng": 55.367287
+  },
+  "playground": {
+    "lat": 25.197037,
+    "lng": 55.272462
+  },
+  "al diyar bakery": {
+    "lat": 25.251045,
+    "lng": 55.448758
+  },
+  "pullman": {
+    "lat": 25.187017,
+    "lng": 55.271502
+  },
+  "limited": {
+    "lat": 25.256107,
+    "lng": 55.300953
+  },
+  "deira star bakery": {
+    "lat": 25.278386,
+    "lng": 55.331089
+  },
+  "amango": {
+    "lat": 25.070253,
+    "lng": 55.307898
+  },
+  "jumeirah": {
+    "lat": 25.20696,
+    "lng": 55.247497
+  },
+  "hatta wild cafe": {
+    "lat": 24.814272,
+    "lng": 56.160017
+  },
+  "fresco": {
+    "lat": 25.220343,
+    "lng": 55.280263
+  },
+  "burnout cafe": {
+    "lat": 25.236513,
+    "lng": 55.302512
+  },
+  "sweet indulgence": {
+    "lat": 25.287421,
+    "lng": 55.369014
+  },
+  "juice center": {
+    "lat": 25.289491,
+    "lng": 55.369692
+  },
+  "mesbah al madeena": {
+    "lat": 25.257989,
+    "lng": 55.286462
+  },
+  "playa beach": {
+    "lat": 25.133268,
+    "lng": 55.119278
+  },
+  "kabab safa restaurant": {
+    "lat": 25.20195,
+    "lng": 55.376471
+  },
+  "15 th street al rigga": {
+    "lat": 25.264118,
+    "lng": 55.311935
+  },
+  "marwa": {
+    "lat": 25.052633,
+    "lng": 55.218944
+  },
+  "mra restaurant": {
+    "lat": 25.256921,
+    "lng": 55.287277
+  },
+  "the green": {
+    "lat": 25.206063,
+    "lng": 55.260399
+  },
+  "karachi": {
+    "lat": 25.276327,
+    "lng": 55.310557
+  },
+  "amaru": {
+    "lat": 25.133454,
+    "lng": 55.186594
+  },
+  "moroccan taste restaurant": {
+    "lat": 25.276946,
+    "lng": 55.313366
+  },
+  "rashid restaurant": {
+    "lat": 25.259397,
+    "lng": 55.279488
+  },
+  "flour girl": {
+    "lat": 25.144571,
+    "lng": 55.239317
+  },
+  "al hamar kitchen": {
+    "lat": 25.283777,
+    "lng": 55.390911
+  },
+  "khaneen restaurant": {
+    "lat": 25.177224,
+    "lng": 55.245554
+  },
+  "fountain": {
+    "lat": 25.233936,
+    "lng": 55.311872
+  },
+  "red pepper": {
+    "lat": 25.267352,
+    "lng": 55.313565
+  },
+  "cake boutique": {
+    "lat": 25.211129,
+    "lng": 55.28169
+  },
+  "b8": {
+    "lat": 25.046678,
+    "lng": 55.151303
+  },
+  "nabi": {
+    "lat": 25.277104,
+    "lng": 55.312761
+  },
+  "persian restaurant": {
+    "lat": 25.216584,
+    "lng": 55.27786
+  },
+  "dough": {
+    "lat": 25.078767,
+    "lng": 55.14996
+  },
+  "safa al": {
+    "lat": 25.15563,
+    "lng": 55.228516
+  },
+  "malik restaurant": {
+    "lat": 25.245087,
+    "lng": 55.324928
+  },
+  "azad": {
+    "lat": 25.272741,
+    "lng": 55.299753
+  },
+  "dinner in the sky": {
+    "lat": 25.088848,
+    "lng": 55.138154
+  },
+  "chuno deli": {
+    "lat": 25.102757,
+    "lng": 55.164133
+  },
+  "burj al noor": {
+    "lat": 25.297344,
+    "lng": 55.36519
+  },
+  "rashi": {
+    "lat": 25.285212,
+    "lng": 55.369881
+  },
+  "nad al sheba": {
+    "lat": 25.14563,
+    "lng": 55.364275
+  },
+  "a plus": {
+    "lat": 25.11043,
+    "lng": 55.202232
+  },
+  "butter": {
+    "lat": 25.254491,
+    "lng": 55.303357
+  },
+  "zak": {
+    "lat": 25.260845,
+    "lng": 55.322107
+  },
+  "cutting chai": {
+    "lat": 25.240805,
+    "lng": 55.298814
+  },
+  "f&b": {
+    "lat": 25.121263,
+    "lng": 55.13838
+  },
+  "city deli": {
+    "lat": 24.982383,
+    "lng": 55.093592
+  },
+  "nook": {
+    "lat": 25.291314,
+    "lng": 55.396941
+  },
+  "shezan": {
+    "lat": 25.134197,
+    "lng": 55.255259
+  },
+  "nine squares": {
+    "lat": 25.170334,
+    "lng": 55.216008
+  },
+  "great wok": {
+    "lat": 25.072237,
+    "lng": 55.142439
+  },
+  "al haramain": {
+    "lat": 25.271065,
+    "lng": 55.30031
+  },
+  "nene chicken": {
+    "lat": 25.250686,
+    "lng": 55.332931
+  },
+  "brix": {
+    "lat": 25.209948,
+    "lng": 55.244086
+  },
+  "bay view": {
+    "lat": 25.185148,
+    "lng": 55.282535
+  },
+  "al faris": {
+    "lat": 25.174077,
+    "lng": 55.255452
+  },
+  "world cut steakhouse": {
+    "lat": 25.183249,
+    "lng": 55.254499
+  },
+  "al shindagha museum": {
+    "lat": 25.266474,
+    "lng": 55.288964
+  },
+  "tropical": {
+    "lat": 25.269478,
+    "lng": 55.299842
+  },
+  "al afia coffee shop": {
+    "lat": 25.274107,
+    "lng": 55.31266
+  },
+  "indo indo": {
+    "lat": 25.076016,
+    "lng": 55.146096
+  },
+  "le veyron cafe": {
+    "lat": 25.212429,
+    "lng": 55.277207
+  },
+  "al samaha restaurant & cafeteria": {
+    "lat": 25.278337,
+    "lng": 55.311545
+  },
+  "al bateen": {
+    "lat": 25.269361,
+    "lng": 55.299871
+  },
+  "saleh saeed bakery": {
+    "lat": 25.272887,
+    "lng": 55.313628
   }
 }
