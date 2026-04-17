@@ -26205,5 +26205,461 @@
   "shams al warqa": {
     "lat": 25.194541,
     "lng": 55.402133
+  },
+  "royal bakery": {
+    "lat": 25.053549,
+    "lng": 55.169991
+  },
+  "bin eid traditional restaurant": {
+    "lat": 25.291182,
+    "lng": 55.326403
+  },
+  "the villa": {
+    "lat": 25.084389,
+    "lng": 55.361196
+  },
+  "eureka hotel": {
+    "lat": 25.261215,
+    "lng": 55.325254
+  },
+  "al taarof restaurant": {
+    "lat": 25.2594,
+    "lng": 55.287093
+  },
+  "yummy restaurant": {
+    "lat": 25.284401,
+    "lng": 55.389039
+  },
+  "food magic restaurant": {
+    "lat": 25.124104,
+    "lng": 55.400448
+  },
+  "shaklan": {
+    "lat": 25.279193,
+    "lng": 55.347904
+  },
+  "aangan": {
+    "lat": 25.290212,
+    "lng": 55.393168
+  },
+  "berry": {
+    "lat": 25.27619,
+    "lng": 55.307039
+  },
+  "the sugar artistry": {
+    "lat": 25.069429,
+    "lng": 55.245437
+  },
+  "cafe fresh": {
+    "lat": 25.312113,
+    "lng": 55.342709
+  },
+  "special chicken": {
+    "lat": 25.278253,
+    "lng": 55.308665
+  },
+  "wadi doan kitchen": {
+    "lat": 25.287955,
+    "lng": 55.388339
+  },
+  "dampa feast": {
+    "lat": 25.25362,
+    "lng": 55.303102
+  },
+  "spinzer restaurant": {
+    "lat": 25.113117,
+    "lng": 55.190908
+  },
+  "marfa biryani": {
+    "lat": 25.290452,
+    "lng": 55.311468
+  },
+  "bst": {
+    "lat": 25.156382,
+    "lng": 55.407564
+  },
+  "nepal": {
+    "lat": 25.266867,
+    "lng": 55.290054
+  },
+  "armani/lounge": {
+    "lat": 25.197064,
+    "lng": 55.274366
+  },
+  "white falcon": {
+    "lat": 25.258284,
+    "lng": 55.329206
+  },
+  "location": {
+    "lat": 25.174156,
+    "lng": 55.305488
+  },
+  "ghar ka tiffin": {
+    "lat": 25.063477,
+    "lng": 55.137656
+  },
+  "cafee": {
+    "lat": 25.188216,
+    "lng": 55.298066
+  },
+  "chef restaurant": {
+    "lat": 25.132848,
+    "lng": 55.241007
+  },
+  "ride": {
+    "lat": 25.07716,
+    "lng": 55.135521
+  },
+  "shams al aseel": {
+    "lat": 25.230973,
+    "lng": 55.277089
+  },
+  "soni": {
+    "lat": 25.229829,
+    "lng": 55.276266
+  },
+  "very smurfy cafe": {
+    "lat": 24.921671,
+    "lng": 55.003313
+  },
+  "mohammed ibrahim": {
+    "lat": 25.272349,
+    "lng": 55.339506
+  },
+  "machu picchu": {
+    "lat": 25.176083,
+    "lng": 55.221222
+  },
+  "together": {
+    "lat": 25.042158,
+    "lng": 55.230441
+  },
+  "thattukada": {
+    "lat": 25.272955,
+    "lng": 55.374549
+  },
+  "onich bakery": {
+    "lat": 25.276254,
+    "lng": 55.309341
+  },
+  "sketch": {
+    "lat": 25.241512,
+    "lng": 55.278553
+  },
+  "karachi restaurant": {
+    "lat": 25.132563,
+    "lng": 55.235703
+  },
+  "reform social & grill": {
+    "lat": 25.078896,
+    "lng": 55.167683
+  },
+  "premier inn": {
+    "lat": 25.221444,
+    "lng": 55.331929
+  },
+  "f": {
+    "lat": 25.196347,
+    "lng": 55.281494
+  },
+  "bar world": {
+    "lat": 25.221049,
+    "lng": 55.286102
+  },
+  "al borz restaurant": {
+    "lat": 25.213884,
+    "lng": 55.25867
+  },
+  "cafe arabia": {
+    "lat": 25.069389,
+    "lng": 55.307483
+  },
+  "ali alali bakery": {
+    "lat": 25.273493,
+    "lng": 55.313627
+  },
+  "quick bite": {
+    "lat": 25.273546,
+    "lng": 55.322334
+  },
+  "stables": {
+    "lat": 25.222792,
+    "lng": 55.281811
+  },
+  "flor": {
+    "lat": 25.272629,
+    "lng": 55.300752
+  },
+  "shaker new cafeteria": {
+    "lat": 25.266386,
+    "lng": 55.295775
+  },
+  "ocean": {
+    "lat": 25.271092,
+    "lng": 55.297853
+  },
+  "al hoot": {
+    "lat": 25.268383,
+    "lng": 55.402718
+  },
+  "food factory": {
+    "lat": 25.210572,
+    "lng": 55.255979
+  },
+  "the coffee cafe": {
+    "lat": 25.259684,
+    "lng": 55.279687
+  },
+  "amma": {
+    "lat": 25.185023,
+    "lng": 55.344706
+  },
+  "chicken": {
+    "lat": 25.278253,
+    "lng": 55.308665
+  },
+  "obaid": {
+    "lat": 25.268577,
+    "lng": 55.290689
+  },
+  "iqbal restaurant": {
+    "lat": 25.189216,
+    "lng": 55.269801
+  },
+  "urth caffe": {
+    "lat": 25.208254,
+    "lng": 55.263212
+  },
+  "kong": {
+    "lat": 25.237911,
+    "lng": 55.181998
+  },
+  "al embratoor cook & restaurant": {
+    "lat": 25.288005,
+    "lng": 55.324557
+  },
+  "padel": {
+    "lat": 25.055158,
+    "lng": 55.138748
+  },
+  "meha": {
+    "lat": 24.957696,
+    "lng": 55.147483
+  },
+  "bluewaters": {
+    "lat": 25.079548,
+    "lng": 55.121704
+  },
+  "millennium downtown": {
+    "lat": 25.180103,
+    "lng": 55.263813
+  },
+  "flour stone": {
+    "lat": 25.266039,
+    "lng": 55.357214
+  },
+  "ammar": {
+    "lat": 25.280538,
+    "lng": 55.352803
+  },
+  "marriott bar": {
+    "lat": 25.185686,
+    "lng": 55.258087
+  },
+  "shola cafe": {
+    "lat": 25.250713,
+    "lng": 55.311186
+  },
+  "lounge & cafe": {
+    "lat": 25.250713,
+    "lng": 55.311186
+  },
+  "taipei dao": {
+    "lat": 25.186522,
+    "lng": 55.27831
+  },
+  "tandoori junction": {
+    "lat": 25.187933,
+    "lng": 55.269695
+  },
+  "tea spot": {
+    "lat": 25.258323,
+    "lng": 55.298236
+  },
+  "the harbour": {
+    "lat": 25.093888,
+    "lng": 55.148277
+  },
+  "dodo pizza": {
+    "lat": 25.086925,
+    "lng": 55.147168
+  },
+  "o f": {
+    "lat": 25.196347,
+    "lng": 55.281494
+  },
+  "tea corner": {
+    "lat": 25.123039,
+    "lng": 55.22223
+  },
+  "rabbash": {
+    "lat": 25.308165,
+    "lng": 55.339455
+  },
+  "windmill": {
+    "lat": 24.856003,
+    "lng": 54.895829
+  },
+  "brands for less": {
+    "lat": 25.264133,
+    "lng": 55.3301
+  },
+  "china gate": {
+    "lat": 25.259769,
+    "lng": 55.326785
+  },
+  "cloud": {
+    "lat": 25.070663,
+    "lng": 55.132913
+  },
+  "day fresh": {
+    "lat": 25.312113,
+    "lng": 55.342709
+  },
+  "amalfi": {
+    "lat": 25.227196,
+    "lng": 55.341671
+  },
+  "raffles": {
+    "lat": 25.048954,
+    "lng": 55.252562
+  },
+  "oyster restaurant": {
+    "lat": 25.073006,
+    "lng": 55.127856
+  },
+  "madina al atlal": {
+    "lat": 25.007228,
+    "lng": 55.110376
+  },
+  "rooftop lounge": {
+    "lat": 25.259079,
+    "lng": 55.291339
+  },
+  "friends fast food": {
+    "lat": 24.911567,
+    "lng": 54.963434
+  },
+  "wagamama": {
+    "lat": 25.106734,
+    "lng": 55.147904
+  },
+  "triple 777": {
+    "lat": 25.173093,
+    "lng": 55.229149
+  },
+  "al bal lounge": {
+    "lat": 25.096924,
+    "lng": 55.172537
+  },
+  "90s burger": {
+    "lat": 25.214261,
+    "lng": 55.378581
+  },
+  "micro": {
+    "lat": 25.185027,
+    "lng": 55.345548
+  },
+  "signature": {
+    "lat": 25.070091,
+    "lng": 55.307771
+  },
+  "eden": {
+    "lat": 25.013785,
+    "lng": 55.449428
+  },
+  "n46": {
+    "lat": 25.229634,
+    "lng": 55.289585
+  },
+  "kalpaka": {
+    "lat": 25.261183,
+    "lng": 55.327594
+  },
+  "4s": {
+    "lat": 25.229634,
+    "lng": 55.289585
+  },
+  "day to day": {
+    "lat": 25.24626,
+    "lng": 55.300203
+  },
+  "nenawa bakery": {
+    "lat": 25.270988,
+    "lng": 55.373702
+  },
+  "el paso": {
+    "lat": 25.201864,
+    "lng": 55.153
+  },
+  "hadiyya coffee house": {
+    "lat": 25.258478,
+    "lng": 55.329376
+  },
+  "pizza express": {
+    "lat": 25.066119,
+    "lng": 55.138298
+  },
+  "al mashowa": {
+    "lat": 24.919599,
+    "lng": 55.008831
+  },
+  "saleh abdulla": {
+    "lat": 25.277929,
+    "lng": 55.310296
+  },
+  "d1 tower": {
+    "lat": 25.226954,
+    "lng": 55.34347
+  },
+  "art cafe": {
+    "lat": 25.263885,
+    "lng": 55.299785
+  },
+  "al adil supermarket": {
+    "lat": 25.260695,
+    "lng": 55.292882
+  },
+  "sea world": {
+    "lat": 25.178009,
+    "lng": 55.246238
+  },
+  "cbd": {
+    "lat": 25.177619,
+    "lng": 55.388589
+  },
+  "jalasat": {
+    "lat": 25.25528,
+    "lng": 55.337914
+  },
+  "cafe isan": {
+    "lat": 25.067407,
+    "lng": 55.138339
+  },
+  "moon slice": {
+    "lat": 25.193537,
+    "lng": 55.245033
+  },
+  "mesa restaurant": {
+    "lat": 25.230553,
+    "lng": 55.272561
+  },
+  "al badaa": {
+    "lat": 25.209999,
+    "lng": 55.271874
+  },
+  "the edge": {
+    "lat": 25.259925,
+    "lng": 55.31816
   }
 }
