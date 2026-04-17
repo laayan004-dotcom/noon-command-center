@@ -25281,5 +25281,465 @@
   "saleh saeed bakery": {
     "lat": 25.272887,
     "lng": 55.313628
+  },
+  "jabali": {
+    "lat": 25.106852,
+    "lng": 55.111408
+  },
+  "bistro des arts": {
+    "lat": 25.077556,
+    "lng": 55.140657
+  },
+  "dubai b": {
+    "lat": 25.229634,
+    "lng": 55.289585
+  },
+  "wavebreaker": {
+    "lat": 25.079581,
+    "lng": 55.13339
+  },
+  "zak way foods": {
+    "lat": 25.260845,
+    "lng": 55.322107
+  },
+  "al sheif": {
+    "lat": 25.126684,
+    "lng": 55.20792
+  },
+  "kims": {
+    "lat": 25.271117,
+    "lng": 55.332426
+  },
+  "helipad": {
+    "lat": 25.141193,
+    "lng": 55.185552
+  },
+  "bistro restaurant": {
+    "lat": 25.07613,
+    "lng": 55.145868
+  },
+  "good food": {
+    "lat": 25.078767,
+    "lng": 55.14996
+  },
+  "the delisserie": {
+    "lat": 25.103896,
+    "lng": 55.148436
+  },
+  "dhaba": {
+    "lat": 25.27244,
+    "lng": 55.382326
+  },
+  "the coffee lab": {
+    "lat": 25.259684,
+    "lng": 55.279687
+  },
+  "wafi restaurant": {
+    "lat": 25.229597,
+    "lng": 55.318679
+  },
+  "the anchor": {
+    "lat": 24.987792,
+    "lng": 55.021304
+  },
+  "sweetheart kitchen": {
+    "lat": 25.275806,
+    "lng": 55.328276
+  },
+  "the grill restaurant": {
+    "lat": 25.076452,
+    "lng": 55.132871
+  },
+  "spot": {
+    "lat": 25.221696,
+    "lng": 55.347589
+  },
+  "al dahleez": {
+    "lat": 25.253328,
+    "lng": 55.337174
+  },
+  "b09": {
+    "lat": 25.169201,
+    "lng": 55.41502
+  },
+  "relish": {
+    "lat": 25.275664,
+    "lng": 55.310405
+  },
+  "culture": {
+    "lat": 25.288558,
+    "lng": 55.35037
+  },
+  "first avenue": {
+    "lat": 25.047069,
+    "lng": 55.243265
+  },
+  "village hub": {
+    "lat": 25.2527,
+    "lng": 55.295796
+  },
+  "mina bazaar": {
+    "lat": 25.261532,
+    "lng": 55.294109
+  },
+  "cafe lounge": {
+    "lat": 25.24429,
+    "lng": 55.310707
+  },
+  "dosa hut": {
+    "lat": 25.275364,
+    "lng": 55.334526
+  },
+  "parx cafe": {
+    "lat": 25.180232,
+    "lng": 55.235494
+  },
+  "nash chicken": {
+    "lat": 25.235063,
+    "lng": 55.4743
+  },
+  "street cafe": {
+    "lat": 25.259684,
+    "lng": 55.279687
+  },
+  "ajnas": {
+    "lat": 25.272865,
+    "lng": 55.312958
+  },
+  "pizza inn": {
+    "lat": 25.27057,
+    "lng": 55.320845
+  },
+  "al hakawati": {
+    "lat": 25.003587,
+    "lng": 55.163198
+  },
+  "park view": {
+    "lat": 25.293432,
+    "lng": 55.379348
+  },
+  "madenat al khair": {
+    "lat": 25.276216,
+    "lng": 55.329961
+  },
+  "fast & fine restaurant": {
+    "lat": 25.279542,
+    "lng": 55.330986
+  },
+  "public restaurant": {
+    "lat": 25.194806,
+    "lng": 55.278993
+  },
+  "jiva": {
+    "lat": 25.086116,
+    "lng": 55.384077
+  },
+  "al ras restaurant": {
+    "lat": 25.185394,
+    "lng": 55.361592
+  },
+  "little china restaurant": {
+    "lat": 25.245703,
+    "lng": 55.307479
+  },
+  "jasim al safar restaurant": {
+    "lat": 25.269024,
+    "lng": 55.43161
+  },
+  "marina view": {
+    "lat": 25.079387,
+    "lng": 55.144176
+  },
+  "market restaurant": {
+    "lat": 24.917812,
+    "lng": 55.010672
+  },
+  "saad al weraani": {
+    "lat": 25.2253,
+    "lng": 55.383425
+  },
+  "piadera": {
+    "lat": 25.221639,
+    "lng": 55.285303
+  },
+  "lezzet": {
+    "lat": 25.225435,
+    "lng": 55.255378
+  },
+  "baker": {
+    "lat": 25.270893,
+    "lng": 55.332755
+  },
+  "salo": {
+    "lat": 25.274636,
+    "lng": 55.427166
+  },
+  "meal box": {
+    "lat": 25.259858,
+    "lng": 55.371729
+  },
+  "al marar": {
+    "lat": 25.278138,
+    "lng": 55.309938
+  },
+  "bounty bar": {
+    "lat": 24.857726,
+    "lng": 54.896258
+  },
+  "kickers": {
+    "lat": 25.038805,
+    "lng": 55.226366
+  },
+  "al khalideen": {
+    "lat": 25.238124,
+    "lng": 55.370907
+  },
+  "food point restaurant": {
+    "lat": 25.134487,
+    "lng": 55.254811
+  },
+  "patchi": {
+    "lat": 25.264826,
+    "lng": 55.327067
+  },
+  "al mamzar restaurant": {
+    "lat": 25.241984,
+    "lng": 55.300035
+  },
+  "ice": {
+    "lat": 25.252692,
+    "lng": 55.308074
+  },
+  "side": {
+    "lat": 25.249099,
+    "lng": 55.310693
+  },
+  "marsa": {
+    "lat": 25.146984,
+    "lng": 55.188246
+  },
+  "bu hamdan": {
+    "lat": 25.248858,
+    "lng": 55.305158
+  },
+  "coup al shay cafe": {
+    "lat": 25.275855,
+    "lng": 55.331977
+  },
+  "town square": {
+    "lat": 24.995827,
+    "lng": 55.295906
+  },
+  "two brothers": {
+    "lat": 25.279117,
+    "lng": 55.351847
+  },
+  "al nahda restaurant": {
+    "lat": 25.278962,
+    "lng": 55.351416
+  },
+  "infini pool lounge": {
+    "lat": 25.075671,
+    "lng": 55.131796
+  },
+  "breakfast": {
+    "lat": 25.249058,
+    "lng": 55.360631
+  },
+  "madina restaurant": {
+    "lat": 25.278742,
+    "lng": 55.309764
+  },
+  "galaxy ktv lounge": {
+    "lat": 25.264322,
+    "lng": 55.322467
+  },
+  "chimes": {
+    "lat": 25.114493,
+    "lng": 55.193014
+  },
+  "cafeteria tea": {
+    "lat": 25.288348,
+    "lng": 55.368488
+  },
+  "wokyo": {
+    "lat": 25.26522,
+    "lng": 55.301311
+  },
+  "coco dubai": {
+    "lat": 25.116321,
+    "lng": 55.14218
+  },
+  "steak on fries": {
+    "lat": 25.235068,
+    "lng": 55.474107
+  },
+  "kung korean restaurant": {
+    "lat": 25.097525,
+    "lng": 55.173566
+  },
+  "delphi cafe": {
+    "lat": 25.172802,
+    "lng": 55.30795
+  },
+  "food pan": {
+    "lat": 25.237286,
+    "lng": 55.279442
+  },
+  "carrefour": {
+    "lat": 25.290926,
+    "lng": 55.345258
+  },
+  "empire cafe": {
+    "lat": 24.919886,
+    "lng": 55.002691
+  },
+  "jiu gong ge hot pot": {
+    "lat": 25.16167,
+    "lng": 55.400723
+  },
+  "source": {
+    "lat": 25.267707,
+    "lng": 55.295749
+  },
+  "nasimi": {
+    "lat": 25.12953,
+    "lng": 55.117959
+  },
+  "city pearl restaurant": {
+    "lat": 25.154347,
+    "lng": 55.246901
+  },
+  "pitfire pizza": {
+    "lat": 25.069904,
+    "lng": 55.141366
+  },
+  "premium": {
+    "lat": 25.080085,
+    "lng": 55.135893
+  },
+  "one bar": {
+    "lat": 25.097095,
+    "lng": 55.15037
+  },
+  "guys": {
+    "lat": 25.117671,
+    "lng": 55.235737
+  },
+  "al qariyath cafeteria": {
+    "lat": 25.284092,
+    "lng": 55.33368
+  },
+  "ck": {
+    "lat": 25.218881,
+    "lng": 55.339038
+  },
+  "city diamond restaurant": {
+    "lat": 25.132171,
+    "lng": 55.246757
+  },
+  "s34": {
+    "lat": 25.229634,
+    "lng": 55.289585
+  },
+  "45 cafe": {
+    "lat": 25.239351,
+    "lng": 55.253378
+  },
+  "tanateef": {
+    "lat": 25.276564,
+    "lng": 55.313369
+  },
+  "fresh fish restaurant": {
+    "lat": 25.274409,
+    "lng": 55.3232
+  },
+  "al wahedi": {
+    "lat": 25.277037,
+    "lng": 55.311842
+  },
+  "al shahama": {
+    "lat": 25.234908,
+    "lng": 55.274607
+  },
+  "blu": {
+    "lat": 25.191312,
+    "lng": 55.290129
+  },
+  "sunset lounge": {
+    "lat": 24.987766,
+    "lng": 55.022984
+  },
+  "al barakh al tayaba bakery": {
+    "lat": 25.259224,
+    "lng": 55.294241
+  },
+  "option": {
+    "lat": 25.179772,
+    "lng": 55.334539
+  },
+  "la mode restaurant": {
+    "lat": 25.116782,
+    "lng": 55.195774
+  },
+  "fusion": {
+    "lat": 25.266674,
+    "lng": 55.355987
+  },
+  "heal": {
+    "lat": 24.980572,
+    "lng": 55.156614
+  },
+  "pitfire": {
+    "lat": 25.093846,
+    "lng": 55.168417
+  },
+  "salute": {
+    "lat": 25.193836,
+    "lng": 55.273889
+  },
+  "al jaddaf": {
+    "lat": 25.214294,
+    "lng": 55.324569
+  },
+  "hamdan": {
+    "lat": 25.104055,
+    "lng": 55.392648
+  },
+  "saeed al muaten restaurant": {
+    "lat": 24.950613,
+    "lng": 55.508919
+  },
+  "sidra": {
+    "lat": 25.183433,
+    "lng": 55.254061
+  },
+  "yalseh": {
+    "lat": 25.253311,
+    "lng": 55.333688
+  },
+  "4 o'clock cafe": {
+    "lat": 25.278083,
+    "lng": 55.362013
+  },
+  "hor al anz": {
+    "lat": 25.276969,
+    "lng": 55.33582
+  },
+  "rococo": {
+    "lat": 25.075105,
+    "lng": 55.132254
+  },
+  "lebanese grill": {
+    "lat": 25.263152,
+    "lng": 55.32481
+  },
+  "padippura restaurant": {
+    "lat": 25.260798,
+    "lng": 55.322607
+  },
+  "palermo": {
+    "lat": 25.037437,
+    "lng": 55.253321
   }
 }
