@@ -27085,5 +27085,473 @@
   "limonata": {
     "lat": 25.114553,
     "lng": 55.142253
+  },
+  "ibn majed restaurant": {
+    "lat": 24.987496,
+    "lng": 55.022877
+  },
+  "mizu restaurant": {
+    "lat": 25.191099,
+    "lng": 55.271864
+  },
+  "al qamar": {
+    "lat": 25.185108,
+    "lng": 55.354809
+  },
+  "mini melts ice cream": {
+    "lat": 25.070682,
+    "lng": 55.307606
+  },
+  "robyan": {
+    "lat": 25.282845,
+    "lng": 55.35142
+  },
+  "silog express": {
+    "lat": 25.247556,
+    "lng": 55.306947
+  },
+  "royal plate restaurant": {
+    "lat": 25.268943,
+    "lng": 55.314354
+  },
+  "reem al bawadi": {
+    "lat": 25.085557,
+    "lng": 55.147608
+  },
+  "daily fresh": {
+    "lat": 25.22569,
+    "lng": 55.401808
+  },
+  "golden chariot": {
+    "lat": 25.290051,
+    "lng": 55.393031
+  },
+  "mc": {
+    "lat": 25.205944,
+    "lng": 55.252646
+  },
+  "stars restaurant": {
+    "lat": 25.230052,
+    "lng": 55.377254
+  },
+  "al wasel garden cafeteria": {
+    "lat": 25.221235,
+    "lng": 55.266073
+  },
+  "treehouse juicery": {
+    "lat": 25.248782,
+    "lng": 55.360601
+  },
+  "jeema": {
+    "lat": 24.820311,
+    "lng": 56.135376
+  },
+  "rhong tiam": {
+    "lat": 25.209723,
+    "lng": 55.255428
+  },
+  "raoof sweets restaurant": {
+    "lat": 25.233406,
+    "lng": 55.277476
+  },
+  "n53": {
+    "lat": 25.229634,
+    "lng": 55.289585
+  },
+  "mr sub": {
+    "lat": 25.229706,
+    "lng": 55.321861
+  },
+  "cake shop": {
+    "lat": 24.986668,
+    "lng": 55.207686
+  },
+  "new tehran bakery": {
+    "lat": 25.228784,
+    "lng": 55.276194
+  },
+  "emaar": {
+    "lat": 25.078412,
+    "lng": 55.138536
+  },
+  "cafe marina": {
+    "lat": 25.084281,
+    "lng": 55.144633
+  },
+  "lito": {
+    "lat": 25.221049,
+    "lng": 55.286102
+  },
+  "calicut restaurant": {
+    "lat": 25.243216,
+    "lng": 55.30607
+  },
+  "al naji restaurant": {
+    "lat": 25.272143,
+    "lng": 55.308352
+  },
+  "kimuraya": {
+    "lat": 25.086758,
+    "lng": 55.140544
+  },
+  "momento": {
+    "lat": 25.258067,
+    "lng": 55.437612
+  },
+  "kitchen restaurant": {
+    "lat": 25.230052,
+    "lng": 55.377254
+  },
+  "aroma": {
+    "lat": 25.24588,
+    "lng": 55.314991
+  },
+  "mirdif uptown": {
+    "lat": 25.222453,
+    "lng": 55.427136
+  },
+  "philly jawn": {
+    "lat": 24.960427,
+    "lng": 55.150126
+  },
+  "wings bar": {
+    "lat": 25.209328,
+    "lng": 55.27725
+  },
+  "byblos lebanese grill": {
+    "lat": 25.21969,
+    "lng": 55.280004
+  },
+  "watani": {
+    "lat": 25.237163,
+    "lng": 55.277007
+  },
+  "sketch art cafe": {
+    "lat": 25.241512,
+    "lng": 55.278553
+  },
+  "omer": {
+    "lat": 25.269842,
+    "lng": 55.301218
+  },
+  "levant restaurant": {
+    "lat": 25.297371,
+    "lng": 55.371061
+  },
+  "beef bistro": {
+    "lat": 25.248696,
+    "lng": 55.347532
+  },
+  "palace cafeteria": {
+    "lat": 25.22463,
+    "lng": 55.377911
+  },
+  "top": {
+    "lat": 25.278709,
+    "lng": 55.314963
+  },
+  "grill restaurant": {
+    "lat": 25.264792,
+    "lng": 55.320295
+  },
+  "d2": {
+    "lat": 25.228072,
+    "lng": 55.176709
+  },
+  "kana cafe": {
+    "lat": 25.189994,
+    "lng": 55.284873
+  },
+  "fusion 3": {
+    "lat": 25.153349,
+    "lng": 55.19916
+  },
+  "hamza": {
+    "lat": 25.268242,
+    "lng": 55.314631
+  },
+  "silver city bakery": {
+    "lat": 25.135229,
+    "lng": 55.238627
+  },
+  "urban eatery": {
+    "lat": 25.207959,
+    "lng": 55.261396
+  },
+  "manha": {
+    "lat": 25.287013,
+    "lng": 55.387271
+  },
+  "frame": {
+    "lat": 25.235456,
+    "lng": 55.300367
+  },
+  "cascades": {
+    "lat": 25.072731,
+    "lng": 55.138146
+  },
+  "hunters room & grill": {
+    "lat": 25.092994,
+    "lng": 55.148868
+  },
+  "sultan": {
+    "lat": 25.135299,
+    "lng": 55.233179
+  },
+  "tea spot cafeteria": {
+    "lat": 25.258323,
+    "lng": 55.298236
+  },
+  "mosaic restaurant": {
+    "lat": 25.079171,
+    "lng": 55.144259
+  },
+  "armani": {
+    "lat": 25.197064,
+    "lng": 55.274366
+  },
+  "green land cafeteria": {
+    "lat": 25.277431,
+    "lng": 55.339271
+  },
+  "al hajes": {
+    "lat": 25.289215,
+    "lng": 55.392436
+  },
+  "real jolly coffee shop": {
+    "lat": 25.27729,
+    "lng": 55.309147
+  },
+  "qandahar bakery": {
+    "lat": 25.226158,
+    "lng": 55.380468
+  },
+  "komedor restaurant": {
+    "lat": 25.246054,
+    "lng": 55.30356
+  },
+  "desert": {
+    "lat": 25.230458,
+    "lng": 55.271501
+  },
+  "liza": {
+    "lat": 25.277569,
+    "lng": 55.309845
+  },
+  "golositalia": {
+    "lat": 25.069305,
+    "lng": 55.13979
+  },
+  "al rashid": {
+    "lat": 25.290748,
+    "lng": 55.348173
+  },
+  "al zahra walandaleeb restaurant": {
+    "lat": 25.267347,
+    "lng": 55.314845
+  },
+  "alnahda": {
+    "lat": 25.282409,
+    "lng": 55.336129
+  },
+  "marina walk": {
+    "lat": 25.082417,
+    "lng": 55.144303
+  },
+  "sapphire restaurant": {
+    "lat": 25.190365,
+    "lng": 55.231592
+  },
+  "home food restaurant": {
+    "lat": 25.280183,
+    "lng": 55.353069
+  },
+  "food garden restaurant": {
+    "lat": 25.211558,
+    "lng": 55.274441
+  },
+  "ali hussain ibrahim bakery": {
+    "lat": 25.277294,
+    "lng": 55.308086
+  },
+  "shay al cafeteria": {
+    "lat": 25.275855,
+    "lng": 55.331977
+  },
+  "taif al khaleej coffee shop": {
+    "lat": 25.271221,
+    "lng": 55.311406
+  },
+  "blue elephant restaurant": {
+    "lat": 25.247738,
+    "lng": 55.345082
+  },
+  "s kitchen": {
+    "lat": 25.194392,
+    "lng": 55.27798
+  },
+  "paragon restaurant": {
+    "lat": 25.102982,
+    "lng": 55.175326
+  },
+  "little lamb": {
+    "lat": 25.084536,
+    "lng": 55.141837
+  },
+  "mistral": {
+    "lat": 25.041408,
+    "lng": 55.11488
+  },
+  "mirzam": {
+    "lat": 25.163573,
+    "lng": 55.237677
+  },
+  "the roof gardens": {
+    "lat": 25.183555,
+    "lng": 55.254058
+  },
+  "marbella": {
+    "lat": 25.215305,
+    "lng": 55.325549
+  },
+  "rider": {
+    "lat": 24.955506,
+    "lng": 55.148376
+  },
+  "desl hut": {
+    "lat": 25.12707,
+    "lng": 55.236279
+  },
+  "al khan": {
+    "lat": 25.275877,
+    "lng": 55.307985
+  },
+  "bu qtair restaurant": {
+    "lat": 25.151509,
+    "lng": 55.197167
+  },
+  "emirates flight catering": {
+    "lat": 25.252024,
+    "lng": 55.347986
+  },
+  "pak restaurant": {
+    "lat": 25.159785,
+    "lng": 55.409224
+  },
+  "red diamond": {
+    "lat": 25.077154,
+    "lng": 55.155023
+  },
+  "atlas": {
+    "lat": 25.275684,
+    "lng": 55.310996
+  },
+  "bhoujan restaurant": {
+    "lat": 25.046329,
+    "lng": 55.24325
+  },
+  "focus": {
+    "lat": 25.129738,
+    "lng": 55.223738
+  },
+  "mushrif": {
+    "lat": 25.213974,
+    "lng": 55.450147
+  },
+  "al reza restaurant": {
+    "lat": 25.230428,
+    "lng": 55.276699
+  },
+  "anointed restaurant": {
+    "lat": 25.271788,
+    "lng": 55.311243
+  },
+  "food bites": {
+    "lat": 25.263043,
+    "lng": 55.332021
+  },
+  "blue rain": {
+    "lat": 25.229548,
+    "lng": 55.274586
+  },
+  "al kabayel": {
+    "lat": 25.243865,
+    "lng": 55.345889
+  },
+  "meraki": {
+    "lat": 25.244918,
+    "lng": 55.307241
+  },
+  "al hawaya restaurant": {
+    "lat": 25.229236,
+    "lng": 55.377139
+  },
+  "wraps": {
+    "lat": 25.068862,
+    "lng": 55.308469
+  },
+  "stop area": {
+    "lat": 25.143185,
+    "lng": 55.247041
+  },
+  "amo deek": {
+    "lat": 25.237051,
+    "lng": 55.275304
+  },
+  "panino": {
+    "lat": 25.090528,
+    "lng": 55.153034
+  },
+  "coral beach bakery": {
+    "lat": 25.222072,
+    "lng": 55.271602
+  },
+  "filipino food": {
+    "lat": 25.069705,
+    "lng": 55.133028
+  },
+  "danillo restaurant": {
+    "lat": 25.279848,
+    "lng": 55.316001
+  },
+  "lock stock": {
+    "lat": 25.080061,
+    "lng": 55.135238
+  },
+  "good day": {
+    "lat": 25.094403,
+    "lng": 55.176232
+  },
+  "good": {
+    "lat": 25.270877,
+    "lng": 55.303198
+  },
+  "four seasons hotel": {
+    "lat": 25.202165,
+    "lng": 55.239687
+  },
+  "silver sand": {
+    "lat": 25.247277,
+    "lng": 55.307195
+  },
+  "logs and embers": {
+    "lat": 25.114646,
+    "lng": 55.142304
+  },
+  "malabar paris restaurant": {
+    "lat": 25.246159,
+    "lng": 55.305208
+  },
+  "cafe artois": {
+    "lat": 25.185348,
+    "lng": 55.25747
+  },
+  "casablanca": {
+    "lat": 25.109675,
+    "lng": 55.199831
+  },
+  "majlis": {
+    "lat": 25.228126,
+    "lng": 55.292598
   }
 }
