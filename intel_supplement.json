@@ -25741,5 +25741,469 @@
   "palermo": {
     "lat": 25.037437,
     "lng": 55.253321
+  },
+  "fiesta restaurant": {
+    "lat": 25.260945,
+    "lng": 55.328112
+  },
+  "tourist restaurant": {
+    "lat": 25.232185,
+    "lng": 55.334373
+  },
+  "afghani restaurant": {
+    "lat": 25.273486,
+    "lng": 55.309434
+  },
+  "eta star": {
+    "lat": 25.270721,
+    "lng": 55.324588
+  },
+  "warehouse": {
+    "lat": 25.247335,
+    "lng": 55.346738
+  },
+  "instagram cafe": {
+    "lat": 25.278291,
+    "lng": 55.352041
+  },
+  "country bakes": {
+    "lat": 25.251202,
+    "lng": 55.304647
+  },
+  "al adil baker": {
+    "lat": 25.276205,
+    "lng": 55.337637
+  },
+  "hala tea": {
+    "lat": 24.932742,
+    "lng": 55.472067
+  },
+  "meat me there": {
+    "lat": 25.153304,
+    "lng": 55.199099
+  },
+  "tasty village": {
+    "lat": 25.054005,
+    "lng": 55.212051
+  },
+  "food street": {
+    "lat": 25.249267,
+    "lng": 55.359789
+  },
+  "appetite": {
+    "lat": 25.268884,
+    "lng": 55.313958
+  },
+  "pan de manila": {
+    "lat": 25.237286,
+    "lng": 55.279442
+  },
+  "ciao ciao restaurant": {
+    "lat": 25.092157,
+    "lng": 55.150833
+  },
+  "food corner": {
+    "lat": 25.259134,
+    "lng": 55.290135
+  },
+  "mubasher": {
+    "lat": 25.282311,
+    "lng": 55.335907
+  },
+  "pizza and pasta": {
+    "lat": 25.191746,
+    "lng": 55.407349
+  },
+  "fujiya": {
+    "lat": 25.235077,
+    "lng": 55.307879
+  },
+  "alkanafanje": {
+    "lat": 25.184338,
+    "lng": 55.418293
+  },
+  "bar": {
+    "lat": 24.822164,
+    "lng": 56.133723
+  },
+  "bhukkad cafe": {
+    "lat": 25.111189,
+    "lng": 55.375186
+  },
+  "rouge": {
+    "lat": 25.261019,
+    "lng": 55.322284
+  },
+  "oman restaurant": {
+    "lat": 25.229695,
+    "lng": 55.366141
+  },
+  "long yin": {
+    "lat": 25.248528,
+    "lng": 55.347647
+  },
+  "shisha": {
+    "lat": 25.096391,
+    "lng": 55.172448
+  },
+  "the draft house": {
+    "lat": 25.25771,
+    "lng": 55.344986
+  },
+  "shatee al madina": {
+    "lat": 25.278742,
+    "lng": 55.309764
+  },
+  "hyderabadi": {
+    "lat": 25.277212,
+    "lng": 55.33155
+  },
+  "al taj restaurant": {
+    "lat": 25.27863,
+    "lng": 55.31414
+  },
+  "6th avenue": {
+    "lat": 25.229634,
+    "lng": 55.289585
+  },
+  "risala": {
+    "lat": 25.273617,
+    "lng": 55.314765
+  },
+  "reehan 7": {
+    "lat": 25.18923,
+    "lng": 55.276964
+  },
+  "green restaurant": {
+    "lat": 25.287275,
+    "lng": 55.369272
+  },
+  "kaayikkas cafe": {
+    "lat": 25.147337,
+    "lng": 55.403665
+  },
+  "nawah restaurant": {
+    "lat": 25.273686,
+    "lng": 55.313332
+  },
+  "shay cafeteria": {
+    "lat": 25.275855,
+    "lng": 55.331977
+  },
+  "al rukan": {
+    "lat": 25.280749,
+    "lng": 55.345205
+  },
+  "helal al barsha restaurant": {
+    "lat": 25.096812,
+    "lng": 55.176862
+  },
+  "1085 enoc": {
+    "lat": 25.039614,
+    "lng": 55.11528
+  },
+  "arabian": {
+    "lat": 25.053568,
+    "lng": 55.275478
+  },
+  "sukhothai": {
+    "lat": 25.248615,
+    "lng": 55.347159
+  },
+  "madeena grocery": {
+    "lat": 25.151519,
+    "lng": 55.243724
+  },
+  "chacha": {
+    "lat": 25.251272,
+    "lng": 55.302617
+  },
+  "ponnusamy": {
+    "lat": 25.271474,
+    "lng": 55.379911
+  },
+  "al rasheed": {
+    "lat": 25.291667,
+    "lng": 55.347077
+  },
+  "yasmina restaurant": {
+    "lat": 25.107298,
+    "lng": 55.377816
+  },
+  "mall view": {
+    "lat": 25.117087,
+    "lng": 55.196672
+  },
+  "al khartoum": {
+    "lat": 25.245758,
+    "lng": 55.452981
+  },
+  "jabal peshawar restaurant": {
+    "lat": 25.274681,
+    "lng": 55.421863
+  },
+  "thyme": {
+    "lat": 25.221939,
+    "lng": 55.433751
+  },
+  "bravo": {
+    "lat": 25.240012,
+    "lng": 55.307852
+  },
+  "the club": {
+    "lat": 25.184371,
+    "lng": 55.240094
+  },
+  "royal darbar restaurant": {
+    "lat": 24.989099,
+    "lng": 55.196819
+  },
+  "al ghala cafeteria": {
+    "lat": 25.17113,
+    "lng": 55.244416
+  },
+  "pudumadam restaurant": {
+    "lat": 25.091833,
+    "lng": 55.384746
+  },
+  "chuan": {
+    "lat": 25.111167,
+    "lng": 55.37508
+  },
+  "comptoir libanais": {
+    "lat": 25.244367,
+    "lng": 55.370331
+  },
+  "st tropez bistro": {
+    "lat": 25.118192,
+    "lng": 55.197212
+  },
+  "basha bite restaurant": {
+    "lat": 25.192865,
+    "lng": 55.404511
+  },
+  "rokn al mulook": {
+    "lat": 25.280282,
+    "lng": 55.357735
+  },
+  "rails": {
+    "lat": 25.068581,
+    "lng": 55.139808
+  },
+  "mahjabin restaurant": {
+    "lat": 25.15827,
+    "lng": 55.25125
+  },
+  "wow": {
+    "lat": 25.295316,
+    "lng": 55.372234
+  },
+  "aswaaq": {
+    "lat": 25.249942,
+    "lng": 55.45364
+  },
+  "spinneys": {
+    "lat": 25.151829,
+    "lng": 55.295483
+  },
+  "premier inn ibn battuta": {
+    "lat": 25.046355,
+    "lng": 55.119095
+  },
+  "murjan": {
+    "lat": 25.082145,
+    "lng": 55.139673
+  },
+  "tavern": {
+    "lat": 25.185493,
+    "lng": 55.2579
+  },
+  "wadi": {
+    "lat": 25.139648,
+    "lng": 55.189428
+  },
+  "the lounge burj khalifa": {
+    "lat": 25.185686,
+    "lng": 55.258087
+  },
+  "seabreeze": {
+    "lat": 25.272254,
+    "lng": 55.313696
+  },
+  "anas cafeteria": {
+    "lat": 25.271151,
+    "lng": 55.305155
+  },
+  "walkers": {
+    "lat": 25.253412,
+    "lng": 55.333114
+  },
+  "spicy curry restaurant": {
+    "lat": 25.272017,
+    "lng": 55.311033
+  },
+  "galina": {
+    "lat": 25.115362,
+    "lng": 55.195554
+  },
+  "canton": {
+    "lat": 25.111203,
+    "lng": 55.375046
+  },
+  "antar cafeteria": {
+    "lat": 25.162511,
+    "lng": 55.221771
+  },
+  "al amardi": {
+    "lat": 25.225406,
+    "lng": 55.465401
+  },
+  "bab al satwa": {
+    "lat": 25.231949,
+    "lng": 55.276383
+  },
+  "jules": {
+    "lat": 25.247315,
+    "lng": 55.346083
+  },
+  "lucky spin": {
+    "lat": 25.07128,
+    "lng": 55.13371
+  },
+  "darbar restaurant": {
+    "lat": 25.282426,
+    "lng": 55.334861
+  },
+  "brgr": {
+    "lat": 25.165215,
+    "lng": 55.209471
+  },
+  "green lagoon": {
+    "lat": 25.115825,
+    "lng": 55.204186
+  },
+  "village restaurant": {
+    "lat": 25.286999,
+    "lng": 55.39088
+  },
+  "turkish village": {
+    "lat": 25.231911,
+    "lng": 55.264208
+  },
+  "al rahman restaurant": {
+    "lat": 25.286976,
+    "lng": 55.387242
+  },
+  "mazajnaji": {
+    "lat": 25.280294,
+    "lng": 55.354298
+  },
+  "city food": {
+    "lat": 25.27716,
+    "lng": 55.308937
+  },
+  "al mazam restaurant": {
+    "lat": 25.185023,
+    "lng": 55.345354
+  },
+  "sobahn restaurant": {
+    "lat": 25.177826,
+    "lng": 55.246108
+  },
+  "the park": {
+    "lat": 25.126184,
+    "lng": 55.208684
+  },
+  "seafood cafe": {
+    "lat": 25.071289,
+    "lng": 55.130493
+  },
+  "cleopatra": {
+    "lat": 25.088951,
+    "lng": 55.303487
+  },
+  "satwa palace": {
+    "lat": 25.232494,
+    "lng": 55.276777
+  },
+  "special kabab": {
+    "lat": 25.259801,
+    "lng": 55.298833
+  },
+  "treat": {
+    "lat": 25.240055,
+    "lng": 55.297789
+  },
+  "wok": {
+    "lat": 25.272245,
+    "lng": 55.382683
+  },
+  "shama": {
+    "lat": 25.151415,
+    "lng": 55.242352
+  },
+  "shah jahan restaurant": {
+    "lat": 25.278432,
+    "lng": 55.331086
+  },
+  "tea": {
+    "lat": 25.1587,
+    "lng": 55.251727
+  },
+  "turkish restaurant": {
+    "lat": 25.281879,
+    "lng": 55.410994
+  },
+  "al rashidiya": {
+    "lat": 25.268887,
+    "lng": 55.297125
+  },
+  "xclusive bistro": {
+    "lat": 25.073323,
+    "lng": 55.136746
+  },
+  "al jehad bakery": {
+    "lat": 25.275153,
+    "lng": 55.334302
+  },
+  "spaces eatery": {
+    "lat": 25.21407,
+    "lng": 55.282016
+  },
+  "golestan restaurant": {
+    "lat": 25.252508,
+    "lng": 55.337121
+  },
+  "dubai international airport": {
+    "lat": 25.251542,
+    "lng": 55.366652
+  },
+  "muchachas mexican cantina": {
+    "lat": 25.18881,
+    "lng": 55.255184
+  },
+  "al kahf cafeteria": {
+    "lat": 25.272793,
+    "lng": 55.298866
+  },
+  "tomo": {
+    "lat": 25.227593,
+    "lng": 55.320317
+  },
+  "cafe o": {
+    "lat": 25.097859,
+    "lng": 55.17893
+  },
+  "softly": {
+    "lat": 25.111803,
+    "lng": 55.37478
+  },
+  "omega": {
+    "lat": 25.271556,
+    "lng": 55.310251
+  },
+  "shams al warqa": {
+    "lat": 25.194541,
+    "lng": 55.402133
   }
 }
