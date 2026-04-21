@@ -1610,7 +1610,9 @@
     "priceBucket": "150-200",
     "priceTier": "Casual premium",
     "lat": 25.07907,
-    "lng": 55.149195
+    "lng": 55.149195,
+    "poc": "Fazliddin",
+    "phone": "+971559415911"
   },
   "the daily": {
     "priceBucket": "200-300",
@@ -1952,7 +1954,9 @@
     "priceBucket": "200-300",
     "priceTier": "Casual premium",
     "lat": 25.07907,
-    "lng": 55.149195
+    "lng": 55.149195,
+    "poc": "Fazliddin",
+    "phone": "+971559415911"
   },
   "abs restaurant": {
     "lat": 25.186,
