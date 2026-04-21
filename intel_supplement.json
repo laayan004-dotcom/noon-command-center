@@ -1107,7 +1107,10 @@
     "lat": 25.195,
     "lng": 55.236,
     "priceBucket": "200-300",
-    "priceTier": "Casual premium"
+    "priceTier": "Casual premium",
+    "poc": "Daniel Orto",
+    "phone": "+971545867507",
+    "notes": "Manager (primary — Ashwin suggested speaking to Daniel) · Owner: Ahmad Orto +971568092468 · Finance: Jithu Orto"
   },
   "sumibiya": {
     "lat": 25.265,
@@ -1426,7 +1429,9 @@
     "priceBucket": "150-200",
     "priceTier": "Every day / Casual",
     "lat": 25.14707,
-    "lng": 55.197108
+    "lng": 55.197108,
+    "poc": "Lilas Manadil",
+    "email": "lilas.manadil@bosnianhouse.net"
   },
   "al khaima kitchen": {
     "priceBucket": "300-450",
@@ -5384,7 +5389,11 @@
     "priceBucket": "150-200",
     "priceTier": "Casual premium",
     "lat": 25.130248,
-    "lng": 55.223314
+    "lng": 55.223314,
+    "poc": "Mohamed Adel Ali",
+    "phone": "+971565903993",
+    "email": "adel@smk-uae.com",
+    "notes": "Operation Manager · Office: +971 4 529 7842 · alt email: adel@smokdeatery.com"
   },
   "pad thai": {
     "priceBucket": "450+",
