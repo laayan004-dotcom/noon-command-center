@@ -1916,7 +1916,9 @@
     "priceBucket": "200-300",
     "priceTier": "Every day / Casual",
     "lat": 25.204856,
-    "lng": 55.252701
+    "lng": 55.252701,
+    "phone": "+97143463883",
+    "notes": "HQ: Head Office - Saddle Cafe LLC, Al Quoz Ind.1, Dubai. Closes 6 PM. No direct POC yet — call to schedule appt. Best window: Sun–Thu 10am–12pm or 2–4pm."
   },
   "mattar third culture barbecue": {
     "lat": 25.195,
@@ -2642,7 +2644,9 @@
     "priceBucket": "150-200",
     "priceTier": "Casual premium",
     "lat": 25.204856,
-    "lng": 55.252701
+    "lng": 55.252701,
+    "phone": "+97143463883",
+    "notes": "HQ: Head Office - Saddle Cafe LLC, Al Quoz Ind.1, Dubai. Closes 6 PM. No direct POC yet — call to schedule appt. Best window: Sun–Thu 10am–12pm or 2–4pm."
   },
   "kesariya restaurant": {
     "priceBucket": "150-200",
