@@ -1,0 +1,401 @@
+{
+  "name": "F&B Restaurant Intelligence Research Agent",
+  "nodes": [
+
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            { "field": "hours", "hoursInterval": 6 }
+          ]
+        }
+      },
+      "id": "node-schedule-trigger",
+      "name": "Every 6 Hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [200, 380]
+    },
+
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "={{ $env.NOTION_DB_ID }}",
+          "mode": "id"
+        },
+        "returnAll": false,
+        "limit": 25,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "AI: Ownership Last Checked|date",
+              "condition": "date_is_empty"
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {
+          "downloadFiles": false
+        }
+      },
+      "id": "node-notion-get",
+      "name": "Get Unresearched Restaurants",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [440, 380],
+      "credentials": {
+        "notionApi": {
+          "id": "creds-notion",
+          "name": "Notion API"
+        }
+      }
+    },
+
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "leftValue": "", "caseSensitive": true, "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "cond-has-items",
+              "leftValue": "={{ $input.all().length }}",
+              "rightValue": 0,
+              "operator": { "type": "number", "operation": "gt" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "node-if-has-results",
+      "name": "Has Restaurants?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [680, 380]
+    },
+
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "node-loop",
+      "name": "Loop Over Restaurants",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [920, 300]
+    },
+
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "assign-brand",
+              "name": "BrandName",
+              "value": "={{ $json.properties?.['Brand Name']?.rich_text?.[0]?.plain_text || $json.properties?.Name?.title?.[0]?.plain_text || 'Unknown' }}",
+              "type": "string"
+            },
+            {
+              "id": "assign-page-id",
+              "name": "PageId",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "assign-area",
+              "name": "Area",
+              "value": "={{ $json.properties?.Area?.select?.name || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "assign-existing-group",
+              "name": "ExistingGroup",
+              "value": "={{ $json.properties?.['Group Name']?.rich_text?.[0]?.plain_text || '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-set-data",
+      "name": "Extract Restaurant Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1160, 300]
+    },
+
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "promptType": "define",
+        "text": "={{ 'Research this restaurant for the UAE market.\n\nBrandName: ' + $json.BrandName + ($json.Area ? '\nArea: ' + $json.Area : '') }}",
+        "options": {
+          "systemMessage": "You are a Lead F&B Research Agent. Your goal is to enrich a restaurant list with specific business intelligence.\n\n## Task\nInvestigate the restaurant provided and determine three key attributes:\n1. **Group Membership:** Is it independent or part of a group (e.g., Alshaya, Azadea, Sunset Hospitality, Kitopi, Bulldozer Group, Gates Hospitality)?\n2. **Business Model:** Is it a \"Cloud Kitchen\" / \"Dark Kitchen\" (no dine-in) or a traditional restaurant?\n3. **Dubai Footprint:** Does it have at least one active location in the Emirate of Dubai?\n\n## Execution Instructions\n- **Step 1: Evaluation.** Look at the restaurant name. If you have 100% certain knowledge, answer immediately.\n- **Step 2: Research.** If unsure or if the brand is niche, use your available tools (Search/Web) to verify the current status.\n- **Step 3: Verification.** Specifically search for \"[restaurant name] Dubai location\" or \"[restaurant name] Dubai branch\" to confirm the third criteria.\n\n## Output Format\nReturn ONLY a valid JSON object. No preamble, no explanation, no markdown code fences.\n{\n  \"restaurant\": \"Name as provided\",\n  \"is_group\": boolean,\n  \"parent_group\": \"Group name or null\",\n  \"is_cloud_kitchen\": boolean,\n  \"has_dubai_presence\": boolean,\n  \"source_used\": \"Internal Knowledge or Web Search\"\n}",
+          "maxIterations": 6,
+          "returnIntermediateSteps": false
+        }
+      },
+      "id": "node-agent",
+      "name": "F&B Research Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [1400, 300],
+      "onError": "continueErrorOutput"
+    },
+
+    {
+      "parameters": {
+        "model": "claude-sonnet-4-6-20250219",
+        "options": {
+          "maxTokens": 1024,
+          "temperature": 0
+        }
+      },
+      "id": "node-claude-model",
+      "name": "Claude Sonnet 4.6",
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.3,
+      "position": [1280, 540],
+      "credentials": {
+        "anthropicApi": {
+          "id": "creds-anthropic",
+          "name": "Anthropic API"
+        }
+      }
+    },
+
+    {
+      "parameters": {
+        "name": "web_search",
+        "description": "Search the web for real-time information about UAE restaurants. Use this to find: group ownership, parent company, cloud kitchen status, and Dubai branch locations. Examples: '[restaurant] Dubai location', '[restaurant] parent company UAE', '[restaurant] owner founder Dubai'."
+      },
+      "id": "node-serp-tool",
+      "name": "SerpAPI Web Search",
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [1520, 540],
+      "credentials": {
+        "serpApi": {
+          "id": "creds-serpapi",
+          "name": "SerpAPI"
+        }
+      }
+    },
+
+    {
+      "parameters": {
+        "jsCode": "// ─────────────────────────────────────────────\n// Parse JSON output from the F&B Research Agent\n// ─────────────────────────────────────────────\nconst rawOutput = $input.first().json.output || '';\nconst pageId    = $('Extract Restaurant Data').first().json.PageId;\nconst brandName = $('Extract Restaurant Data').first().json.BrandName;\nconst now       = new Date().toISOString();\n\nfunction tryParse(text) {\n  // Strip markdown fences if present\n  const stripped = text.replace(/```json|```/g, '').trim();\n  // Find first { ... } block\n  const match = stripped.match(/{[\\s\\S]*}/);\n  if (!match) throw new Error('No JSON object found in agent output');\n  return JSON.parse(match[0]);\n}\n\ntry {\n  const parsed = tryParse(rawOutput);\n\n  // Validate required fields\n  const required = ['restaurant', 'is_group', 'is_cloud_kitchen', 'has_dubai_presence', 'source_used'];\n  const missing  = required.filter(f => parsed[f] === undefined);\n  if (missing.length > 0) {\n    throw new Error(`Missing required fields: ${missing.join(', ')}`);\n  }\n\n  // Coerce booleans (agent sometimes returns strings)\n  const coerceBool = (v) => v === true || v === 'true' || v === 1;\n\n  return [{\n    json: {\n      page_id:            pageId,\n      brand_name:         brandName,\n      restaurant:         parsed.restaurant,\n      is_group:           coerceBool(parsed.is_group),\n      parent_group:       parsed.parent_group || null,\n      is_cloud_kitchen:   coerceBool(parsed.is_cloud_kitchen),\n      has_dubai_presence: coerceBool(parsed.has_dubai_presence),\n      source_used:        parsed.source_used || 'Unknown',\n      parse_success:      true,\n      researched_at:      now\n    }\n  }];\n\n} catch (err) {\n  return [{\n    json: {\n      page_id:       pageId,\n      brand_name:    brandName,\n      parse_success: false,\n      parse_error:   err.message,\n      raw_output:    rawOutput.slice(0, 1000),\n      researched_at: now\n    }\n  }];\n}"
+      },
+      "id": "node-parse-output",
+      "name": "Parse Agent JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1640, 300]
+    },
+
+    {
+      "parameters": {
+        "jsCode": "// Agent itself threw an error — build a safe error record\nconst pageId    = $('Extract Restaurant Data').first().json.PageId;\nconst brandName = $('Extract Restaurant Data').first().json.BrandName;\n\nreturn [{\n  json: {\n    page_id:       pageId,\n    brand_name:    brandName,\n    parse_success: false,\n    parse_error:   'Agent execution failed: ' + ($input.first().json?.error?.message || 'unknown error'),\n    raw_output:    '',\n    researched_at: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "node-agent-error",
+      "name": "Handle Agent Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1640, 480]
+    },
+
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "leftValue": "", "caseSensitive": true, "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "cond-parse-ok",
+              "leftValue": "={{ $json.parse_success }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "equals" }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "node-if-parse",
+      "name": "Parse Successful?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1880, 380]
+    },
+
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.page_id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            { "key": "Group Name|rich_text", "textValue": "={{ $json.parent_group ?? '' }}" },
+            { "key": "Standalone|checkbox", "checkboxValue": "={{ !$json.is_group }}" },
+            { "key": "Cloud Kitchen Status|select", "selectValue": "={{ $json.is_cloud_kitchen ? 'cloud_kitchen' : 'physical' }}" },
+            { "key": "Maps Presence|checkbox", "checkboxValue": "={{ $json.has_dubai_presence }}" },
+            { "key": "AI: Ownership Last Checked|date", "include": "definedBelow", "date": "={{ $json.researched_at }}" },
+            { "key": "AI Review Required|checkbox", "checkboxValue": false },
+            { "key": "AI Review Status|select", "selectValue": "not_required" },
+            { "key": "Ownership Evidence|rich_text", "textValue": "={{ 'Source: ' + $json.source_used + ' | Group: ' + ($json.is_group ? ($json.parent_group || 'Unknown Group') : 'Standalone') + ' | Cloud Kitchen: ' + $json.is_cloud_kitchen + ' | Dubai: ' + $json.has_dubai_presence }}" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-notion-update-success",
+      "name": "Write Research to Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [2120, 260],
+      "credentials": {
+        "notionApi": {
+          "id": "creds-notion",
+          "name": "Notion API"
+        }
+      }
+    },
+
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.page_id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            { "key": "AI Review Required|checkbox", "checkboxValue": true },
+            { "key": "AI Review Priority|select", "selectValue": "high" },
+            { "key": "AI Review Status|select", "selectValue": "pending_review" },
+            { "key": "AI: Ownership Last Checked|date", "include": "definedBelow", "date": "={{ $json.researched_at }}" },
+            { "key": "Ownership Evidence|rich_text", "textValue": "={{ 'PARSE ERROR — manual review required. Error: ' + $json.parse_error + ' | Raw output snippet: ' + ($json.raw_output || '').slice(0, 300) }}" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-notion-update-error",
+      "name": "Flag for Manual Review",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [2120, 500],
+      "credentials": {
+        "notionApi": {
+          "id": "creds-notion",
+          "name": "Notion API"
+        }
+      }
+    },
+
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "node-wait",
+      "name": "Rate Limit (3s)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [2360, 380],
+      "webhookId": "wait-webhook-id"
+    },
+
+    {
+      "parameters": { "options": {} },
+      "id": "node-no-op-end",
+      "name": "All Done",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [1160, 560]
+    }
+
+  ],
+
+  "connections": {
+    "Every 6 Hours": {
+      "main": [[{ "node": "Get Unresearched Restaurants", "type": "main", "index": 0 }]]
+    },
+    "Get Unresearched Restaurants": {
+      "main": [[{ "node": "Has Restaurants?", "type": "main", "index": 0 }]]
+    },
+    "Has Restaurants?": {
+      "main": [
+        [{ "node": "Loop Over Restaurants", "type": "main", "index": 0 }],
+        [{ "node": "All Done", "type": "main", "index": 0 }]
+      ]
+    },
+    "Loop Over Restaurants": {
+      "main": [
+        [{ "node": "Extract Restaurant Data", "type": "main", "index": 0 }],
+        []
+      ]
+    },
+    "Extract Restaurant Data": {
+      "main": [[{ "node": "F&B Research Agent", "type": "main", "index": 0 }]]
+    },
+    "F&B Research Agent": {
+      "main": [
+        [{ "node": "Parse Agent JSON", "type": "main", "index": 0 }],
+        [{ "node": "Handle Agent Error", "type": "main", "index": 0 }]
+      ]
+    },
+    "Claude Sonnet 4.6": {
+      "ai_languageModel": [[{ "node": "F&B Research Agent", "type": "ai_languageModel", "index": 0 }]]
+    },
+    "SerpAPI Web Search": {
+      "ai_tool": [[{ "node": "F&B Research Agent", "type": "ai_tool", "index": 0 }]]
+    },
+    "Parse Agent JSON": {
+      "main": [[{ "node": "Parse Successful?", "type": "main", "index": 0 }]]
+    },
+    "Handle Agent Error": {
+      "main": [[{ "node": "Parse Successful?", "type": "main", "index": 0 }]]
+    },
+    "Parse Successful?": {
+      "main": [
+        [{ "node": "Write Research to Notion", "type": "main", "index": 0 }],
+        [{ "node": "Flag for Manual Review", "type": "main", "index": 0 }]
+      ]
+    },
+    "Write Research to Notion": {
+      "main": [[{ "node": "Rate Limit (3s)", "type": "main", "index": 0 }]]
+    },
+    "Flag for Manual Review": {
+      "main": [[{ "node": "Rate Limit (3s)", "type": "main", "index": 0 }]]
+    },
+    "Rate Limit (3s)": {
+      "main": [[{ "node": "Loop Over Restaurants", "type": "main", "index": 0 }]]
+    }
+  },
+
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+
+  "staticData": null,
+  "meta": { "templateCredsSetupCompleted": true },
+  "pinData": {},
+  "versionId": "fb-research-v1",
+  "tags": [
+    { "name": "restaurant-intelligence" },
+    { "name": "uae-fb" }
+  ],
+  "active": false
+}
